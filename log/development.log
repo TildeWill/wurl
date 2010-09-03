@@ -370,3 +370,328 @@ Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/whurls]
 Processing WhurlsController#index (for 127.0.0.1 at 2010-09-01 10:53:30) [GET]
 Rendering whurls/index
 Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-01 14:14:26) [GET]
+Rendering whurls/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-01 14:14:48) [GET]
+Rendering whurls/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-02 20:10:51) [GET]
+
+MissingSourceFile (no such file to load -- coderay):
+  app/controllers/whurls_controller.rb:1
+
+Rendered rescues/_trace (41.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 20:11:03) [GET]
+Rendering whurls/index
+Completed in 40ms (View: 18, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 20:15:16) [GET]
+Rendering whurls/index
+Completed in 1287ms (View: 6, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 20:15:32) [GET]
+Rendering whurls/index
+Completed in 511ms (View: 5, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 20:16:17) [GET]
+Rendering whurls/index
+Completed in 4608ms (View: 3, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 22:38:35) [GET]
+Rendering whurls/index
+
+ActionView::TemplateError (undefined local variable or method `coderay_stylesheet' for #<ActionView::Base:0x1044570e0>) on line #2 of app/views/whurls/index.html.erb:
+1: <%= stylesheet_link_tag("whurls") %>
+2: <%= coderay_stylesheet %>
+3: <h1>API Console</h1>
+4: <h2>Headers and Methods</h2>
+5: <% form_tag('/whurls') do %>
+
+    app/views/whurls/index.html.erb:2
+
+Rendered rescues/_trace (40.4ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 22:44:28) [GET]
+
+NoMethodError (undefined method `stylesheet' for CodeRay::Encoders::HTML::Output:Module):
+  app/controllers/whurls_controller.rb:15:in `index'
+
+Rendered rescues/_trace (142.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 22:45:09) [GET]
+Rendering whurls/index
+Completed in 3544ms (View: 11, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 22:45:45) [GET]
+Rendering whurls/index
+Completed in 4177ms (View: 11, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 22:48:52) [GET]
+Rendering whurls/index
+Completed in 6388ms (View: 13, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 22:49:43) [GET]
+Rendering whurls/index
+Completed in 920ms (View: 5, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 22:50:07) [GET]
+Rendering whurls/index
+Completed in 990ms (View: 4, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 23:05:58) [GET]
+Rendering whurls/index
+Completed in 864ms (View: 5, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 23:06:22) [GET]
+Rendering whurls/index
+Completed in 3483ms (View: 3, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 23:06:58) [GET]
+Rendering whurls/index
+Completed in 3714ms (View: 5, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 23:07:14) [GET]
+Rendering whurls/index
+Completed in 3769ms (View: 3, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 23:08:54) [GET]
+Rendering whurls/index
+Completed in 969ms (View: 5, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 23:10:41) [GET]
+Rendering whurls/index
+Completed in 3642ms (View: 3, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-02 23:15:18) [GET]
+Rendering whurls/index
+Completed in 1382ms (View: 81, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-03 13:09:50) [GET]
+
+NameError (uninitialized constant WhurlController):
+  
+
+Rendered rescues/_trace (25.7ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-03 13:10:06) [GET]
+Rendering template within layouts/application
+Rendering whurls/index
+
+ActionView::TemplateError (undefined method `has_key?' for "whurl_form":String) on line #1 of app/views/whurls/index.html.erb:
+1: <%= render_partial('whurl_form') %>
+2: 
+3: <% if @response -%>
+4:     <h2>Command</h2>
+
+    app/views/whurls/index.html.erb:1
+
+Rendered rescues/_trace (34.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-03 13:10:52) [GET]
+Rendering template within layouts/application
+Rendering whurls/index
+
+ActionView::TemplateError (undefined method `has_key?' for "whurls/whurl_form":String) on line #1 of app/views/whurls/index.html.erb:
+1: <%= render_partial('whurls/whurl_form') %>
+2: 
+3: <% if @response -%>
+4:     <h2>Command</h2>
+
+    app/views/whurls/index.html.erb:1
+
+Rendered rescues/_trace (103.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-03 13:11:49) [GET]
+Rendering template within layouts/application
+Rendering whurls/index
+Rendered whurls/_whurl_form (11.4ms)
+Completed in 21ms (View: 20, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-03 13:12:20) [GET]
+Rendering template within layouts/application
+Rendering whurls/index
+Rendered whurls/_whurl_form (2.0ms)
+Completed in 9ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-03 13:12:32) [POST]
+  Parameters: {"header_values"=>[""], "param_values"=>[""], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>[""], "param_keys"=>[""]}
+Rendering template within layouts/application
+Rendering whurls/index
+Rendered whurls/_whurl_form (2.1ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-03 13:13:15) [POST]
+  Parameters: {"header_values"=>[""], "param_values"=>[""], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>[""], "param_keys"=>[""]}
+Rendering template within layouts/application
+Rendering whurls/index
+
+ActionView::TemplateError (undefined method `stringify_keys' for nil:NilClass) on line #7 of app/views/whurls/_whurl_form.html.erb:
+4: </style>
+5: <h1>API Console</h1>
+6: <h2>Headers and Methods</h2>
+7: <% form_tag('/whurls', nil, :html_options => {:method => "POST"}) do %>
+8:     <%= select_tag("method", options_for_select(["GET", "POST", "PUT", "DELETE"])) %> /
+9:     <%= select_tag("url", options_for_select(@urls)) %>
+10:     <div>
+
+    app/views/whurls/_whurl_form.html.erb:7
+    app/views/whurls/index.html.erb:1
+
+Rendered rescues/_trace (102.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-03 13:13:23) [POST]
+  Parameters: {"header_values"=>[""], "param_values"=>[""], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>[""], "param_keys"=>[""]}
+Rendering template within layouts/application
+Rendering whurls/index
+Rendered whurls/_whurl_form (3.5ms)
+Completed in 12ms (View: 11, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#index (for 127.0.0.1 at 2010-09-03 13:13:46) [POST]
+  Parameters: {"header_values"=>[""], "param_values"=>[""], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>[""], "param_keys"=>[""]}
+Rendering template within layouts/application
+Rendering whurls/index
+Rendered whurls/_whurl_form (3.3ms)
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#create (for 127.0.0.1 at 2010-09-03 13:14:12) [POST]
+  Parameters: {"header_values"=>[""], "param_values"=>[""], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>[""], "param_keys"=>[""]}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each_with_index):
+  app/controllers/whurls_controller.rb:23:in `create'
+
+Rendered rescues/_trace (93.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WhurlsController#create (for 127.0.0.1 at 2010-09-03 13:15:04) [POST]
+  Parameters: {"header_values"=>[""], "param_values"=>[""], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>[""], "param_keys"=>[""]}
+
+NameError (undefined local variable or method `url' for #<WhurlsController:0x1044a67d0>):
+  app/controllers/whurls_controller.rb:34:in `create'
+
+Rendered rescues/_trace (28.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WhurlsController#create (for 127.0.0.1 at 2010-09-03 13:15:24) [POST]
+  Parameters: {"header_values"=>[""], "param_values"=>[""], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>[""], "param_keys"=>[""]}
+
+NameError (undefined local variable or method `url' for #<WhurlsController:0x104313b48>):
+  app/controllers/whurls_controller.rb:36:in `create'
+
+Rendered rescues/_trace (28.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WhurlsController#create (for 127.0.0.1 at 2010-09-03 13:15:38) [POST]
+  Parameters: {"header_values"=>[""], "param_values"=>[""], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>[""], "param_keys"=>[""]}
+
+NameError (undefined local variable or method `curl' for #<WhurlsController:0x104162a88>):
+  app/controllers/whurls_controller.rb:42:in `create'
+
+Rendered rescues/_trace (26.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WhurlsController#create (for 127.0.0.1 at 2010-09-03 13:15:51) [POST]
+  Parameters: {"header_values"=>[""], "param_values"=>[""], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>[""], "param_keys"=>[""]}
+Rendering template within layouts/application
+Rendering whurls/create
+Rendered whurls/_whurl_form (4.5ms)
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#create (for 127.0.0.1 at 2010-09-03 13:16:13) [POST]
+  Parameters: {"header_values"=>["bar"], "param_values"=>["zoo"], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>["fooheader"], "param_keys"=>["fooparam"]}
+Rendering template within layouts/application
+Rendering whurls/create
+Rendered whurls/_whurl_form (1.9ms)
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#create (for 127.0.0.1 at 2010-09-03 13:16:46) [POST]
+  Parameters: {"header_values"=>["bar"], "param_values"=>["zoo"], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>["fooheader"], "param_keys"=>["fooparam"]}
+Rendering template within layouts/application
+Rendering whurls/create
+Rendered whurls/_whurl_form (2.6ms)
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#create (for 127.0.0.1 at 2010-09-03 13:17:19) [POST]
+  Parameters: {"header_values"=>["bar"], "param_values"=>["zoo"], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>["fooheader"], "param_keys"=>["fooparam"]}
+Rendering template within layouts/application
+Rendering whurls/create
+Rendered whurls/_whurl_form (2.1ms)
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#create (for 127.0.0.1 at 2010-09-03 13:17:34) [POST]
+  Parameters: {"header_values"=>["zoo"], "param_values"=>["boo"], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>["fooheader"], "param_keys"=>["fooparam"]}
+Rendering template within layouts/application
+Rendering whurls/create
+Rendered whurls/_whurl_form (1.8ms)
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/whurls]
+
+
+Processing WhurlsController#create (for 127.0.0.1 at 2010-09-03 13:17:53) [POST]
+  Parameters: {"header_values"=>["zoo"], "param_values"=>["boo"], "commit"=>"Send", "method"=>"GET", "authenticity_token"=>"aDCzvP9GFpmF7FhvCMPOKWzoakgS1Ar2fdAj6gqOCk8=", "header_keys"=>["fooheader"], "param_keys"=>["fooparam"]}
+Rendering template within layouts/application
+Rendering whurls/create
+Rendered whurls/_whurl_form (87.6ms)
+Completed in 92ms (View: 89, DB: 0) | 200 OK [http://localhost/whurls]

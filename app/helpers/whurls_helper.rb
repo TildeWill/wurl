@@ -1,0 +1,2 @@
+module WhurlsHelper
+end

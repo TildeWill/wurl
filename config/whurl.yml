@@ -1,0 +1,4 @@
+Redemptions:
+  url: https://api.groupon.com/v2/redemptions
+  method: GET
+  auth: none
