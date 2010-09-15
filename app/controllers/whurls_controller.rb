@@ -35,8 +35,6 @@ class WhurlsController < ApplicationController
     @command = CodeRay.scan(command, :terminal).div(:line_numbers => :table)
 
     curl = `#{command}`
-
-#" api.twitter.com/1/statuses/public_timeline.json`
     @response = CodeRay.scan(JSON.pretty_generate(JSON.parse(curl)), :json).div(:line_numbers => :table, :wrap => :page)
 
   end

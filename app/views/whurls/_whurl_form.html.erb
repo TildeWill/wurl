@@ -1,4 +1,6 @@
 <%= stylesheet_link_tag("whurls") %>
+<%= javascript_include_tag('jquery.min') %>
+<%= javascript_include_tag('application') %>
 <style>
 
 </style>
@@ -7,20 +9,24 @@
 <% form_tag('/whurls') do %>
     <%= select_tag("method", options_for_select(["GET", "POST", "PUT", "DELETE"])) %> /
     <%= text_field_tag("url", nil, :class => "long") %>
-    <div>
-      <%= text_field_tag("header_keys[]", nil, :class => "key") %>
-      <%= text_field_tag("header_values[]", nil, :class => "value") %>
+    <div id="headers">
+      <div class="header_pair">
+        <%= text_field_tag("header_keys[]", nil, :class => "key") %>
+        <%= text_field_tag("header_values[]", nil, :class => "value") %>
+      </div>
     </div>
     <div>
-      <input type="button" value="+Add Header"/>
+      <input type="button" id="add_header" value="+Add Header"/>
     </div>
     <h2>Parameters and Values</h2>
-    <div>
-      <%= text_field_tag("param_keys[]", nil, :class => "key") %>
-      <%= text_field_tag("param_values[]", nil, :class => "value") %>
+    <div id="params">
+      <div class="param_pair">
+        <%= text_field_tag("param_keys[]", nil, :class => "key") %>
+        <%= text_field_tag("param_values[]", nil, :class => "value") %>
+      </div>
     </div>
     <div>
-      <input type="button" value="+Add Parameter"/>
+      <input type="button" id="add_param" value="+Add Parameter"/>
     </div>
     <%= submit_tag("Send") %>
 <% end %>
