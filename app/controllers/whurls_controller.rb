@@ -21,23 +21,23 @@ class WhurlsController < ApplicationController
 
     if @param_keys
       @param_keys.each_with_index do |key, i|
-        command += " --data #{key}=#{@param_values[i]}"
+        command += " --data #{key}=#{@param_values[i]}" if key.present?
       end
     end
 
     if @header_keys
       @header_keys.each_with_index do |key, i|
-        command += " --header #{key}=#{@header_values[i]}"
+        command += " --header #{key}=#{@header_values[i]}" if key.present?
       end
     end
 
     command += " --url #{@url}"
     @command = CodeRay.scan(command, :terminal).div(:line_numbers => :table)
 
-#    curl = `#{command}`
+    curl = `#{command}`
 
 #" api.twitter.com/1/statuses/public_timeline.json`
-#    @response = CodeRay.scan(curl, :json).div(:line_numbers => :table)
+    @response = CodeRay.scan(JSON.pretty_generate(JSON.parse(curl)), :json).div(:line_numbers => :table, :wrap => :page)
 
   end
 end

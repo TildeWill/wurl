@@ -6,7 +6,7 @@
 <h2>Headers and Methods</h2>
 <% form_tag('/whurls') do %>
     <%= select_tag("method", options_for_select(["GET", "POST", "PUT", "DELETE"])) %> /
-    <%= select_tag("url", options_for_select(@urls)) %>
+    <%= text_field_tag("url", nil, :class => "long") %>
     <div>
       <%= text_field_tag("header_keys[]", nil, :class => "key") %>
       <%= text_field_tag("header_values[]", nil, :class => "value") %>
