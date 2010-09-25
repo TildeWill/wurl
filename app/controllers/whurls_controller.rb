@@ -1,5 +1,6 @@
 require 'json/pure'
 require 'coderay'
+require 'curb'
 
 class WhurlsController < ApplicationController
   def index
@@ -19,35 +20,41 @@ class WhurlsController < ApplicationController
     @header_keys = params['header_keys']
     @header_values = params['header_values']
 
-    command = "curl -A \"Whurl/1.0\""
-    if @method == "GET"
-      command += " -G"
-    end
 
+
+    data = []
     if @param_keys
       @param_keys.each_with_index do |key, i|
-        command += " --data #{key}=#{@param_values[i]}" if key.present?
+        data << "#{key}=#{@param_values[i]}" if key.present?
       end
     end
+
+    command = Curl::Easy.new(@api_url + "?" + data.join("&"))
+    @command = command.url
+    command.useragent = "Whurl/1.0"
+
+#    if @method == "GET"
+#      command += " -G"
+#    end
 
     if @header_keys
       @header_keys.each_with_index do |key, i|
-        command += " --header #{key}=#{@header_values[i]}" if key.present?
+        command.headers[key] = @header_values[i] if key.present?
       end
     end
 
-    command += " --url #{@api_url}"
-    @command = CodeRay.scan(command, :terminal).div(:line_numbers => :table)
 
-    curl = `#{command}`
+    command.perform
+
+
     begin
-      if @api_url =~ /\.xml$/
-        @api_response = CodeRay.scan(curl, :xml).div(:line_numbers => :table, :wrap => :page)
+      if command.content_type =~ /xml/
+        @api_response = CodeRay.scan(command.body_str, :xml).div(:line_numbers => :table, :wrap => :page)
       else
-        @api_response = CodeRay.scan(JSON.pretty_generate(JSON.parse(curl)), :json).div(:line_numbers => :table, :wrap => :page)
+        @api_response = CodeRay.scan(JSON.pretty_generate(JSON.parse(command.body_str)), :json).div(:line_numbers => :table, :wrap => :page)
       end
     rescue
-      @api_response = curl
+      @api_response = curl.body
     end
 
   end
