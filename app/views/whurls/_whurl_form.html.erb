@@ -8,24 +8,24 @@
     <%= text_field_tag("url", @api_url, :class => "long") %>
     <h2>Headers and Methods</h2>
     <div id="headers">
-      <div class="header_pair">
-        <% begin -%>
+      <% begin -%>
+          <div class="header_pair">
             <%= text_field_tag("header_keys[]", @header_keys.pop, :class => "key") %>
             <%= text_field_tag("header_values[]", @header_values.pop, :class => "value") %>
-        <% end while @header_keys.present? -%>
-      </div>
+          </div>
+      <% end while @header_keys.present? -%>
     </div>
     <div>
       <input type="button" id="add_header" value="+Add Header"/>
     </div>
     <h2>Parameters and Values</h2>
     <div id="params">
-      <div class="param_pair">
-        <% begin -%>
+      <% begin -%>
+          <div class="param_pair">
             <%= text_field_tag("param_keys[]", @param_keys.pop, :class => "key") %>
             <%= text_field_tag("param_values[]", @param_values.pop, :class => "value") %>
-        <% end while @param_keys.present? -%>
-      </div>
+          </div>
+      <% end while @param_keys.present? -%>
     </div>
     <div>
       <input type="button" id="add_param" value="+Add Parameter"/>
@@ -34,7 +34,8 @@
 <% end %>
 
 <div>
-  Groupon API Reference: <a href="http://sites.google.com/site/grouponapiv2/home" target="_blank">http://sites.google.com/site/grouponapiv2/home</a>
+  Groupon API Reference:
+  <a href="http://sites.google.com/site/grouponapiv2/home" target="_blank">http://sites.google.com/site/grouponapiv2/home</a>
 </div>
 <div>
   Whurl @ Github: <a href="http://github.com/TildeWill/whurl" target="_bank">http://github.com/TildeWill/whurl</a>
