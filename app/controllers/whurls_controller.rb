@@ -41,10 +41,15 @@ class WhurlsController < ApplicationController
 
     curl = `#{command}`
     begin
-      @api_response = CodeRay.scan(JSON.pretty_generate(JSON.parse(curl)), :json).div(:line_numbers => :table, :wrap => :page)
+      if @api_url =~ /\.xml$/
+        @api_response = CodeRay.scan(curl, :xml).div(:line_numbers => :table, :wrap => :page)
+      else
+        @api_response = CodeRay.scan(JSON.pretty_generate(JSON.parse(curl)), :json).div(:line_numbers => :table, :wrap => :page)
+      end
     rescue
       @api_response = curl
     end
 
   end
+
 end
