@@ -3,7 +3,7 @@
 <%= javascript_include_tag('application') %>
 
 <h1>API Console</h1>
-<% form_tag('/whurls') do %>
+<% form_tag('/whurls', :id => "whurl_form") do %>
     <h2>URL</h2>
     <%= text_field_tag("url", @api_url, :class => "long") %>
     <h2>Headers and Methods</h2>
@@ -29,6 +29,9 @@
     </div>
     <div>
       <input type="button" id="add_param" value="+Add Parameter"/>
+    </div>
+    <div>
+      <a href="" id="permalink">Permalink</a>
     </div>
     <%= submit_tag("Send") %>
 <% end %>

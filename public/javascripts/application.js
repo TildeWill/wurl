@@ -18,6 +18,9 @@ var Whurl = {
     },
     deleteParam: function() {
 
+    },
+    generatePermalink: function() {
+        $('#permalink').attr('href', '/?'+ $('#whurl_form').serialize());
     }
 };
 
@@ -28,5 +31,13 @@ $(document).ready(function() {
 
     $('#add_param').click(function(){
         Whurl.addParam();
+    });
+
+    $('#permalink').click(function(){
+        Whurl.generatePermalink();        
+    });
+
+    $('#permalink').bind('contextmenu', function(){
+        Whurl.generatePermalink();
     });
 });

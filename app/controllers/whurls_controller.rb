@@ -5,20 +5,22 @@ require 'curb'
 class WhurlsController < ApplicationController
   def index
     @urls = []
-    @param_keys = []
-    @param_values = []
-    @header_keys = []
-    @header_values = []
+    @method = params['method']
+    @api_url = params["url"]
+    @param_keys = params['param_keys'] || []
+    @param_values = params['param_values'] || []
+    @header_keys = params['header_keys'] || []
+    @header_values = params['header_values'] || []
   end
 
   def create
     @urls = []
     @method = params['method']
     @api_url = params["url"]
-    @param_keys = params['param_keys']
-    @param_values = params['param_values']
-    @header_keys = params['header_keys']
-    @header_values = params['header_values']
+    @param_keys = params['param_keys'] || []
+    @param_values = params['param_values'] || []
+    @header_keys = params['header_keys'] || []
+    @header_values = params['header_values'] || []
 
 
 
