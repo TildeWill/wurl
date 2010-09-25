@@ -5,7 +5,6 @@
 <h1>API Console</h1>
 <h2>Headers and Methods</h2>
 <% form_tag('/whurls') do %>
-    <%= select_tag("method", options_for_select(["GET", "POST", "PUT", "DELETE"], @method)) %> /
     <%= text_field_tag("url", @api_url, :class => "long") %>
     <div id="headers">
       <div class="header_pair">
