@@ -1,18 +1,18 @@
 <%= stylesheet_link_tag("whurls") %>
 <%= javascript_include_tag('jquery.min') %>
 <%= javascript_include_tag('application') %>
-<style>
 
-</style>
 <h1>API Console</h1>
 <h2>Headers and Methods</h2>
 <% form_tag('/whurls') do %>
-    <%= select_tag("method", options_for_select(["GET", "POST", "PUT", "DELETE"])) %> /
-    <%= text_field_tag("url", nil, :class => "long") %>
+    <%= select_tag("method", options_for_select(["GET", "POST", "PUT", "DELETE"], @method)) %> /
+    <%= text_field_tag("url", @api_url, :class => "long") %>
     <div id="headers">
       <div class="header_pair">
-        <%= text_field_tag("header_keys[]", nil, :class => "key") %>
-        <%= text_field_tag("header_values[]", nil, :class => "value") %>
+        <% begin -%>
+            <%= text_field_tag("header_keys[]", @header_keys.pop, :class => "key") %>
+            <%= text_field_tag("header_values[]", @header_values.pop, :class => "value") %>
+        <% end while @header_keys.present? -%>
       </div>
     </div>
     <div>
@@ -21,8 +21,10 @@
     <h2>Parameters and Values</h2>
     <div id="params">
       <div class="param_pair">
-        <%= text_field_tag("param_keys[]", nil, :class => "key") %>
-        <%= text_field_tag("param_values[]", nil, :class => "value") %>
+        <% begin -%>
+            <%= text_field_tag("param_keys[]", @param_keys.pop, :class => "key") %>
+            <%= text_field_tag("param_values[]", @param_values.pop, :class => "value") %>
+        <% end while @param_keys.present? -%>
       </div>
     </div>
     <div>
@@ -30,3 +32,10 @@
     </div>
     <%= submit_tag("Send") %>
 <% end %>
+
+<div>
+  Groupon API Reference: <a href="http://sites.google.com/site/grouponapiv2/home" target="_blank">http://sites.google.com/site/grouponapiv2/home</a>
+</div>
+<div>
+  Whurl @ Github: <a href="http://github.com/TildeWill/whurl" target="_bank">http://github.com/TildeWill/whurl</a>
+</div>

@@ -3,14 +3,18 @@ var Whurl = {
 
     },
     addHeader: function() {
-        $('.header_pair:last').clone().appendTo('#headers');
+        var $headerFields = $('.header_pair:last').clone();
+        $headerFields.children('input').val(null);
+        $headerFields.appendTo('#headers');
+
     },
     deleteHeader: function() {
 
     },
     addParam: function() {
-        $('.param_pair:last').clone().appendTo('#params');
-
+        var $paramFields = $('.param_pair:last').clone();
+        $paramFields.children('input').val(null);
+        $paramFields.appendTo('#params');
     },
     deleteParam: function() {
 

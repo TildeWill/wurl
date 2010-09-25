@@ -3,12 +3,16 @@ require 'coderay'
 class WhurlsController < ApplicationController
   def index
     @urls = []
+    @param_keys = []
+    @param_values = []
+    @header_keys = []
+    @header_values = []
   end
 
   def create
     @urls = []
     @method = params['method']
-    @url = params["url"]
+    @api_url = params["url"]
     @param_keys = params['param_keys']
     @param_values = params['param_values']
     @header_keys = params['header_keys']
@@ -31,11 +35,10 @@ class WhurlsController < ApplicationController
       end
     end
 
-    command += " --url #{@url}"
+    command += " --url #{@api_url}"
     @command = CodeRay.scan(command, :terminal).div(:line_numbers => :table)
 
     curl = `#{command}`
-    @response = CodeRay.scan(JSON.pretty_generate(JSON.parse(curl)), :json).div(:line_numbers => :table, :wrap => :page)
-
+    @api_response = CodeRay.scan(JSON.pretty_generate(JSON.parse(curl)), :json).div(:line_numbers => :table, :wrap => :page)
   end
 end
