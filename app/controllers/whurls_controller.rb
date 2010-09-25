@@ -1,3 +1,4 @@
+require 'json/pure'
 require 'coderay'
 
 class WhurlsController < ApplicationController
@@ -40,7 +41,7 @@ class WhurlsController < ApplicationController
 
     curl = `#{command}`
     begin
-    @api_response = CodeRay.scan(JSON.pretty_generate(JSON.parse(curl)), :json).div(:line_numbers => :table, :wrap => :page)
+      @api_response = CodeRay.scan(JSON.pretty_generate(JSON.parse(curl)), :json).div(:line_numbers => :table, :wrap => :page)
     rescue
       @api_response = curl
     end
