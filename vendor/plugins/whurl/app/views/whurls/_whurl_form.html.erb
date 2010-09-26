@@ -1,12 +1,13 @@
-<%= stylesheet_link_tag("whurls") %>
-<%= javascript_include_tag('jquery.min') %>
-<%= javascript_include_tag('application') %>
+<%= stylesheet_link_tag("whurls", :plugin => 'whurl') %>
+<%= javascript_include_tag('jquery.min.js', :plugin => 'whurl') %>
+<%= javascript_include_tag('whurl', :plugin => 'whurl') %>
 
 <h1>API Console</h1>
 <% form_tag('/whurls', :id => "whurl_form") do %>
     <h2>URL</h2>
+    <%= select_tag("method", options_for_select(["GET", "POST", "PUT", "DELETE"], @method)) %> /
     <%= text_field_tag("url", @api_url, :class => "long") %>
-    <h2>Headers and Methods</h2>
+    <h2>Headers</h2>
     <div id="headers">
       <% begin -%>
           <div class="header_pair">
@@ -18,7 +19,7 @@
     <div>
       <input type="button" id="add_header" value="+Add Header"/>
     </div>
-    <h2>Parameters and Values</h2>
+    <h2>Parameters</h2>
     <div id="params">
       <% begin -%>
           <div class="param_pair">
@@ -35,11 +36,3 @@
     </div>
     <%= submit_tag("Send") %>
 <% end %>
-
-<div>
-  Groupon API Reference:
-  <a href="http://sites.google.com/site/grouponapiv2/home" target="_blank">http://sites.google.com/site/grouponapiv2/home</a>
-</div>
-<div>
-  Whurl @ Github: <a href="http://github.com/TildeWill/whurl" target="_bank">http://github.com/TildeWill/whurl</a>
-</div>

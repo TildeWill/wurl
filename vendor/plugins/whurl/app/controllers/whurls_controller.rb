@@ -35,19 +35,13 @@ class WhurlsController < ApplicationController
     @command = command.url
     command.useragent = "Whurl/1.0"
 
-#    if @method == "GET"
-#      command += " -G"
-#    end
-
     if @header_keys
       @header_keys.each_with_index do |key, i|
         command.headers[key] = @header_values[i] if key.present?
       end
     end
 
-
-    command.perform
-
+    command.send("http_#{@method.downcase}")
 
     begin
       if command.content_type =~ /xml/

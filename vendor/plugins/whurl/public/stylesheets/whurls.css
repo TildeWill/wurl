@@ -1,0 +1,19 @@
+body {
+    font-family: arial, sans-serif;
+}
+#footer {
+    text-align: right;
+    font-size: small;
+    margin-top: 20px;
+}
+.key {
+    width:200px;
+}
+
+.value {
+    width:400px;
+}
+
+.long {
+    width:525px;
+}
