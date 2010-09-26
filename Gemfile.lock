@@ -3,20 +3,6 @@ GEM
   specs:
     coderay (0.9.4)
     curb (0.7.8)
-    jasmine (1.0.0)
-      json_pure (>= 1.4.3)
-      rack (>= 1.0.0)
-      rake (>= 0.8.7)
-      rspec (>= 1.1.5)
-      selenium-client (>= 1.2.17)
-      selenium-rc (>= 2.1.0)
-    json_pure (1.4.6)
-    rack (1.2.1)
-    rake (0.8.7)
-    rspec (1.3.0)
-    selenium-client (1.2.18)
-    selenium-rc (2.2.4)
-      selenium-client (>= 1.2.18)
 
 PLATFORMS
   ruby
@@ -24,4 +10,3 @@ PLATFORMS
 DEPENDENCIES
   coderay (= 0.9.4)
   curb
-  jasmine
