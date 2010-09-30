@@ -3,7 +3,7 @@
 <%= javascript_include_tag('whurl', :plugin => 'whurl') %>
 
 <h1>API Console</h1>
-<% form_tag('/whurls', :id => "whurl_form") do %>
+<% form_tag(edit_whurl_commands_url, :method => :get, :id => "whurl_form") do %>
     <h2>URL</h2>
     <%= select_tag("method", options_for_select(["GET", "POST", "PUT", "DELETE"], @method)) %> /
     <%= text_field_tag("url", @api_url, :class => "long") %>
@@ -11,10 +11,10 @@
     <div id="headers">
       <% begin -%>
           <div class="header_pair">
-            <%= text_field_tag("header_keys[]", @header_keys.pop, :class => "key") %>
-            <%= text_field_tag("header_values[]", @header_values.pop, :class => "value") %>
+            <%= text_field_tag("header_keys[]", params['header_keys'].try(:pop), :class => "key") %>
+            <%= text_field_tag("header_values[]", params['header_values'].try(:pop), :class => "value") %>
           </div>
-      <% end while @header_keys.present? -%>
+      <% end while params['header_keys'].present? -%>
     </div>
     <div>
       <input type="button" id="add_header" value="+Add Header"/>
@@ -23,16 +23,13 @@
     <div id="params">
       <% begin -%>
           <div class="param_pair">
-            <%= text_field_tag("param_keys[]", @param_keys.pop, :class => "key") %>
-            <%= text_field_tag("param_values[]", @param_values.pop, :class => "value") %>
+            <%= text_field_tag("param_keys[]", params['param_keys'].try(:pop), :class => "key") %>
+            <%= text_field_tag("param_values[]", params['param_values'].try(:pop), :class => "value") %>
           </div>
-      <% end while @param_keys.present? -%>
+      <% end while params['param_keys'].present? -%>
     </div>
     <div>
       <input type="button" id="add_param" value="+Add Parameter"/>
-    </div>
-    <div>
-      <a href="" id="permalink">Permalink</a>
     </div>
     <%= submit_tag("Send") %>
 <% end %>

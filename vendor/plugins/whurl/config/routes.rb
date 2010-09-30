@@ -1,3 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :whurls
+  map.root :controller => 'whurl/commands', :action => 'edit'
+  map.namespace(:whurl) do |whurl|
+    whurl.resource :commands
+  end
 end
