@@ -10,6 +10,7 @@ class Whurl::CommandsController < ApplicationController
     redirect_to new_whurl_commands_path and return unless @api_url.present?
     begin
       command = Whurl::Command.new(@api_url, @method, params)
+      command.send_request
       @api_response = command.response_html
     rescue Exception => e
       @api_response = e.message

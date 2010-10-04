@@ -4,6 +4,7 @@ require 'curb'
 module Whurl
   class Command
     def initialize(url, method, options = {})
+      @method = method
       data = []
       if options[:param_keys]
         options[:param_keys].each_with_index do |key, i|
@@ -11,7 +12,11 @@ module Whurl
         end
       end
 
-      @command = Curl::Easy.new(url + "?" + data.join("&"))
+      if url.include?("?")
+        @command = Curl::Easy.new(url + "&" + data.join("&"))
+      else
+        @command = Curl::Easy.new(url + "?" + data.join("&"))
+      end
       @command.useragent = "Whurl/1.0"
 
       if options[:header_keys]
@@ -20,8 +25,11 @@ module Whurl
         end
       end
 
-      @command.send("http_#{method.downcase}")
 
+    end
+
+    def send_request
+      @command.send("http_#{@method.downcase}")
     end
 
     def body_str
