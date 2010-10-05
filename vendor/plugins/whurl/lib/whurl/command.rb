@@ -12,11 +12,15 @@ module Whurl
         end
       end
 
-      if url.include?("?")
-        @command = Curl::Easy.new(url + "&" + data.join("&"))
-      else
-        @command = Curl::Easy.new(url + "?" + data.join("&"))
+      @data = URI.encode(data.join("&"))
+      @command = make_command(url, @data)
+      case @method
+        when "POST"
+          @command.post_body = @data
+        when "PUT"
+          @command.put_data = @data
       end
+
       @command.useragent = "Whurl/1.0"
 
       if options[:header_keys]
@@ -29,7 +33,13 @@ module Whurl
     end
 
     def send_request
-      @command.send("http_#{@method.downcase}")
+      acceptable_methods = ["GET", "POST", "PUT", "DELETE"]
+      raise "Method not accepted" unless acceptable_methods.include?(@method)
+      if @method == "PUT"
+        @command.send("http_#{@method.downcase}", @data)
+      else
+        @command.send("http_#{@method.downcase}")
+      end
     end
 
     def body_str
@@ -41,11 +51,24 @@ module Whurl
         CodeRay.scan(@command.body_str, :xml).div(:line_numbers => :table, :wrap => :page)
       else
         CodeRay.scan(JSON.pretty_generate(JSON.parse(@command.body_str)), :json).div(:line_numbers => :table, :wrap => :page)
-      end      
+      end
     end
 
     def url
       @command.url
+    end
+
+    protected
+    def make_command(url, data)
+      if ["GET", "DELETE"].include?(@method)
+        if url.include?("?")
+          @command = Curl::Easy.new(url + "&" + data)
+        else
+          @command = Curl::Easy.new(url + "?" + data)
+        end
+      else
+        @command = Curl::Easy.new(url)
+      end
     end
   end
 end
