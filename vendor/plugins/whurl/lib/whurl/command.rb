@@ -47,10 +47,13 @@ module Whurl
     end
 
     def response_html
-      if @command.content_type =~ /xml/
-        CodeRay.scan(@command.body_str, :xml).div(:line_numbers => :table, :wrap => :page)
-      else
-        CodeRay.scan(JSON.pretty_generate(JSON.parse(@command.body_str)), :json).div(:line_numbers => :table, :wrap => :page)
+      case @command.content_type
+        when /xml/
+          CodeRay.scan(@command.body_str, :xml).div(:line_numbers => :table, :wrap => :page)
+        when /html/
+          CodeRay.scan(@command.body_str, :html).div(:line_numbers => :table, :wrap => :page)
+        else
+          CodeRay.scan(JSON.pretty_generate(JSON.parse(@command.body_str)), :json).div(:line_numbers => :table, :wrap => :page)
       end
     end
 
