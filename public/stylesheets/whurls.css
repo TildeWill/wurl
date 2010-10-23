@@ -124,47 +124,28 @@ body {
 .row {
     clear: both;
     margin: 0;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .hTitle {
-    display: none;
+    font-size: 24px;
+    color: #F1CB31;
+    text-align: right;
 }
 
-.titleURL {
+.section_title {
     width: 150px;
-    height: 43px;
-    background: url('/images/input_titles.png') no-repeat top left;
-    padding: 0;
-    margin: -5px 10px 0 0;
-    overflow: hidden;
-    float: left;
-}
-
-.titleHEADERS {
-    width: 150px;
-    height: 43px;
-    background: url('/images/input_titles.png') no-repeat 0px -50px;
     margin: 0 10px 0 0;
-    overflow: hidden;
     float: left;
-
+    text-align: right;
 }
 
-.titlePARAM {
-    width: 150px;
-    height: 43px;
-    background: url('/images/input_titles.png') no-repeat 0px -135px;
-    margin: 0 10px 0 0;
-    overflow: hidden;
-    float: left;
-
+.action_button {
+    vertical-align: middle;
 }
 
 .titleRESPONSE {
     width: 150px;
-    height: 43px;
-    background: url('/images/input_titles.png') no-repeat 0px -275px;
     float: left;
 }
 
@@ -185,9 +166,6 @@ a.delete:hover {
     width: 154px;
     height: 32px;
     background: url('/images/param_button.png') no-repeat 0 0;
-    padding: 0px 0px 0px 0px;
-    font-family: Verdana, Geneva, Kalimati, sans-serif;
-    margin: 5px 0px 0px 160px;
 }
 
 .paramButton a {
@@ -200,7 +178,7 @@ a.delete:hover {
     height: 31px;
     background: url('/images/header_button.png') no-repeat 0 0;
     font-family: Verdana, Geneva, Kalimati, sans-serif;
-    margin: 5px 0px 0px 160px;
+    margin: 5px 0 0 25px;
 }
 
 .headerButton a {

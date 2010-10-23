@@ -2,7 +2,7 @@
   <% form_tag(edit_whurl_commands_url, :method => :get, :id => "whurl_form") do %>
 
       <div class="row">
-        <div class="titleURL"><span class="hTitle">URL</span></div>
+        <div class="section_title"><span class="hTitle">URL</span></div>
         <%= select_tag("method", options_for_select(["GET", "POST", "PUT", "DELETE"], @method)) %> /
         <%= text_field_tag("url", @api_url, :class => "long") %>
 
@@ -10,7 +10,12 @@
       <!--end row-->
 
       <div class="row">
-        <div class="titleHEADERS"><span class="hTitle">Headers</span></div>
+        <div class="section_title">
+          <div class="hTitle">
+            <a id="add_header"><%= image_tag('add.png', :class => 'action_button') %></a>
+            Headers
+          </div>
+        </div>
         <div id="headers">
           <% begin -%>
               <div class="header_pair">
@@ -20,13 +25,16 @@
           <% end while params['header_keys'].present? -%>
         </div>
 
-        <div class="headerButton"><a id="add_header">+Add header</a></div>
       </div>
       <!--end row-->
 
 
       <div class="row">
-        <div class="titlePARAM"><span class="hTitle">Headers</span></div>
+        <div class="section_title">
+          <div class="hTitle"><a id="add_param"><%= image_tag('add.png', :class => 'action_button') %></a>
+            Params
+          </div>
+        </div>
         <div id="params">
           <% begin -%>
               <div class="param_pair">
@@ -35,7 +43,6 @@
               </div>
           <% end while params['param_keys'].present? -%>
         </div>
-        <div class="paramButton"><a id="add_param">+Add Parameter</a></div>
       </div>
       <!--end row-->
 
