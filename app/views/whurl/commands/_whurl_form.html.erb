@@ -1,0 +1,44 @@
+<div class="top">
+  <% form_tag(edit_whurl_commands_url, :method => :get, :id => "whurl_form") do %>
+
+      <div class="row">
+        <div class="titleURL"><span class="hTitle">URL</span></div>
+        <%= select_tag("method", options_for_select(["GET", "POST", "PUT", "DELETE"], @method)) %> /
+        <%= text_field_tag("url", @api_url, :class => "long") %>
+
+      </div>
+      <!--end row-->
+
+      <div class="row">
+        <div class="titleHEADERS"><span class="hTitle">Headers</span></div>
+        <div id="headers">
+          <% begin -%>
+              <div class="header_pair">
+                <%= text_field_tag("header_keys[]", params['header_keys'].try(:pop), :class => "key") %>
+                <%= text_field_tag("header_values[]", params['header_values'].try(:pop), :class => "value") %>
+              </div>
+          <% end while params['header_keys'].present? -%>
+        </div>
+
+        <div class="headerButton"><a id="add_header">+Add header</a></div>
+      </div>
+      <!--end row-->
+
+
+      <div class="row">
+        <div class="titlePARAM"><span class="hTitle">Headers</span></div>
+        <div id="params">
+          <% begin -%>
+              <div class="param_pair">
+                <%= text_field_tag("param_keys[]", params['param_keys'].try(:pop), :class => "key") %>
+                <%= text_field_tag("param_values[]", params['param_values'].try(:pop), :class => "value") %>
+              </div>
+          <% end while params['param_keys'].present? -%>
+        </div>
+        <div class="paramButton"><a id="add_param">+Add Parameter</a></div>
+      </div>
+      <!--end row-->
+
+      <%= submit_tag("Give it a Whurl!", :class => "submit") %>
+  <% end %>
+</div><!--end top-->

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+  <%= stylesheet_link_tag("whurls") %>
+  <%= javascript_include_tag('jquery.min.js') %>
+  <%= javascript_include_tag('application') %>
+  
+   <link href="ui-combobox.css" rel="stylesheet" type="text/css" media="all"/>
+
+  <title>WHURL API Console</title>
+</head>
+
+<body>
+
+<% if flash[:message] || flash[:warning] %>
+    <div class="flash">
+      <% if flash[:message] %>
+          <span class="message"><%= flash[:message] %></span>
+      <% end %>
+      <% if flash[:warning] %>
+          <span class="warning"><%= flash[:warning] %></span>
+      <% end %>
+    </div>
+<% end %>
+
+<div id="wrapper">
+
+  <img class="logo" src="/images/logo.png" width="521" height="147"/>
+
+  <p class="tagline">The Whurl Console makes HTTP requests against the API of your choice.</p>
+
+
+  <div class="containerTop">&nbsp;</div>
+  <!--end containerTop-->
+  <div id="container">
+    <div class="content">
+      <%= yield %>
+    </div>
+    <!--end content-->
+
+    <div class="footer">
+      <p>Created by Will. <a class="contact" href="mailto:will.read@gmail.com">Contact</a>
+        him.<br/><span class="meadowfete">Designed by <a class="meadowfete" href="http://meadowfete.com" target="_blank">Meadowfete</a>.</span>
+
+      </p>
+    </div>
+    <!--end footer-->
+
+  </div>
+  <!--end container-->
+  <img src="/images/container_bottom.png" width="980" height="56"/>
+</div>
+<!--end wrapper-->
+
+
+</body>
+</html>
