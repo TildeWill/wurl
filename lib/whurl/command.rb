@@ -12,7 +12,7 @@ module Whurl
         end
       end
 
-      @data = URI.encode(data.join("&"))
+      @data = data.join("&")
       @command = make_command(url, @data)
       case @method
         when "POST"
@@ -66,9 +66,9 @@ module Whurl
     def make_command(url, data)
       if ["GET", "DELETE"].include?(@method)
         if url.include?("?")
-          @command = Curl::Easy.new(url + "&" + data)
+          @command = Curl::Easy.new(url + "&" + URI.encode(data))
         else
-          @command = Curl::Easy.new(url + "?" + data)
+          @command = Curl::Easy.new(url + "?" + URI.encode(data))
         end
       else
         @command = Curl::Easy.new(url)
