@@ -5,41 +5,30 @@
   <link rel="icon" href="http://whurl.heroku.com/favicon.ico" type="image/vnd.microsoft.icon"/>
   <link rel="shortcut icon" href="http://whurl.heroku.com/favicon.ico" type="image/x-icon"/>
   <link rel="apple-touch-icon-precomposed" href="/favicon.ico">
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="viewport" content = "width = device-width, initial-scale = 2.3" />
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="viewport" content="width = device-width, initial-scale = 2.3"/>
 
-  <%= stylesheet_link_tag(:all, :cache => true) %>
+  <%= stylesheet_link_tag('iphone', :cache => true) %>
 
   <title>Whurl</title>
 </head>
 
 <body>
 
-<div id="wrapper">
-
-  <a href="/"><img class="logo" src="/images/logo.png" width="521" height="147"/></a>
-
-  <div class="containerTop">&nbsp;</div>
-  <!--end containerTop-->
-  <div id="container">
-    <div class="content">
-      <%= yield %>
-    </div>
-    <!--end content-->
-
-    <div class="footer">
-      <p>Created by Will Read. <a class="contact" href="mailto:will.read@gmail.com">Contact</a>
-        him.<br/><span class="meadowfete">Designed by <a class="meadowfete" href="http://meadowfete.com" target="_blank">Meadowfete</a>.</span>
-
-      </p>
-    </div>
-    <!--end footer-->
-
-  </div>
-  <!--end container-->
-  <img src="/images/container_bottom.png" width="980" height="56"/>
+<div>
+  <img class="logo" src="/images/logo.png" width="521" height="147"/>
 </div>
-<!--end wrapper-->
+<div class="content">
+  <%= yield %>
+</div>
+<!--end content-->
+
+<div class="footer">
+  <p>Created by Will Read. <a class="contact" href="mailto:will.read@gmail.com">Contact</a>
+    him.<br/><span class="meadowfete">Designed by <a class="meadowfete" href="http://meadowfete.com" target="_blank">Meadowfete</a>.</span>
+
+  </p>
+</div>
 
 </body>
 </html>
