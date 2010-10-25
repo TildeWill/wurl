@@ -16,6 +16,7 @@ class Whurl::CommandsController < ApplicationController
       command = Whurl::Command.new(@api_url, @method, params)
       command.send_request
       @api_response = command.response_html
+      @response_headers = command.header_html
     rescue Exception => e
       @api_response = e.message
     end

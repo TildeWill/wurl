@@ -46,6 +46,10 @@ module Whurl
       @command.body_str
     end
 
+    def header_str
+      @command.header_str
+    end
+
     def response_html
       code_ray_options = {:line_numbers => :table}
       case @command.content_type
@@ -56,6 +60,10 @@ module Whurl
         else
           CodeRay.scan(JSON.pretty_generate(JSON.parse(@command.body_str)), :json).div(code_ray_options)
       end
+    end
+
+    def header_html
+      CodeRay.scan(@command.header_str, :txt).div(:line_numbers => nil)
     end
 
     def url

@@ -1,13 +1,15 @@
 <%= render :partial => 'whurl/commands/whurl_form' %>
 <%= stylesheet_link_tag("code") %>
-
-<div>
-  <div class="titleRESPONSE">
-    <div class="hTitle">Response</div><br/>
-    <a class="copy_link" id="permalink">&nbsp;</a>
+<div class="response_section">
+  <div class="response_section_title">Response Headers</div>
+  <div id="response_header">
+    <%= @response_headers %>
   </div>
-  <div id="api_response">
+</div>
+<div class="response_section">
+  <div class="response_section_title">Response Body</div>
+  <div class="response_container">
     <%= @api_response %>
   </div>
-
 </div>
+<a class="copy_link" id="permalink">&nbsp;</a>

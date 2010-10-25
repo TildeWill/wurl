@@ -140,6 +140,16 @@ body {
     text-align: right;
 }
 
+.response_section_title {
+    margin: 0 10px 0 0;
+    color:#F1CB31;
+    font-size:24px;
+}
+
+.response_section {
+    margin-top: 20px;
+}
+
 .action_button {
     vertical-align: middle;
 }
@@ -222,9 +232,17 @@ a.copy_link:hover {
     line-height: 1em;
 }
 
-#api_response {
+.response_container {
     background-color: white;
-    margin: 10px 57px 10px 175px;
+    overflow-x: auto;
+    width:  840px;
+}
+
+#response_header {
+    padding: 0 20px;
+    background-color: white;
+    overflow-x: auto;
+    width:  800px;
 }
 
 .footer p {
