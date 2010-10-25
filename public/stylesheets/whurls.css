@@ -47,12 +47,6 @@ a:hover {
     color: #3d4379
 }
 
-input, select {
-    /*height: 23px;*/
-    /*font-*/
-    /*font-size: 23px; */
-}
-
 input.one {
     width: 480px;
 }
@@ -103,7 +97,6 @@ body {
 
 #container {
     width: 100%;
-    /*min-height: 600px;*/
     background: url('/images/container_bg.png') repeat-y 0 0;
     padding-top: 105px;
 }
@@ -258,4 +251,19 @@ a.contact {
 .meadowfete {
     font-size: 12px;
     color: #8a7210;
+}
+
+#permalink_container {
+    color: #2B2F38;
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    padding: 5px 10px;
+    background-color: #E0CF89;
+    border: 2px solid #2B2F38;
+    border-left: none;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }

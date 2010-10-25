@@ -18,9 +18,6 @@ var Whurl = {
     },
     deleteParam: function() {
 
-    },
-    generatePermalink: function() {
-        $('#permalink').attr('href', '/?' + $('#whurl_form').serialize());
     }
 };
 
@@ -36,8 +33,6 @@ $(document).ready(function() {
     $('#permalink').click(function() {
         Whurl.generatePermalink();
     });
+    $('#permalink_text_box').attr('value', document.location);
 
-    $('#permalink').bind('contextmenu', function() {
-        Whurl.generatePermalink();
-    });
 });
