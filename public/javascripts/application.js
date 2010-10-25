@@ -33,6 +33,4 @@ $(document).ready(function() {
     $('#permalink').click(function() {
         Whurl.generatePermalink();
     });
-    $('#permalink_text_box').attr('value', document.location);
-
 });

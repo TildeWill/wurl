@@ -5,33 +5,19 @@
   <link rel="icon" href="http://whurl.heroku.com/favicon.ico" type="image/vnd.microsoft.icon"/>
   <link rel="shortcut icon" href="http://whurl.heroku.com/favicon.ico" type="image/x-icon"/>
   <link rel="apple-touch-icon-precomposed" href="/favicon.ico">
-  
-  <%= stylesheet_link_tag(:all, :cache => true) %>
-  <%= javascript_include_tag('jquery.min.js') %>
-  <%= javascript_include_tag('application') %>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content = "width = device-width, initial-scale = 2.3" />
 
-  <title>Whurl - API Console</title>
+  <%= stylesheet_link_tag(:all, :cache => true) %>
+
+  <title>Whurl</title>
 </head>
 
 <body>
 
-<% if flash[:message] || flash[:warning] %>
-    <div class="flash">
-      <% if flash[:message] %>
-          <span class="message"><%= flash[:message] %></span>
-      <% end %>
-      <% if flash[:warning] %>
-          <span class="warning"><%= flash[:warning] %></span>
-      <% end %>
-    </div>
-<% end %>
-
 <div id="wrapper">
 
   <a href="/"><img class="logo" src="/images/logo.png" width="521" height="147"/></a>
-
-  <p class="tagline">The Whurl Console makes HTTP requests against the API of your choice.</p>
-
 
   <div class="containerTop">&nbsp;</div>
   <!--end containerTop-->

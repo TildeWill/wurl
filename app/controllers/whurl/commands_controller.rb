@@ -17,6 +17,11 @@ class Whurl::CommandsController < ApplicationController
       command.send_request
       @api_response = command.response_html
       @response_headers = command.header_html
+      respond_to do |format|
+        format.html
+        format.iphone
+      end
+
     rescue Exception => e
       @api_response = e.message
     end
