@@ -258,12 +258,12 @@ a.contact {
     position: fixed;
     bottom: 5px;
     left: 0;
-    padding: 5px 10px;
+    padding: 5px 15px 5px 10px;
     background-color: #E0CF89;
     border: 2px solid #2B2F38;
     border-left: none;
-    -moz-border-radius-topright: 10px;
-    -moz-border-radius-bottomright: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    -moz-border-radius-topright: 20px;
+    -moz-border-radius-bottomright: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
