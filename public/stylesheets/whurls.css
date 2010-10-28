@@ -61,9 +61,10 @@ input.four {
 }
 
 body {
-    background-color: #a7abb5;
-    /*margin: 0;*/
-    /*padding: 0;*/
+    background-color: #B2B5BE;
+	background-image:url('/images/bg_fuzz.jpg');
+	background-position: top center;
+	background-repeat:no-repeat;
 }
 
 .containerTop {
@@ -98,7 +99,6 @@ body {
 }
 
 .top {
-    width: 800px;
     height: 100%;
     background: #919c9d;
     margin: 30px 0 0 ;
@@ -106,7 +106,7 @@ body {
 }
 
 .content {
-    padding: 0 0 0 85px;
+    padding: 0 15px 0 50px;
 }
 
 /*titles*/
@@ -130,7 +130,6 @@ body {
 }
 
 .response_section_title {
-    margin: 0 10px 0 0;
     color:#F1CB31;
     font-size:24px;
 }
@@ -224,14 +223,12 @@ a.copy_link:hover {
 .response_container {
     background-color: white;
     overflow-x: auto;
-    width:  840px;
 }
 
 #response_header {
     padding: 0 20px;
     background-color: white;
     overflow-x: auto;
-    width:  800px;
 }
 
 .footer p {

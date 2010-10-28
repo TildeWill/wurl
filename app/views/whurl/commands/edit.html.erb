@@ -1,4 +1,3 @@
-<%= render :partial => 'whurl/commands/whurl_form' %>
 <div class="response_section">
   <div class="response_section_title">Response Headers</div>
   <div id="response_header">
@@ -11,6 +10,7 @@
     <%= @api_response %>
   </div>
 </div>
+<%= render :partial => 'whurl/commands/whurl_form' %>
 
 <div id="permalink_container">
   Share this Whurl: <input type="text" id="permalink_text_box" value="<%= request.url %>" onFocus="this.select()" />
