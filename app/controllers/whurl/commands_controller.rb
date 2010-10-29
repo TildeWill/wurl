@@ -15,11 +15,14 @@ class Whurl::CommandsController < ApplicationController
     begin
       command = Whurl::Command.new(@api_url, @method, params)
       command.send_request
-      @api_response = command.response_html
       @response_headers = command.header_html
       respond_to do |format|
-        format.html
-        format.iphone
+        format.html do
+          @api_response = command.response_html({:line_numbers => :table})
+        end
+        format.iphone do
+          @api_response = command.response_html({:line_numbers => nil})          
+        end
       end
 
     rescue Exception => e

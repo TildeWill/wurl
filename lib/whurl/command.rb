@@ -50,15 +50,14 @@ module Whurl
       @command.header_str
     end
 
-    def response_html
-      code_ray_options = {:line_numbers => :table}
+    def response_html(options = {:line_numbers => :table})
       case @command.content_type
         when /xml/
-          CodeRay.scan(@command.body_str, :xml).div(code_ray_options)
+          CodeRay.scan(@command.body_str, :xml).div(options)
         when /html/
-          CodeRay.scan(@command.body_str, :html).div(code_ray_options)
+          CodeRay.scan(@command.body_str, :html).div(options)
         else
-          CodeRay.scan(JSON.pretty_generate(JSON.parse(@command.body_str)), :json).div(code_ray_options)
+          CodeRay.scan(JSON.pretty_generate(JSON.parse(@command.body_str)), :json).div(options)
       end
     end
 
