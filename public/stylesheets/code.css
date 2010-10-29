@@ -1,5 +1,6 @@
 .line_numbers pre, .code pre, .code span {
     font-family: monospace;
+    font-size: 10px;
 }
 
 table.CodeRay {
