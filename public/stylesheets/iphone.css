@@ -54,7 +54,7 @@ body {
 
 .response_container {
     background-color: white;
-    overflow-x: auto;
+    overflow-x: scroll;
 }
 
 #response_header {
