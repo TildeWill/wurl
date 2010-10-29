@@ -1,3 +1,13 @@
 .line_numbers pre, .code pre, .code span {
     font-family: monospace;
 }
+
+table.CodeRay {
+    border-collapse: collapse;
+}
+
+td.line_numbers {
+    background-color: #DDD;
+    text-align: right;
+    padding: 0 5px;
+}

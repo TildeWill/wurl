@@ -222,7 +222,7 @@ a.copy_link:hover {
 
 .response_container {
     background-color: white;
-    overflow-x: auto;
+    overflow: hidden;
 }
 
 #response_header {
@@ -259,4 +259,13 @@ a.contact {
     -moz-border-radius-bottomright: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+
+.response_container .code pre {
+    width: 870px;
+    overflow-x: scroll;
+}
+
+.response_container .line_numbers pre {
+    overflow-x: scroll;
 }
