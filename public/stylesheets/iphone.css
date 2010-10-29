@@ -80,3 +80,7 @@ a.contact {
 .code pre {
     white-space:pre-wrap;
 }
+
+#response_container .code, #response_container .code span {
+    font-family: monospace;
+}
