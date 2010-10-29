@@ -1,4 +1,4 @@
-.line_numbers pre, .code pre, .code span {
+td.line_numbers pre, td.code pre, td.code span {
     font-family: monospace;
     font-size: 10px;
 }
