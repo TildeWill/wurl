@@ -52,15 +52,14 @@ body {
     line-height: 1em;
 }
 
-.response_container {
+#response_container {
+    padding: 0 20px;
     background-color: white;
-    overflow-x: scroll;
 }
 
 #response_header {
     padding: 0 20px;
     background-color: white;
-    overflow-x: auto;
 }
 
 .footer p {
