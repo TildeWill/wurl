@@ -1,5 +1,5 @@
-.line_numbers pre, .code pre, .code span {
-    font-family: "fixed-width", monospace;
+.line_numbers pre, .code pre, .code span, .code td, .code tt {
+    font-family: monospace;
 }
 
 table.CodeRay {
