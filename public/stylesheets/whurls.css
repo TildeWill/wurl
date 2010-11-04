@@ -147,13 +147,8 @@ body {
     float: left;
 }
 
-.delete {
-    width: 20px;
-    height: 20px;
-    background: url('/images/delete.png') no-repeat 0px 0px;
-    float: right;
-    margin: 12px 12px 0px 0px;
-    overflow: hidden;
+.delete_button {
+    vertical-align:middle;
 }
 
 a.delete:hover {

@@ -21,6 +21,7 @@
               <div class="header_pair">
                 <%= text_field_tag("header_keys[]", params['header_keys'].try(:pop), :class => "key") %>
                 <%= text_field_tag("header_values[]", params['header_values'].try(:pop), :class => "value") %>
+                <a class="delete_header" style="display:none"><%= image_tag("delete.png", :class => 'delete_button') %></a>
               </div>
           <% end while params['header_keys'].present? -%>
         </div>
@@ -40,6 +41,7 @@
               <div class="param_pair">
                 <%= text_field_tag("param_keys[]", params['param_keys'].try(:pop), :class => "key") %>
                 <%= text_field_tag("param_values[]", params['param_values'].try(:pop), :class => "value") %>
+                <a class="delete_param" style="display:none"><%= image_tag("delete.png", :class => 'delete_button') %></a>
               </div>
           <% end while params['param_keys'].present? -%>
         </div>
