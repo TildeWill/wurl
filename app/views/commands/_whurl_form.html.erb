@@ -5,9 +5,7 @@
         <div class="section_title"><span class="hTitle">URL</span></div>
         <%= f.select(:method, options_for_select(["GET", "POST", "PUT", "DELETE"])) %> /
         <%= f.text_field(:url, :class => "long") %>
-
       </div>
-      <!--end row-->
 
       <div class="row">
         <div class="section_title">
@@ -21,14 +19,11 @@
               <div class="header_pair">
                 <%= text_field_tag('command[header_keys][]', @command.header_keys.try(:pop), :class => "key") %>
                 <%= text_field_tag('command[header_values][]', @command.header_values.try(:pop), :class => "value") %>
-                <a class="delete_header" style="display:none"><%= image_tag("delete.png", :class => 'delete_button') %></a>
+                <a class="delete_header"><%= image_tag("delete.png", :class => 'delete_button') %></a>
               </div>
           <% end while @command.header_keys.present? -%>
         </div>
-
       </div>
-      <!--end row-->
-
 
       <div class="row">
         <div class="section_title">
@@ -41,13 +36,11 @@
               <div class="param_pair">
                 <%= text_field_tag("command[param_keys][]", @command.param_keys.try(:pop), :class => "key") %>
                 <%= text_field_tag("command[param_values][]", @command.param_values.try(:pop), :class => "value") %>
-                <a class="delete_param" style="display:none"><%= image_tag("delete.png", :class => 'delete_button') %></a>
+                <a class="delete_param"><%= image_tag("delete.png", :class => 'delete_button') %></a>
               </div>
-          <% end while params['param_keys'].present? -%>
+          <% end while @command.param_keys.present? -%>
         </div>
       </div>
-      <!--end row-->
-
       <%= submit_tag("Give it a Whurl!", :class => "submit") %>
   <% end %>
-</div><!--end top-->
+</div>

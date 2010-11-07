@@ -5,7 +5,6 @@ var Whurl = {
     addHeader: function() {
         var $headerFields = $('.header_pair:last').clone();
         $headerFields.children('input').val("");
-        $headerFields.children('a').css('display', 'inline');
         $headerFields.hide().appendTo('#headers');
         $headerFields.slideDown('fast');
 
@@ -19,7 +18,6 @@ var Whurl = {
     addParam: function() {
         var $paramFields = $('.param_pair:last').clone();
         $paramFields.children('input').val("");
-        $paramFields.children('a').css('display', 'inline');
         $paramFields.hide().appendTo('#params');
         $paramFields.slideDown('fast');
     },

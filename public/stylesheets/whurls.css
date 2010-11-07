@@ -255,3 +255,9 @@ a.contact {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+
+.param_pair:first-child .delete_param,
+.header_pair:first-child .delete_header
+{
+    display: none;
+}
