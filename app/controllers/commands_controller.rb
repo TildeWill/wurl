@@ -4,7 +4,8 @@ class CommandsController < ApplicationController
   end
 
   def edit
-    @command = Command.new(params['command'])
+    command_params = %w(url method header_keys header_values param_keys param_values)
+    @command = Command.new(params.reject{|k,_| !command_params.include?(k)})
     @command.send_request
     @response_headers = @command.header_html
     respond_to do |format|

@@ -152,7 +152,7 @@ body {
 }
 
 a.delete:hover {
-    background: url('/images/delete.png') no-repeat -20px 0px;
+    background: url('/images/delete.png') no-repeat -20px 0;
 }
 
 .paramButton {
@@ -163,7 +163,7 @@ a.delete:hover {
 
 .paramButton a {
     float: left;
-    margin: 8px 0px 0px 20px;
+    margin: 8px 0 0 20px;
 }
 
 .headerButton {
@@ -176,12 +176,12 @@ a.delete:hover {
 
 .headerButton a {
     float: left;
-    margin: 8px 0px 0px 20px;
+    margin: 8px 0 0 20px;
 }
 
 .submit {
     float: right;
-    margin: -20px 60px 0px 0px;
+    margin: -20px 60px 0 0;
     color: #2B2F38;
     background-color:#F1CB31;
     font-weight: bold;
@@ -189,13 +189,13 @@ a.delete:hover {
 }
 
 .submit:hover {
-    background-position: -91.5px 0px;
+    background-position: -91.5px 0;
 }
 
 a.copy_link {
     width: 115.5px;
     height: 44px;
-    background: url('/images/copyURL.png') no-repeat 0px 0px;
+    background: url('/images/copyURL.png') no-repeat 0 0;
     margin: 30px 0 0 45px;
     display: block;
 }

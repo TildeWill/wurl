@@ -1,10 +1,10 @@
 <div class="top">
-  <% form_for(@command, :id => "whurl_form", :html => {:method => :get}) do |f| %>
+  <% form_tag(commands_path, :id => "whurl_form", :method => :get) do %>
 
       <div class="row">
         <div class="section_title"><span class="hTitle">URL</span></div>
-        <%= f.select(:method, options_for_select(["GET", "POST", "PUT", "DELETE"])) %> /
-        <%= f.text_field(:url, :class => "long") %>
+        <%= select_tag(:method, options_for_select(["GET", "POST", "PUT", "DELETE"], @command.method)) %> /
+        <%= text_field_tag('url', @command.url, :class => "long") %>
       </div>
 
       <div class="row">
@@ -17,8 +17,8 @@
         <div id="headers">
           <% begin -%>
               <div class="header_pair">
-                <%= text_field_tag('command[header_keys][]', @command.header_keys.try(:pop), :class => "key") %>
-                <%= text_field_tag('command[header_values][]', @command.header_values.try(:pop), :class => "value") %>
+                <%= text_field_tag('header_keys[]', @command.header_keys.try(:pop), :class => "key") %>
+                <%= text_field_tag('header_values[]', @command.header_values.try(:pop), :class => "value") %>
                 <a class="delete_header"><%= image_tag("delete.png", :class => 'delete_button') %></a>
               </div>
           <% end while @command.header_keys.present? -%>
@@ -34,8 +34,8 @@
         <div id="params">
           <% begin -%>
               <div class="param_pair">
-                <%= text_field_tag("command[param_keys][]", @command.param_keys.try(:pop), :class => "key") %>
-                <%= text_field_tag("command[param_values][]", @command.param_values.try(:pop), :class => "value") %>
+                <%= text_field_tag("param_keys[]", @command.param_keys.try(:pop), :class => "key") %>
+                <%= text_field_tag("param_values[]", @command.param_values.try(:pop), :class => "value") %>
                 <a class="delete_param"><%= image_tag("delete.png", :class => 'delete_button') %></a>
               </div>
           <% end while @command.param_keys.present? -%>

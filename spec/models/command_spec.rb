@@ -3,15 +3,17 @@ require 'spec_helper'
 describe Command do
 
   describe "new" do
-    command = Command.new(:url => "http://foo.com",
-        :method => "POST",
-        :param_keys => %w(car font_door),
-        :param_values => %w(1 2),
-        :header_keys => %w(soccer document),
-        :header_values => %w(3 4)
-    )
-    command.save!
-    command.param_values.should == ['1', '2']
+    it "makes a command" do
+      command = Command.new(:url => "http://foo.com",
+                            :method => "POST",
+                            :param_keys => %w(car font_door),
+                            :param_values => %w(1 2),
+                            :header_keys => %w(soccer document),
+                            :header_values => %w(3 4)
+      )
+      command.save!
+      command.param_values.should == ['1', '2']
+    end
   end
 
   describe "#url" do
