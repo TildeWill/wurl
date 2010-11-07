@@ -59,8 +59,10 @@ class Command < ActiveRecord::Base
         CodeRay.scan(@command.body_str, :xml).div(options)
       when /html/
         CodeRay.scan(@command.body_str, :html).div(options)
-      else
+      when /json/
         CodeRay.scan(JSON.pretty_generate(JSON.parse(@command.body_str)), :json).div(options)
+      else
+        @command.body_str
     end
   end
 

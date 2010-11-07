@@ -1,5 +1,5 @@
 <div class="top">
-  <% form_for(@command, :id => "whurl_form") do |f| %>
+  <% form_for(@command, :id => "whurl_form", :html => {:method => :get}) do |f| %>
 
       <div class="row">
         <div class="section_title"><span class="hTitle">URL</span></div>
@@ -41,6 +41,6 @@
           <% end while @command.param_keys.present? -%>
         </div>
       </div>
-      <%= submit_tag("Give it a Whurl!", :class => "submit") %>
+      <input type="submit" value="Give it a Whurl!" class="submit" />
   <% end %>
 </div>
