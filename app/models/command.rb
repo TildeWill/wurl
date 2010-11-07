@@ -14,9 +14,6 @@ class Command < ActiveRecord::Base
   def after_initialize
     data = []
     if param_keys
-      p "!"*20
-      p param_keys
-      p param_values
       param_keys.each_with_index do |key, i|
         data << "#{key}=#{param_values[i]}" if key.present?
       end
@@ -75,9 +72,9 @@ class Command < ActiveRecord::Base
   def make_command(url, data)
     if ["GET", "DELETE"].include?(method)
       if url.include?("?")
-        @command = Curl::Easy.new(url + "&" + URI.encode(data))
+        @command = Curl::Easy.new(url + "&" + data)
       else
-        @command = Curl::Easy.new(url + "?" + URI.encode(data))
+        @command = Curl::Easy.new(url + "?" + data)
       end
     else
       @command = Curl::Easy.new(url)

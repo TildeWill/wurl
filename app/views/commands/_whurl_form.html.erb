@@ -39,8 +39,8 @@
         <div id="params">
           <% begin -%>
               <div class="param_pair">
-                <%= text_field_tag("command[param_keys][]", params['param_keys'].try(:pop), :class => "key") %>
-                <%= text_field_tag("command[param_values][]", params['param_values'].try(:pop), :class => "value") %>
+                <%= text_field_tag("command[param_keys][]", @command.param_keys.try(:pop), :class => "key") %>
+                <%= text_field_tag("command[param_values][]", @command.param_values.try(:pop), :class => "value") %>
                 <a class="delete_param" style="display:none"><%= image_tag("delete.png", :class => 'delete_button') %></a>
               </div>
           <% end while params['param_keys'].present? -%>
