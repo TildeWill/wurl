@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_ssl
-    redirect_to :protocol => "https://" unless (request.ssl? || local_request?)
+    redirect_to url_for params.merge({:protocol => 'https://'}) unless (request.ssl? || local_request?)
   end
 
 # Scrub sensitive parameters from your log
