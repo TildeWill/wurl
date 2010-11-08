@@ -2,12 +2,15 @@ require 'spec_helper'
 
 describe CommandsController do
   integrate_views
+
   before do
     request.env['HTTPS'] = 'on'
   end
 
+
+
   describe "#edit" do
-    it "assigns a command" do
+    def perform_request
       get :edit, {"url" => "http://example.com",
                   "method" => "GET",
                   "header_keys" => [""],
@@ -15,6 +18,11 @@ describe CommandsController do
                   "param_keys" => ["foo"],
                   "param_values" => ["bar"]
       }
+    end
+    it_should_behave_like "requires ssl"
+
+    it "assigns a command" do
+      perform_request
       assigns[:command].should be_present
     end
 
