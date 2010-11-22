@@ -1,3 +1,6 @@
+<%= javascript_include_tag('whurl/jquery.min.js') %>
+<%= javascript_include_tag('whurl/application') %>
+
 <div class="top">
   <% form_tag(whurls_path, :id => "whurl_form", :method => :get) do %>
 
@@ -41,6 +44,6 @@
           <% end while @command.param_keys.present? -%>
         </div>
       </div>
-      <input type="submit" value="Give it a Whurl!" class="submit" />
+      <input type="submit" value="Give it a Whurl!" class="submit"/>
   <% end %>
 </div>
