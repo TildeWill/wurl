@@ -4,3 +4,4 @@ db/schema.rb
 db/*.sqlite3
 public/javascripts/whurl
 public/images/whurl
+db/migrations/*_whurl.*
