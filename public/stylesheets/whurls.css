@@ -152,7 +152,7 @@ body {
 }
 
 a.delete:hover {
-    background: url('/images/delete.png') no-repeat -20px 0;
+    background: url("'/vendor/plugins/whurl/public/images/delete.png'") no-repeat -20px 0;
 }
 
 .paramButton {

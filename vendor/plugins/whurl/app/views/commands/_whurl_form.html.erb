@@ -13,7 +13,7 @@
       <div class="row">
         <div class="section_title">
           <div class="hTitle">
-            <a id="add_header"><%= image_tag('add.png', :class => 'action_button') %></a>
+            <a id="add_header"><%= image_tag('whurl/add.png', :class => 'action_button') %></a>
             Headers
           </div>
         </div>
@@ -22,7 +22,7 @@
               <div class="header_pair">
                 <%= text_field_tag('header_keys[]', @command.header_keys.try(:shift), :class => "key") %>
                 <%= text_field_tag('header_values[]', @command.header_values.try(:shift), :class => "value") %>
-                <a class="delete_header"><%= image_tag("delete.png", :class => 'delete_button') %></a>
+                <a class="delete_header"><%= image_tag("whurl/delete.png", :class => 'delete_button') %></a>
               </div>
           <% end while @command.header_keys.present? -%>
         </div>
@@ -30,7 +30,7 @@
 
       <div class="row">
         <div class="section_title">
-          <div class="hTitle"><a id="add_param"><%= image_tag('add.png', :class => 'action_button') %></a>
+          <div class="hTitle"><a id="add_param"><%= image_tag('whurl/add.png', :class => 'action_button') %></a>
             Params
           </div>
         </div>
@@ -39,7 +39,7 @@
               <div class="param_pair">
                 <%= text_field_tag("param_keys[]", @command.param_keys.try(:shift), :class => "key") %>
                 <%= text_field_tag("param_values[]", @command.param_values.try(:shift), :class => "value") %>
-                <a class="delete_param"><%= image_tag("delete.png", :class => 'delete_button') %></a>
+                <a class="delete_param"><%= image_tag("whurl/delete.png", :class => 'delete_button') %></a>
               </div>
           <% end while @command.param_keys.present? -%>
         </div>
