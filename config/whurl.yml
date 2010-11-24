@@ -1,0 +1,30 @@
+---
+get_v2_deals:
+  url: /v2/deals
+  method: get
+  ssl_required: true
+  formats:
+  - extension: json
+    default: true
+  - extension: xml
+    default: false
+  parameters:
+  - name: client_id
+    required: true
+  - name: show
+    required: false
+    values:
+    - default
+    - all
+  - name: email_address
+    required: false
+  - name: division_id
+    required: true
+  - name: lat
+    required: false
+  - name: lng
+    required: false
+  - name: radius
+    required: false
+  headers:
+
