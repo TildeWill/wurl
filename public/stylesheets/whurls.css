@@ -6,6 +6,7 @@
 
 #headers, #params {
     margin-left: 162px;
+    min-height: 31px;
     margin-bottom: 10px;
 }
 
@@ -256,8 +257,8 @@ a.contact {
     border-bottom-right-radius: 20px;
 }
 
-.param_pair:first-child .delete_param,
-.header_pair:first-child .delete_header
+.param_pair:first-child,
+.header_pair:first-child
 {
     display: none;
 }

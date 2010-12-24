@@ -59,7 +59,7 @@ class Command < ActiveRecord::Base
         CodeRay.scan(@command.body_str, :xml).div(options)
       when /html/
         CodeRay.scan(@command.body_str, :html).div(options)
-      when /json/
+      when /json|javascript/
         CodeRay.scan(JSON.pretty_generate(JSON.parse(@command.body_str)), :json).div(options)
       when /jpg|jpeg|gif|png|bmp|binary/
         "<img src=\"data:binary/octet;base64,#{Base64.encode64(@command.body_str)}\" />"

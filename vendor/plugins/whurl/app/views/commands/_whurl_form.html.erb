@@ -18,12 +18,9 @@
           </div>
         </div>
         <div id="headers">
+          <%= render :partial => 'whurl_input_set', :locals => {:set_name => 'header', :key => nil, :value => nil, :disabled => true} %>
           <% begin -%>
-              <div class="header_pair">
-                <%= text_field_tag('header_keys[]', @command.header_keys.try(:shift), :class => "key") %>
-                <%= text_field_tag('header_values[]', @command.header_values.try(:shift), :class => "value") %>
-                <a class="delete_header"><%= image_tag("whurl/delete.png", :class => 'delete_button') %></a>
-              </div>
+            <%= render :partial => 'whurl_input_set', :locals => {:set_name => 'header', :key => @command.header_keys.try(:shift), :value => @command.header_values.try(:shift), :disabled => false} %>
           <% end while @command.header_keys.present? -%>
         </div>
       </div>
@@ -35,12 +32,9 @@
           </div>
         </div>
         <div id="params">
+          <%= render :partial => 'whurl_input_set', :locals => {:set_name => 'param', :key => nil, :value => nil, :disabled => true} %>
           <% begin -%>
-              <div class="param_pair">
-                <%= text_field_tag("param_keys[]", @command.param_keys.try(:shift), :class => "key") %>
-                <%= text_field_tag("param_values[]", @command.param_values.try(:shift), :class => "value") %>
-                <a class="delete_param"><%= image_tag("whurl/delete.png", :class => 'delete_button') %></a>
-              </div>
+              <%= render :partial => 'whurl_input_set', :locals => {:set_name => 'param', :key => @command.param_keys.try(:shift), :value => @command.param_values.try(:shift), :disabled => false} %>
           <% end while @command.param_keys.present? -%>
         </div>
       </div>

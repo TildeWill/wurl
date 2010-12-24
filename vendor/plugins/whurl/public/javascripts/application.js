@@ -5,6 +5,7 @@ var Whurl = {
     addHeader: function() {
         var $headerFields = $('.header_pair:last').clone();
         $headerFields.children('input').val("");
+        $headerFields.children('input').attr('disabled', false);
         $headerFields.hide().appendTo('#headers');
         $headerFields.slideDown('fast');
 
@@ -18,6 +19,7 @@ var Whurl = {
     addParam: function() {
         var $paramFields = $('.param_pair:last').clone();
         $paramFields.children('input').val("");
+        $paramFields.children('input').attr('disabled', false);
         $paramFields.hide().appendTo('#params');
         $paramFields.slideDown('fast');
     },
