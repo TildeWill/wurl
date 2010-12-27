@@ -6,9 +6,13 @@ var Whurl = {
         var $headerFields = $('.header_pair:last').clone();
         $headerFields.children('input').val("");
         $headerFields.children('input').attr('disabled', false);
+        $($headerFields.children('input')[1]).focusin(function() {
+            if($('.header_pair:last').children('input').val() != "") {
+                Whurl.addHeader();
+            }
+        });
         $headerFields.hide().appendTo('#headers');
         $headerFields.slideDown('fast');
-
     },
     deleteHeader: function(element) {
         var $paramFields = $(element).closest(".header_pair");
@@ -20,6 +24,11 @@ var Whurl = {
         var $paramFields = $('.param_pair:last').clone();
         $paramFields.children('input').val("");
         $paramFields.children('input').attr('disabled', false);
+        $($paramFields.children('input')[1]).focusin(function() {
+            if($('.param_pair:last').children('input').val() != "") {
+                Whurl.addParam();
+            }
+        });
         $paramFields.hide().appendTo('#params');
         $paramFields.slideDown('fast');
     },
@@ -32,6 +41,8 @@ var Whurl = {
 };
 
 $(document).ready(function() {
+    $('#url').focus();
+
     $('#add_header').click(function() {
         Whurl.addHeader();
     });
@@ -50,5 +61,21 @@ $(document).ready(function() {
 
     $('#permalink').click(function() {
         Whurl.generatePermalink();
+    });
+
+    $('.header_pair').each(function(i) {
+        $($(this).children('input')[1]).focusin(function() {
+            if($('.header_pair:last').children('input').val() != "") {
+                Whurl.addHeader();
+            }
+        });
+    });
+
+    $('.param_pair').each(function(i) {
+        $($(this).children('input')[1]).focusin(function() {
+            if($('.param_pair:last').children('input').val() != "") {
+                Whurl.addParam();
+            }
+        });
     });
 });
