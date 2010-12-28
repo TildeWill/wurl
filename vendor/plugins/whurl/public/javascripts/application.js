@@ -41,8 +41,6 @@ var Whurl = {
 };
 
 $(document).ready(function() {
-    $('#url').focus();
-
     $('#add_header').click(function() {
         Whurl.addHeader();
     });

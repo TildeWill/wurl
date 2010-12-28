@@ -34,13 +34,13 @@ img {
     border: 0 solid #000;
 }
 
-a {
+.footer a {
     text-decoration: none;
     color: #2b2f38;
     font-weight: bold;
 }
 
-a:hover {
+.footer a:hover {
     color: #3d4379
 }
 
@@ -261,4 +261,19 @@ a.contact {
 .header_pair:first-child
 {
     display: none;
+}
+
+#response_only {
+    font-size: 14px;
+    color: white;
+}
+
+#response_only a {
+    text-decoration: none;
+    color: #d3d3d3;
+    font-weight: bold;
+}
+
+#response_only a:hover {
+    color: #eeeeee;
 }

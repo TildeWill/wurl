@@ -5,7 +5,9 @@
   </div>
 </div>
 <div class="response_section">
-  <div class="response_section_title">Response Body</div>
+  <div class="response_section_title">
+    Response Body <span id="response_only">(view <a href="<%= request.url + "&response_only=true" %>">request only</a> for copying)</span>
+  </div>
   <div class="response_container">
     <%= @api_response %>
   </div>
@@ -13,5 +15,5 @@
 <%= render :partial => 'commands/whurl_form' %>
 
 <div id="permalink_container">
-  Share this Whurl: <input type="text" id="permalink_text_box" value="<%= request.url %>" onFocus="this.select()" />
+  Share this Whurl: <input type="text" id="permalink_text_box" value="<%= request.url %>" onFocus="this.select()"/>
 </div>

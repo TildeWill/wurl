@@ -8,9 +8,15 @@ class CommandsController < ApplicationController
     @command = Command.new(params.reject{|k,_| !command_params.include?(k)})
     @command.send_request
     @response_headers = @command.header_html
+
     respond_to do |format|
       format.html do
-        @api_response = @command.response_html({:line_numbers => :table})
+        if(params['response_only'] == 'true')
+          @api_response = @command.response_html({:line_numbers => nil})          
+          render('show', :layout => false) and return
+        else
+          @api_response = @command.response_html({:line_numbers => :table})
+        end
       end
       format.iphone do
         @api_response = @command.response_html({:line_numbers => nil})
