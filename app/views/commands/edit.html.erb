@@ -20,7 +20,7 @@
 <%= javascript_include_tag("zero_clipboard/ZeroClipboard.js") %>
 <script type="text/javascript">
     $(document).ready(function() {
-        ZeroClipboard.setMoviePath( '/javascripts/zero_clipboard/ZeroClipboard.swf' );
+        ZeroClipboard.setMoviePath( '/javascripts/zero_clipboard/ZeroClipboard10.swf' );
         var clip = new ZeroClipboard.Client();
         clip.setHandCursor(true);
         clip.setText($('.CodeRay td.code').html());
