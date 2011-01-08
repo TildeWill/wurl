@@ -1,18 +1,21 @@
 class CommandsController < ApplicationController
   def new
-    @command = Command.new
+    @command = Whurl::Command.new
   end
 
   def edit
-    command_params = %w(url method header_keys header_values param_keys param_values)
-    @command = Command.new(params.reject{|k,_| !command_params.include?(k)})
+    command_fields = %w(url http_method header_keys header_values param_keys param_values)
+    command_params = params.reject{|k,_| !command_fields.include?(k)}
+#    puts p
+    @command = Whurl::Command.new(command_params)
+#    puts @command
     @command.send_request
     @response_headers = @command.header_html
 
     respond_to do |format|
       format.html do
         if(params['response_only'] == 'true')
-          @api_response = @command.response_html({:line_numbers => nil})          
+          @api_response = @command.response_html({:line_numbers => nil})
           render('show', :layout => false) and return
         else
           @api_response = @command.response_html({:line_numbers => :table})

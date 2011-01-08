@@ -6,7 +6,7 @@
 
       <div class="row">
         <div class="section_title"><span class="hTitle">URL</span></div>
-        <%= select_tag(:method, options_for_select(["GET", "POST", "PUT", "DELETE"], @command.method)) %> /
+        <%= select_tag(:http_method, options_for_select(["GET", "POST", "PUT", "DELETE"], @command.http_method)) %> /
         <%= text_field_tag('url', @command.url, :class => "long") %>
       </div>
 

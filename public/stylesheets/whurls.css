@@ -135,6 +135,9 @@ body {
     font-size:24px;
 }
 
+.response_section_title img {
+    vertical-align: text-top;
+}
 .response_section {
     margin-top: 20px;
 }
@@ -263,17 +266,3 @@ a.contact {
     display: none;
 }
 
-#response_only {
-    font-size: 14px;
-    color: white;
-}
-
-#response_only a {
-    text-decoration: none;
-    color: #d3d3d3;
-    font-weight: bold;
-}
-
-#response_only a:hover {
-    color: #eeeeee;
-}

@@ -12,7 +12,7 @@ describe CommandsController do
   describe "#edit" do
     def perform_request
       get :edit, {"url" => "http://example.com",
-                  "method" => "GET",
+                  "http_method" => "GET",
                   "header_keys" => [""],
                   "header_values" => [""],
                   "param_keys" => ["foo"],
@@ -28,7 +28,7 @@ describe CommandsController do
 
     it "assigns a command even with extra junk in the params" do
       get :edit, {"url" => "http://example.com",
-                  "method" => "GET",
+                  "http_method" => "GET",
                   "header_keys" => [""],
                   "header_values" => [""],
                   "param_keys" => ["foo"],

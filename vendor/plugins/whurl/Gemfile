@@ -1,0 +1,8 @@
+source "http://rubygems.org"
+
+gem "curb", "0.7.9"
+gem "coderay", "0.9.6"
+
+group :test do
+  gem "jasmine", "1.0.1"
+end
