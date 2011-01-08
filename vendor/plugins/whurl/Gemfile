@@ -1,8 +1,9 @@
-source "http://rubygems.org"
-
-gem "curb", "0.7.9"
-gem "coderay", "0.9.6"
+source :gemcutter
+gem 'curb', '0.7.9'
+gem 'coderay', '0.9.6'
+gem 'json_pure'
 
 group :test do
-  gem "jasmine", "1.0.1"
+#  gem 'jasmine'
+  gem 'rspec'
 end
