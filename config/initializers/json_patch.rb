@@ -1,5 +1,5 @@
 class Fixnum
-  def to_json(options = nil)
+  def to_json(*)
     to_s
   end
 end
