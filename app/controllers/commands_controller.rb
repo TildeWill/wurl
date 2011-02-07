@@ -20,7 +20,7 @@ class CommandsController < ApplicationController
     end
 
   rescue Exception => e
-    @api_response = e
+    @api_response = e.to_s
   end
 
 end
