@@ -20,7 +20,7 @@ class CommandsController < ApplicationController
     end
 
   rescue Exception => e
-    @api_response = e.backtrace.to_s
+    @api_response = e.backtrace.join("\n")
   end
 
 end
