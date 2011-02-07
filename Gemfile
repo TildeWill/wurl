@@ -1,11 +1,14 @@
+source :rubygems
+source :rubyforge
 source :gemcutter
-gem 'curb'#, '0.7.8'
-gem 'coderay', '0.9.4'
+gem 'rails', '2.3.5'
+gem 'curb', '0.7.9'
+gem 'coderay', '0.9.6'
 gem 'rack'
 gem 'json_pure'
 
 group :test do
-#  gem 'jasmine'
+  gem 'jasmine'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'sqlite3-ruby'
