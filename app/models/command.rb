@@ -1,4 +1,3 @@
-require 'json/pure'
 require 'coderay'
 require 'curb'
 
