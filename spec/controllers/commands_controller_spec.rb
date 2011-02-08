@@ -7,8 +7,6 @@ describe CommandsController do
     request.env['HTTPS'] = 'on'
   end
 
-
-
   describe "#edit" do
     def perform_request
       get :edit, {"url" => "http://example.com",

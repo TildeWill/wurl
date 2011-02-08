@@ -1,7 +1,5 @@
 GEM
   remote: http://rubygems.org/
-  remote: http://rubygems.org/
-  remote: http://rubygems.org/
   specs:
     actionmailer (2.3.5)
       actionpack (= 2.3.5)
@@ -13,7 +11,9 @@ GEM
     activeresource (2.3.5)
       activesupport (= 2.3.5)
     activesupport (2.3.5)
+    addressable (2.2.4)
     coderay (0.9.6)
+    crack (0.1.8)
     curb (0.7.9)
     jasmine (1.0.1.1)
       json_pure (>= 1.4.3)
@@ -40,6 +40,9 @@ GEM
     selenium-rc (2.2.4)
       selenium-client (>= 1.2.18)
     sqlite3-ruby (1.2.5)
+    webmock (1.6.2)
+      addressable (>= 2.2.2)
+      crack (>= 0.1.7)
 
 PLATFORMS
   ruby
@@ -48,7 +51,9 @@ DEPENDENCIES
   coderay (= 0.9.6)
   curb (= 0.7.9)
   jasmine
+  json_pure
   rails (= 2.3.5)
   rspec
   rspec-rails
   sqlite3-ruby
+  webmock (= 1.6.2)

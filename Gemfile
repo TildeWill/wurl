@@ -9,4 +9,5 @@ group :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'sqlite3-ruby'
+  gem 'webmock', '1.6.2'
 end
