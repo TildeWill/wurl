@@ -5,6 +5,9 @@ describe CommandsController do
 
   before do
     request.env['HTTPS'] = 'on'
+    stub_request(:any, "http://example.com?foo=bar").
+        to_return(:headers => {"Location" => "http://www.google.com/", "X-XSS-Protection" => "1"})
+
   end
 
   describe "#edit" do
@@ -18,5 +21,11 @@ describe CommandsController do
       }
     end
     it_should_behave_like "requires ssl"
+
+    it "assigns the headers in colon separate capitalized format" do
+      perform_request
+
+      assigns[:response_headers].should match "<pre>Location: http://www.google.com/\nX-Xss-Protection: 1</pre>"
+    end
   end
 end

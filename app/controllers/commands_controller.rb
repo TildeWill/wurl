@@ -8,7 +8,11 @@ class CommandsController < ApplicationController
     client_params = Hash[params[:param_keys].zip(params[:param_values])]
 
     response = AnyClient.send(params[:http_method].downcase, params[:url], :headers => client_headers, :query => client_params, :body => params[:body])
-    @response_headers = CodeRay.scan(response.headers.inspect, :txt).div(:line_numbers => nil)
+    headers = []
+    response.headers.each_capitalized do |name, value|
+      headers << "#{name}: #{value}"
+    end
+    @response_headers = CodeRay.scan(headers.join("\n"), :txt).div(:line_numbers => nil)
 
     respond_to do |format|
       format.html do
