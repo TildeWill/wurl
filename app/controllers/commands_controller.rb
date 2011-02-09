@@ -8,7 +8,6 @@ class CommandsController < ApplicationController
     client_params = Hash[params[:param_keys].zip(params[:param_values])]
 
     response = AnyClient.send(params[:http_method].downcase, params[:url], :headers => client_headers, :query => client_params, :body => params[:body])
-    p response.class
     headers = []
     response.headers.each_capitalized do |name, value|
       headers << "#{name}: #{value}"
