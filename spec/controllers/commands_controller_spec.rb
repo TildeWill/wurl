@@ -6,6 +6,7 @@ describe CommandsController do
   before do
     request.env['HTTPS'] = 'on'
     stub_request(:any, "http://example.com?foo=bar").
+        with(:headers => {'User-Agent' => "Whurl/1.1 (https://whurl.heroku.com)"}).
         to_return(:headers => {"Location" => "http://www.google.com/", "X-XSS-Protection" => "1"})
 
   end
