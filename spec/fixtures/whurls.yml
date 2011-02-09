@@ -1,0 +1,11 @@
+get_with_body_headers_and_query:
+  data: |
+    ---
+    :url: http://example.com
+    :headers:
+      header_foo: header_bar
+    :query:
+      param_foo: param_bar
+    :body: zoo
+    :http_method: GET
+  hash_key: d70ejo
