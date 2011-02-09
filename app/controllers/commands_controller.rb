@@ -8,6 +8,7 @@ class CommandsController < ApplicationController
     client_params = Hash[params[:param_keys].zip(params[:param_values])]
 
     response = AnyClient.send(params[:http_method].downcase, params[:url], :headers => client_headers, :query => client_params, :body => params[:body])
+    p response.class
     headers = []
     response.headers.each_capitalized do |name, value|
       headers << "#{name}: #{value}"
@@ -16,10 +17,10 @@ class CommandsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        @api_response = AnyClient.response_html(response, :line_numbers => :table)
+        @api_response = response.html(:line_numbers => :table)
       end
       format.iphone do
-        @api_response = AnyClient.response_html(response, :line_numbers => nil)
+        @api_response = response.html(:line_numbers => nil)
       end
     end
 
