@@ -3,7 +3,17 @@ require 'httparty'
 
 module HTTParty
   class Response < HTTParty::BasicObject
-    def html(options = {:line_numbers => :table})
+    class Headers
+      def to_s
+        headers = []
+        each_capitalized do |name, value|
+          headers << "#{name}: #{value}"
+        end
+        headers.join("\n")
+      end
+    end
+
+    def to_html(options = {:line_numbers => :table})
     case content_type
       when /xml/
         CodeRay.scan(body, :xml).div(options)
