@@ -5,8 +5,8 @@ class WhurlsController < ApplicationController
   end
 
   def create
-    client_headers = Hash[params[:header_keys].zip(params[:header_values])]
-    client_params = Hash[params[:param_keys].zip(params[:param_values])]
+    client_headers = Hash[params[:header_keys].zip(params[:header_values])].delete_if { |k,_| k.blank? }
+    client_params = Hash[params[:param_keys].zip(params[:param_values])].delete_if { |k,_| k.blank? }
     whurl = Whurl.new(:data => {:headers => client_headers,
                                  :query => client_params,
                                  :body => params[:body],
