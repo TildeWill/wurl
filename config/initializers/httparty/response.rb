@@ -11,6 +11,10 @@ module HTTParty
         end
         headers.join("\n")
       end
+
+      def to_html(options = {:line_numbers => nil})
+        CodeRay.scan(to_s, :txt).div(options)
+      end
     end
 
     def to_html(options = {:line_numbers => :table})

@@ -1,4 +1,3 @@
-require 'coderay'
 class CommandsController < ApplicationController
   def new
   end
@@ -9,7 +8,7 @@ class CommandsController < ApplicationController
 
     client_response = AnyClient.send(params[:http_method].downcase, params[:url], :headers => client_headers, :query => client_params, :body => params[:body])
 
-    @response_headers = CodeRay.scan(client_response.headers.to_s, :txt).div(:line_numbers => nil)
+    @response_headers = client_response.headers.to_html
 
     respond_to do |format|
       format.html do
