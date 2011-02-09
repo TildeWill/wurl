@@ -269,6 +269,9 @@ a.contact {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+#permalink_text_box {
+    width: 200px;
+}
 
 .param_pair:first-child,
 .header_pair:first-child

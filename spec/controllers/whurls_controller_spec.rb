@@ -10,7 +10,7 @@ describe WhurlsController do
   describe "#edit" do
     before do
       @whurl = whurls(:get_with_body_headers_and_query)
-      stub_request(:get, "http://example.com/").
+      stub_request(:get, "http://example.com/?param_foo=param_bar").
           with(:headers => {'Header-Foo'=>'header_bar', 'User-Agent'=>'Whurl/1.1 (https://whurl.heroku.com)'}).
           to_return(:headers => {"Location" => "http://www.google.com/", "X-XSS-Protection" => "1"})
 
@@ -51,7 +51,7 @@ describe WhurlsController do
 
     it "redirects to the edit page" do
       whurl = Whurl.last
-      response.should redirect_to(edit_whurl_url(whurl.hash_key))
+      response.should redirect_to(short_url(whurl.hash_key))
     end
   end
 end

@@ -14,7 +14,7 @@ class WhurlsController < ApplicationController
                                  :url => params[:url]
     })
     whurl.save
-    redirect_to edit_whurl_path(whurl.hash_key)
+    redirect_to short_path(:id => whurl.hash_key)
   end
 
   def edit
