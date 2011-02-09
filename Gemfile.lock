@@ -14,7 +14,11 @@ GEM
     addressable (2.2.4)
     coderay (0.9.6)
     crack (0.1.8)
-    curb (0.7.9)
+    httmultiparty (0.2)
+      httparty (>= 0.7.3)
+      multipart-post
+    httparty (0.7.3)
+      crack (= 0.1.8)
     jasmine (1.0.1.1)
       json_pure (>= 1.4.3)
       rack (>= 1.0.0)
@@ -23,6 +27,7 @@ GEM
       selenium-client (>= 1.2.17)
       selenium-rc (>= 2.1.0)
     json_pure (1.4.6)
+    multipart-post (1.1.0)
     rack (1.0.1)
     rails (2.3.5)
       actionmailer (= 2.3.5)
@@ -49,7 +54,7 @@ PLATFORMS
 
 DEPENDENCIES
   coderay (= 0.9.6)
-  curb (= 0.7.9)
+  httmultiparty (= 0.2)
   jasmine
   json_pure
   rails (= 2.3.5)

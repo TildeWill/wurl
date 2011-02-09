@@ -6,8 +6,8 @@
 
       <div class="row">
         <div class="section_title"><span class="hTitle">URL</span></div>
-        <%= select_tag(:http_method, options_for_select(["GET", "POST", "PUT", "DELETE"], @command.http_method)) %> /
-        <%= text_field_tag('url', @command.url, :class => "long") %>
+        <%= select_tag(:http_method, options_for_select(["GET", "POST", "PUT", "DELETE"], params[:http_method])) %> /
+        <%= text_field_tag('url', params[:url], :class => "long") %>
       </div>
 
       <div class="row">
@@ -20,8 +20,8 @@
         <div id="headers">
           <%= render :partial => 'commands/whurl_input_set', :locals => {:set_name => 'header', :key => nil, :value => nil, :disabled => true} %>
           <% begin -%>
-            <%= render :partial => 'commands/whurl_input_set', :locals => {:set_name => 'header', :key => @command.header_keys.try(:shift), :value => @command.header_values.try(:shift), :disabled => false} %>
-          <% end while @command.header_keys.present? -%>
+            <%= render :partial => 'commands/whurl_input_set', :locals => {:set_name => 'header', :key => params[:header_keys].try(:shift), :value => params[:header_values].try(:shift), :disabled => false} %>
+          <% end while params[:header_keys].present? -%>
         </div>
       </div>
 
@@ -34,10 +34,20 @@
         <div id="params">
           <%= render :partial => 'whurl_input_set', :locals => {:set_name => 'param', :key => nil, :value => nil, :disabled => true} %>
           <% begin -%>
-              <%= render :partial => 'whurl_input_set', :locals => {:set_name => 'param', :key => @command.param_keys.try(:shift), :value => @command.param_values.try(:shift), :disabled => false} %>
-          <% end while @command.param_keys.present? -%>
+              <%= render :partial => 'whurl_input_set', :locals => {:set_name => 'param', :key => params[:param_keys].try(:shift), :value => params[:param_values].try(:shift), :disabled => false} %>
+          <% end while params[:param_keys].present? -%>
         </div>
       </div>
+
+      <div class="row">
+        <div class="section_title">
+          <div class="hTitle">Body</div>
+        </div>
+        <div id="post_body">
+          <%= text_area_tag('body', params[:body]) %>
+        </div>
+      </div>
+
       <input type="submit" value="Give it a Whurl!" class="submit"/>
   <% end %>
 </div>

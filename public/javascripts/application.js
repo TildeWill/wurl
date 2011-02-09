@@ -37,6 +37,15 @@ var Whurl = {
         $paramFields.slideUp(function() {
             $paramFields.remove();
         });
+    },
+    updateBodyInput: function() {
+        if($.inArray($('#http_method').val(), ["PUT", "POST"]) > -1) {
+            $('textarea#body').attr('disabled', false);
+            $('textarea#body').removeClass('textarea_disabled');
+        } else {
+            $('textarea#body').attr('disabled', true);
+            $('textarea#body').addClass('textarea_disabled');
+        }
     }
 };
 
@@ -76,4 +85,9 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('#http_method').change(function() {
+        Whurl.updateBodyInput();
+    });
+    Whurl.updateBodyInput();
 });

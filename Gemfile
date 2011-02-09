@@ -1,6 +1,6 @@
 source :rubygems
 gem 'rails', '2.3.5'
-gem 'curb', '0.7.9'
+gem 'httmultiparty', '0.2'
 gem 'coderay', '0.9.6'
 gem 'json_pure'
 

@@ -61,6 +61,16 @@ input.four {
     width: 350px;
 }
 
+textarea#body {
+    width: 610px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.textarea_disabled {
+    background-color: lightgray;
+}
+
 body {
     background-color: #B2B5BE;
 	background-image:url('/images/bg_new.png');
