@@ -19,11 +19,10 @@
         </div>
         <div id="headers">
           <%= render :partial => 'input_set', :locals => {:set_name => 'header', :key => nil, :value => nil, :disabled => true} %>
-          <% keys = @whurl.data[:headers].try(:keys) || [] -%>
-          <% values = @whurl.data[:headers].try(:values) || [] -%>
-          <% begin -%>
-            <%= render :partial => 'input_set', :locals => {:set_name => 'header', :key => keys.try(:shift), :value => values.try(:shift), :disabled => false} %>
-          <% end while keys.present? -%>
+          <% @whurl.data[:headers].each do |key, value| -%>
+            <%= render :partial => 'input_set', :locals => {:set_name => 'header', :key => key, :value => value, :disabled => false} %>
+          <% end -%>
+          <%= render :partial => 'input_set', :locals => {:set_name => 'header', :key => nil, :value => nil, :disabled => false} %>
         </div>
       </div>
 
@@ -35,11 +34,10 @@
         </div>
         <div id="params">
           <%= render :partial => 'input_set', :locals => {:set_name => 'param', :key => nil, :value => nil, :disabled => true} %>
-          <% keys = @whurl.data[:query].try(:keys) || [] -%>
-          <% values = @whurl.data[:query].try(:values) || [] -%>
-          <% begin -%>
-              <%= render :partial => 'input_set', :locals => {:set_name => 'param', :key => keys.try(:shift), :value => values.try(:shift), :disabled => false} %>
-          <% end while keys.present? -%>
+          <% @whurl.data[:query].each do |key, value| -%>
+              <%= render :partial => 'input_set', :locals => {:set_name => 'param', :key => key, :value => value, :disabled => false} %>
+          <% end -%>
+          <%= render :partial => 'input_set', :locals => {:set_name => 'param', :key => nil, :value => nil, :disabled => false} %>
         </div>
       </div>
 

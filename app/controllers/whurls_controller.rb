@@ -1,7 +1,7 @@
 class WhurlsController < ApplicationController
   def new
     @whurl = Whurl.new
-    @whurl.data = {}
+    @whurl.data = {:headers => {}, :query => {}}
   end
 
   def create
