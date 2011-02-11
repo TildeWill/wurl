@@ -19,7 +19,7 @@ module HTTParty
     end
 
     def to_html(options = {:line_numbers => :table})
-      return nil unless body.present?
+      return "<pre>(Empty)</pre>" unless body.present?
       case content_type
         when /xml/
           CodeRay.scan(body, :xml).div(options)
