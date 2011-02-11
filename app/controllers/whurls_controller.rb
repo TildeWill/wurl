@@ -40,7 +40,7 @@ class WhurlsController < ApplicationController
     end
 
   rescue Exception => e
-    @api_response = e.message + "\n\n" + e.backtrace.join("\n")
+    @api_response = e.message + "<br />\n<br />\n" + e.backtrace.join("<br />\n") + client_response
   end
 end
 
