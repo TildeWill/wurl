@@ -1,5 +1,5 @@
-ActionController::Routing::Routes.draw do |map|
-  map.root :controller => "whurls", :action => 'new'
-  map.resources :whurls
-  map.short "/:id", :controller => 'whurls', :action => 'edit'
+WhurlApp::Application.routes.draw do
+  root :to => 'whurls#new'
+  resources :whurls
+  match '/:id' => 'whurls#edit', :as => :short
 end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe WhurlsController do
-  integrate_views
+  render_views
 
   before do
     request.env['HTTPS'] = 'on'

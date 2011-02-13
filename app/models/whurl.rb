@@ -1,9 +1,9 @@
 class Whurl < ActiveRecord::Base
   serialize :data
 
-  def after_initialize
+  after_initialize {
     generate_hash_key if new_record?
-  end
+  }
 
   def generate_hash_key
     upper_bound = 36**6 -1 #max 6 characters

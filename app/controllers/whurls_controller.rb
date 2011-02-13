@@ -28,19 +28,19 @@ class WhurlsController < ApplicationController
                                      :body => @whurl.data[:body]
     )
 
-    @response_headers = client_response.headers.to_html
+    @response_headers = client_response.headers.to_html.html_safe
 
     respond_to do |format|
       format.html do
-        @api_response = client_response.to_html(:line_numbers => :table)
+        @api_response = client_response.to_html(:line_numbers => :table).html_safe
       end
       format.iphone do
-        @api_response = client_response.to_html(:line_numbers => nil)
+        @api_response = client_response.to_html(:line_numbers => nil).html_safe
       end
     end
 
   rescue Exception => e
-    @api_response = "<pre>" + e.message + "\n\n" + e.backtrace.join("\n") + "</pre>"
+    @api_response = ("<pre>" + e.message + "\n\n" + e.backtrace.join("\n") + "</pre>").html_safe
   end
 end
 
