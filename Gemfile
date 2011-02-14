@@ -2,7 +2,7 @@ source :rubygems
 gem 'rails', '3.0.4'
 gem 'httmultiparty', '0.2'
 gem 'coderay', '0.9.6'
-gem 'json_pure'
+gem 'json', '1.5.1'
 
 group :development, :test do
   gem 'mysql', '2.8.1'
@@ -16,6 +16,5 @@ group :test do
   gem 'jasmine'
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'sqlite3-ruby'
   gem 'webmock', '1.6.2'
 end

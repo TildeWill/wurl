@@ -1,4 +1,4 @@
-require 'json/pure'
+require 'json'
 require 'coderay'
 require 'httparty'
 
