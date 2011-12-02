@@ -2,3 +2,4 @@
 log/*
 db/schema.rb
 db/*.sqlite3
+config/database.yml
