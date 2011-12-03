@@ -5,7 +5,7 @@ gem 'coderay', '0.9.6'
 gem 'json', '1.5.1'
 
 group :development, :test do
-  gem 'heroku'
+  #gem 'heroku' #heroku doesn't like this gem even if it is in the dev/test group
   gem 'mysql', '2.8.1'
 end
 
