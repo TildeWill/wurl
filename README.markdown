@@ -9,6 +9,10 @@ An API Playground. This code is deployed and available for public use.
     gem install whurl_engine
     rake whurl_engine:install:migrations
     rake db:migrate
+
+Then in your main app's routes.rb file, add this:
+
+    mount WhurlEngine::Engine => "/whurl", :as => "whurl_engine"
 ## Goals
 
 * Use HTTPS for all requests, assume all users are passing sensitive data
