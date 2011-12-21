@@ -7,11 +7,12 @@ require "whurl_engine/version"
 Gem::Specification.new do |s|
   s.name        = "whurl_engine"
   s.version     = WhurlEngine::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of WhurlEngine."
-  s.description = "TODO: Description of WhurlEngine."
+  s.authors     = ["Will Read"]
+  s.email       = ["will.read@gmail.com"]
+  s.homepage    = ""
+  s.summary     = "A web interface to curl for demonstrating APIs to muggles"
+  s.description = "Whurl is a mountable engine for Rails 3.1+ apps allowing
+                  you to show the functionality of your API. You can save API calls and share them with your team or the public."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
@@ -19,5 +20,5 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.1.3"
   # s.add_dependency "jquery-rails"
 
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "mysql", "~> 2.8.1"
 end
