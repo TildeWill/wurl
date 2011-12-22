@@ -17,12 +17,3 @@
   Share this Whurl:
   %input#permalink_text_box{:type => "text", :value => request.url, :readonly => true}
   =clippy(request.url, "#E0CF89")
--#= javascript_include_tag("zero_clipboard/ZeroClipboard")
--#:javascript
--#  $(document).ready(function() {
--#      ZeroClipboard.setMoviePath( '/assets/zero_clipboard/ZeroClipboard10.swf' );
--#      var clip = new ZeroClipboard.Client();
--#      clip.setHandCursor(true);
--#      clip.setText($('.CodeRay td.code').text());
--#      clip.glue('copy_to_clipboard');
--#  });
