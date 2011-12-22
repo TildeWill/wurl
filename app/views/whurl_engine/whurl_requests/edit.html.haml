@@ -1,3 +1,5 @@
+= javascript_include_tag("whurl_engine/ZeroClipboard")
+
 - unless @description.blank?
   .response_section
     .response_section_title Description
@@ -9,11 +11,19 @@
     = find_and_preserve(@response_headers)
 .response_section
   .response_section_title
-    Response Body #{image_tag("clipboard.png", :id => "copy_to_clipboard")}
+    Response Body #{image_tag("whurl_engine/clipboard.png", :id => "copy_to_clipboard")}
   .response_container
-    = find_and_preserve(@api_response)#.force_encoding(main_app.config.encoding))
+    = find_and_preserve(@api_response)#.force_encoding(WhurlEngine::Application.config.encoding))
 = render :partial => 'form'
 #permalink_container
   Share this Whurl:
   %input#permalink_text_box{:type => "text", :value => request.url, :readonly => true}
-  =clippy(request.url, "#E0CF89")
+  =clippy(request.url, "#F7E391")
+:javascript
+  $(function() {
+      ZeroClipboard.setMoviePath('#{asset_path('whurl_engine/ZeroClipboard10.swf')}' );
+      var clip = new ZeroClipboard.Client();
+      clip.setHandCursor(true);
+      clip.setText($('.CodeRay td.code').text());
+      clip.glue('copy_to_clipboard');
+  });

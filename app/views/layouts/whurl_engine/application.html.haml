@@ -5,6 +5,12 @@
     = javascript_include_tag("whurl_engine/jquery-1.7.1.min")
     = javascript_include_tag("whurl_engine/jquery-ui-1.8.16.min")
     = javascript_include_tag("whurl_engine/application")
+    = javascript_include_tag("whurl_engine/ZeroClipboard")
+    :javascript
+      $(document).ready(function() {
+          ZeroClipboard.setMoviePath('#{asset_path('whurl_engine/ZeroClipboard10.swf')}');
+      });
+
     %title Whurl - API Console
     :javascript
       $(function() {
