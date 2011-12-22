@@ -1,0 +1,28 @@
+- unless @description.blank?
+  .response_section
+    .response_section_title Description
+    #edit_description
+      = @description
+.response_section
+  .response_section_title Response Headers
+  #response_header
+    = find_and_preserve(@response_headers)
+.response_section
+  .response_section_title
+    Response Body #{image_tag("clipboard.png", :id => "copy_to_clipboard")}
+  .response_container
+    = find_and_preserve(@api_response)#.force_encoding(main_app.config.encoding))
+= render :partial => 'form'
+#permalink_container
+  Share this Whurl:
+  %input#permalink_text_box{:type => "text", :value => request.url, :readonly => true}
+  =clippy(request.url, "#E0CF89")
+-#= javascript_include_tag("zero_clipboard/ZeroClipboard")
+-#:javascript
+-#  $(document).ready(function() {
+-#      ZeroClipboard.setMoviePath( '/assets/zero_clipboard/ZeroClipboard10.swf' );
+-#      var clip = new ZeroClipboard.Client();
+-#      clip.setHandCursor(true);
+-#      clip.setText($('.CodeRay td.code').text());
+-#      clip.glue('copy_to_clipboard');
+-#  });

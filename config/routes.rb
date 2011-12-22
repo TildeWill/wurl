@@ -1,8 +1,5 @@
 WhurlEngine::Engine.routes.draw do
-  get "api_call/new"
-
-  get "api_call/create"
-
-  get "api_call/edit"
-
+  root :to => 'whurl_requests#new'
+  resources :whurl_requests
+  match '/:slug' => 'whurl_requests#edit', :as => :short
 end

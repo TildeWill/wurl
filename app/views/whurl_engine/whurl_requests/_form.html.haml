@@ -1,0 +1,51 @@
+- if @whurl.errors.any?
+  %ul#errors
+    - @whurl.errors.full_messages.each do |msg|
+      %li= msg
+.top
+  = form_for(@whurl, :method => :post, :url => {:action => :create}) do |f|
+    .row
+      .section_title
+        %span.hTitle URL
+      = f.select(:http_method, options_for_select(["GET", "POST", "PUT", "DELETE"], @whurl.http_method))
+      \/
+      \#{f.text_field(:url, :class => "long")}
+    .row
+      .section_title
+        .hTitle
+          %a#trashheaders= image_tag('whurl_engine/delete.png', :class => 'action_button', :title => "trash all headers")
+          %a#add_header= image_tag('whurl_engine/add.png', :class => 'action_button', :title => "add another header")
+          Headers
+      #headers
+        = render :partial => 'input_set', :locals => {:set_name => 'header', :f => f, :key => nil, :value => nil, :disabled => true}
+        - @whurl.headers.each do |key, value|
+          = render :partial => 'input_set', :locals => {:set_name => 'header', :f => f, :key => key, :value => value, :disabled => false}
+        = render :partial => 'input_set', :locals => {:set_name => 'header', :f => f, :key => nil, :value => nil, :disabled => false}
+    .row
+      .section_title
+        .hTitle
+          %a#trashqueries= image_tag('whurl_engine/delete.png', :class => 'action_button', :title => "trash all parameters")
+          %a#add_param= image_tag('whurl_engine/add.png', :class => 'action_button', :title => "add another parameter")
+          Query
+      #params
+        = render :partial => 'input_set', :locals => {:set_name => 'param', :f => f, :key => nil, :value => nil, :disabled => true}
+        - @whurl.query.each do |key, value|
+          = render :partial => 'input_set', :locals => {:set_name => 'param', :f => f, :key => key, :value => value, :disabled => false}
+        = render :partial => 'input_set', :locals => {:set_name => 'param', :f => f, :key => nil, :value => nil, :disabled => false}
+    .row
+      .section_title
+        .hTitle Body
+      #post_body
+        = f.text_area(:body)
+    .row
+      .section_title
+        %span.hTitle Description (optional)
+      #post_description
+        = f.text_area(:description)
+    .row
+      .section_title
+        %span.hTitle Custom URL (optional)
+      #custom_url
+        = f.text_field(:custom_url, :value => nil)
+    %input.submit{:type => "submit", :value => "Give it a Whurl!"}/
+    %input#clearFields.reset{:type => "button", :value => "Reset"}/

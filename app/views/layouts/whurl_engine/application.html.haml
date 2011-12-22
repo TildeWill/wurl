@@ -1,15 +1,10 @@
 !!!
 %html
   %head
-    %link{:href => "/favicon.ico", :rel => "icon", :type => "image/vnd.microsoft.icon"}/
-    %link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
-    %link{:href => "/favicon.ico", :rel => "apple-touch-icon-precomposed"}
-    = stylesheet_link_tag('whurls')
-    = stylesheet_link_tag('jquery.ui.autocomplete')
-    = stylesheet_link_tag('code')
-    = javascript_include_tag("jquery-1.7.1.min")
-    = javascript_include_tag("jquery-ui-1.8.16.min")
-    = javascript_include_tag("application")
+    = stylesheet_link_tag("whurl_engine/application")
+    = javascript_include_tag("whurl_engine/jquery-1.7.1.min")
+    = javascript_include_tag("whurl_engine/jquery-ui-1.8.16.min")
+    = javascript_include_tag("whurl_engine/application")
     %title Whurl - API Console
     :javascript
       $(function() {
@@ -30,7 +25,7 @@
         - if flash[:warning]
           %span.warning= flash[:warning]
     #wrapper
-      =link_to(image_tag("logo.png", :height => "147", :width => "521", :class => 'logo'), root_url)
+      =link_to(image_tag("whurl_engine/logo.png", :height => "147", :width => "521", :class => 'logo'), root_url)
       %p.tagline The Whurl Console makes HTTP requests against the API of your choice.
       .containerTop  
       #container
@@ -49,7 +44,7 @@
               Designed by
               = succeed "." do
                 %a.meadowfete{:href => "http://meadowfete.com", :target => "_blank"} Meadowfete
-      =image_tag("container_bottom.png", :height => "56", :width => "980")
+      =image_tag("whurl_engine/container_bottom.png", :height => "56", :width => "980")
       %ol#saved_whurls
-        - Whurl.saved.each do |whurl|
+        - WhurlEngine::WhurlRequest.saved.each do |whurl|
           %li=link_to(whurl.custom_url, short_path(:slug => whurl.custom_url))
