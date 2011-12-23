@@ -10,3 +10,4 @@ tmp
 .DS_Store
 app/.DS_Store
 .sass-cache/
+*.gem

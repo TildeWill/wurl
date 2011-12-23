@@ -1,3 +1,5 @@
+require "whurl_engine/version"
+
 module WhurlEngine
   class WhurlRequestsController < ApplicationController
     def new
