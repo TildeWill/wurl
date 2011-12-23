@@ -25,7 +25,7 @@ module WhurlEngine
         @whurl = WhurlRequest.find_by_custom_url(params[:slug])
       end
 
-      client_headers = {'User-Agent' => "Whurl/#{WhurlEngine::VERSION} (https://github.com/tildewill/whurl_pub)"}.merge(@whurl.headers)
+      client_headers = {'User-Agent' => "Whurl/#{WhurlEngine::VERSION} (https://github.com/tildewill/whurl_engine)"}.merge(@whurl.headers)
 
       client_response = AnyClient.send(@whurl.http_method.downcase,
                                        @whurl.url,

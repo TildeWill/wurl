@@ -7,21 +7,23 @@ An API Playground.
 * Gives pretty-printed output and the browser saves your input making it easy to reuse
 
 ## Installation
-    gem install whurl_engine
+
+Add the whurl_engine gem to your Gemfile:
+
+    gem 'whurl_engine'
+
+Use the built-in rake tasks to copy the migrations to your app and migrate your db:
+
     rake whurl_engine:install:migrations
     rake db:migrate
 
-Then in your main app's routes.rb file, add this:
+Then in your main app's routes.rb file, add this to make the whurl_engine routable:
 
     mount WhurlEngine::Engine => "/whurl", :as => "whurl_engine"
 
 Finally, look at your new API playground by starting your rails server and hitting up the right URL:
 
     http://localhost:3000/whurl
-
-Or, to provide a clearer picture for your developer community, you may want to do this:
-
-    mount WhurlEngine::Engine => "/api", :as => "api"
 
 ## Customize Whurl to Match Your Application
 

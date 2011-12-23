@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = WhurlEngine::VERSION
   s.authors     = ["Will Read"]
   s.email       = ["will.read@gmail.com"]
-  s.homepage    = "https://github.com/TildeWill/whurl_pub"
+  s.homepage    = "https://github.com/TildeWill/whurl_engine"
   s.summary     = "A web interface to curl for demonstrating APIs to muggles"
   s.description = "Whurl is a mountable engine for Rails 3.1+ apps allowing
                   you to show the functionality of your API. You can save API calls and share them with your team or the public."
