@@ -1,14 +1,14 @@
 PATH
   remote: .
   specs:
-    whurl_engine (1.2.0)
-      coderay (= 0.9.6)
+    whurl_engine (1.2.2)
+      coderay (~> 0.9.6)
       coffee-script
-      haml (= 3.1.4)
-      httmultiparty (= 0.2)
-      json (= 1.5.1)
+      haml (~> 3.1.4)
+      httmultiparty (~> 0.2)
+      json (>= 1.5.1)
       rails (~> 3.1.3)
-      sass
+      sass (~> 3.1.10)
       uglifier
 
 GEM
@@ -133,7 +133,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  heroku (= 2.15.1)
+  heroku
   jquery-rails
   mysql (~> 2.8.1)
   whurl_engine!
