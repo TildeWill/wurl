@@ -8,3 +8,6 @@ gemspec
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
 
+gem 'rspec', '~> 2.7.0'
+gem 'rspec-rails', '~> 2.7.0'
+
