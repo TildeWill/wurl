@@ -20,10 +20,8 @@ module WhurlEngine
     end
 
     def edit
-      @whurl = WhurlRequest.find_by_hash_key(params[:slug])
-      if @whurl.nil?
-        @whurl = WhurlRequest.find_by_custom_url(params[:slug])
-      end
+      @whurl = WhurlRequest.where("custom_url = ? OR hash_key = ?", params[:slug], params[:slug]).first
+
 
       client_headers = {'User-Agent' => "Whurl/#{WhurlEngine::VERSION} (https://github.com/tildewill/whurl_engine)"}.merge(@whurl.headers)
 
@@ -40,9 +38,6 @@ module WhurlEngine
         format.html do
           @api_response = client_response.to_html(:line_numbers => :table).html_safe
         end
-        #format.iphone do
-        #  @api_response = client_response.to_html(:line_numbers => nil).html_safe
-        #end
       end
 
     rescue Exception => e
