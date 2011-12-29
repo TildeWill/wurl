@@ -1,10 +1,9 @@
 = javascript_include_tag("whurl_engine/ZeroClipboard")
-
-- unless @description.blank?
+- unless @whurl.description.blank?
   .response_section
     .response_section_title Description
     #edit_description
-      = @description
+      = @whurl.description
 .response_section
   .response_section_title Response Headers
   #response_header
@@ -13,7 +12,7 @@
   .response_section_title
     Response Body #{image_tag("whurl_engine/clipboard.png", :id => "copy_to_clipboard")}
   .response_container
-    = find_and_preserve(@api_response)#.force_encoding(WhurlEngine::Application.config.encoding))
+    = find_and_preserve(@response_body)
 = render :partial => 'form'
 #permalink_container
   Share this Whurl:

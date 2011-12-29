@@ -1,5 +1,3 @@
-require "whurl_engine/version"
-
 module WhurlEngine
   class RequestsController < ApplicationController
     def new
@@ -7,7 +5,7 @@ module WhurlEngine
     end
 
     def create
-      whurl = params[:whurl_request]
+      whurl = params[:request]
       whurl[:headers] = Hash[params[:header_keys].zip(params[:header_values])].delete_if { |k, _| k.blank? }
       whurl[:query] = Hash[params[:param_keys].zip(params[:param_values])].delete_if { |k, _| k.blank? }
       @whurl = Request.new(whurl)
@@ -21,27 +19,10 @@ module WhurlEngine
 
     def edit
       @whurl = Request.where("custom_url = ? OR hash_key = ?", params[:slug], params[:slug]).first
-
-
-      client_headers = {'User-Agent' => "Whurl/#{WhurlEngine::VERSION} (https://github.com/tildewill/whurl_engine)"}.merge(@whurl.headers)
-
-      client_response = AnyClient.send(@whurl.http_method.downcase,
-                                       @whurl.url,
-                                       :headers => client_headers,
-                                       :query => @whurl.query,
-                                       :body => @whurl.body
-      )
-
-      @response_headers = client_response.headers.to_html.html_safe
-
-      respond_to do |format|
-        format.html do
-          @api_response = client_response.to_html(:line_numbers => :table).html_safe
-        end
-      end
-
+      @response_body = @whurl.response.to_html(:line_numbers => :table).html_safe.force_encoding(Encoding.default_external).html_safe
+      @response_headers = @whurl.response.headers.to_html.html_safe
     rescue Exception => e
-      @api_response = ("<pre>" + e.message + "\n\n" + e.backtrace.join("\n") + "</pre>").html_safe
+      @response_body = ("<pre>" + e.message + "\n\n" + e.backtrace.join("\n") + "</pre>").html_safe
     end
   end
 end
