@@ -1,4 +1,4 @@
-class DropDataFromWhurlRequestss < ActiveRecord::Migration
+class DropDataFromRequests < ActiveRecord::Migration
   def self.up
     remove_column :whurl_engine_whurl_requests, :data
   end

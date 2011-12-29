@@ -82,13 +82,13 @@ input.four {
     width: 350px;
 }
 
-textarea#whurl_request_body {
+textarea#request_body {
     width: 610px;
     height: 55px;
     margin-bottom: 10px;
 }
 
-textarea#whurl_request_description {
+textarea#request_description {
     width: 610px;
     height: 55px;
     margin-bottom: 10px;
@@ -98,7 +98,7 @@ textarea#whurl_request_description {
     background-color: lightgray;
 }
 
-#whurl_request_custom_url {
+#request_custom_url {
     width: 610px;
 }
 
@@ -183,7 +183,7 @@ body {
     margin-top: 20px;
 }
 
-#whurl_request_description {
+#request_description {
     background-color: white;
     overflow-x: auto;
 }

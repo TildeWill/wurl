@@ -1,16 +1,16 @@
 require "whurl_engine/version"
 
 module WhurlEngine
-  class WhurlRequestsController < ApplicationController
+  class RequestsController < ApplicationController
     def new
-      @whurl = WhurlRequest.new
+      @whurl = Request.new
     end
 
     def create
       whurl = params[:whurl_request]
       whurl[:headers] = Hash[params[:header_keys].zip(params[:header_values])].delete_if { |k, _| k.blank? }
       whurl[:query] = Hash[params[:param_keys].zip(params[:param_values])].delete_if { |k, _| k.blank? }
-      @whurl = WhurlRequest.new(whurl)
+      @whurl = Request.new(whurl)
 
       if @whurl.save
         redirect_to short_path(:slug => @whurl.slug) and return
@@ -20,7 +20,7 @@ module WhurlEngine
     end
 
     def edit
-      @whurl = WhurlRequest.where("custom_url = ? OR hash_key = ?", params[:slug], params[:slug]).first
+      @whurl = Request.where("custom_url = ? OR hash_key = ?", params[:slug], params[:slug]).first
 
 
       client_headers = {'User-Agent' => "Whurl/#{WhurlEngine::VERSION} (https://github.com/tildewill/whurl_engine)"}.merge(@whurl.headers)

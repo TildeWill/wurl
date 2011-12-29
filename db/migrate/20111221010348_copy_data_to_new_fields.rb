@@ -1,6 +1,6 @@
 class CopyDataToNewFields < ActiveRecord::Migration
   def self.up
-    WhurlEngine::WhurlRequest.all.each do |whurl|
+    WhurlEngine::Request.all.each do |whurl|
       return if whurl.data.nil?
       whurl.http_method = whurl.data[:http_method]
       whurl.query = whurl.data[:query]
@@ -19,7 +19,7 @@ class CopyDataToNewFields < ActiveRecord::Migration
   end
 
   def self.down
-    WhurlEngine::WhurlRequest.all.each do |whurl|
+    WhurlEngine::Request.all.each do |whurl|
       whurl.data ||= {}
       whurl.data[:http_method] = whurl.http_method
       whurl.data[:query] = whurl.query

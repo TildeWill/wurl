@@ -1,5 +1,5 @@
 module WhurlEngine
-  class WhurlRequest < ActiveRecord::Base
+  class Request < ActiveRecord::Base
     serialize :data
     serialize :query, Hash
     serialize :headers, Hash

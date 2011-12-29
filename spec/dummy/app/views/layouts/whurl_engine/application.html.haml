@@ -52,5 +52,5 @@
                 %a.meadowfete{:href => "http://meadowfete.com", :target => "_blank"} Meadowfete
       =image_tag("whurl_engine/container_bottom.png", :height => "56", :width => "980")
       %ol#saved_whurls
-        - WhurlEngine::WhurlRequest.saved.each do |whurl|
+        - WhurlEngine::Request.saved.each do |whurl|
           %li=link_to(whurl.custom_url, short_path(:slug => whurl.custom_url))
