@@ -23,16 +23,21 @@ module WhurlEngine
       @response = AnyClient.send(http_method.downcase,
                                  url,
                                  :headers => {'User-Agent' => "Whurl/#{WhurlEngine::VERSION} (https://github.com/tildewill/whurl_engine)"}.merge(headers),
-                                 :query => query,
+                                 :query => query.blank? ? nil : query,
                                  :body => body
       )
 
+    end
+
+    def to_s
+      response.request.to_s
     end
 
     private
 
     class AnyClient
       include HTTMultiParty
+      debug_output $stderr
     end
 
     def default_values
