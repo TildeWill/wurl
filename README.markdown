@@ -46,6 +46,8 @@ To do so, simply create a new application.html.haml in the corresponding directo
 
 ## Goals for this project
 
+Whurl is inspired by [hurl](http://hurl.it/), and the [Apigee Console](https://apigee.com/console/)
+
 * Use HTTPS for all requests, assume all users are passing sensitive data
 * Provide a usable tool for working with APIs
 * Further the use of Whurl through viral "whurls" - the urls that represent an API request
