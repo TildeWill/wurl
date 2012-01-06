@@ -37,7 +37,7 @@ module WhurlEngine
 
     class AnyClient
       include HTTMultiParty
-      debug_output $stderr
+      #debug_output $stderr
     end
 
     def default_values

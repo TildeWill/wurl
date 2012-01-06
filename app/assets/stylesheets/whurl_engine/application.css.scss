@@ -5,3 +5,31 @@
  *= require_self
  *= require_tree
 */
+body {
+    font: 13px/1.5 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+table {
+    width: 100%;
+    border-top: 1px solid #EEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 15px;
+
+    caption {
+        text-align: left;
+        font-size: 20px;
+        .button {
+            font-size: 10px;
+        }
+    }
+    th, td{
+        text-align: left;
+        border-bottom: 1px solid #EEE;
+    }
+}

@@ -2,13 +2,21 @@
 %html
   %head
     = stylesheet_link_tag("whurl_engine/application")
+    = stylesheet_link_tag("whurl_engine/trontastic/jquery-ui-1.8.16.custom")
     = javascript_include_tag("whurl_engine/jquery-1.7.1.min")
     = javascript_include_tag("whurl_engine/jquery-ui-1.8.16.min")
+    = javascript_include_tag("whurl_engine/jquery-ujs")
+    = javascript_include_tag("whurl_engine/jquery.livequery")
     = javascript_include_tag("whurl_engine/application")
     = javascript_include_tag("whurl_engine/ZeroClipboard")
     :javascript
-      $(document).ready(function() {
-          ZeroClipboard.setMoviePath('#{asset_path('whurl_engine/ZeroClipboard10.swf')}');
+      $(function() {
+        ZeroClipboard.setMoviePath('#{asset_path('whurl_engine/ZeroClipboard10.swf')}');
+        $( "input:submit, button, .button").livequery(function() {
+          $(this).button();
+          $("button.popup").button('option', 'icons', {primary: 'ui-icon-newwin'});
+          $("a.destroy").button('option', 'icons', {primary: 'ui-icon-closethick'});
+          $("a.edit").button('option', 'icons', {primary: 'ui-icon-pencil'});});
       });
 
     %title Whurl - API Console
@@ -30,27 +38,13 @@
           %span.message= flash[:message]
         - if flash[:warning]
           %span.warning= flash[:warning]
-    #wrapper
-      =link_to(image_tag("whurl_engine/logo.png", :height => "147", :width => "521", :class => 'logo'), root_url)
-      %p.tagline The Whurl Console makes HTTP requests against the API of your choice.
-      .containerTop  
-      #container
-        .content
-          = yield
-        .footer
-          %p
-            Created by
-            = succeed "." do
-              %a.contact{:href => "mailto:will.read@gmail.com"} Will Read
-            See it on
-            = succeed "." do
-              %a{:href => "https://github.com/tildewill/whurl"} Github
-            %br/
-            %span.meadowfete
-              Designed by
-              = succeed "." do
-                %a.meadowfete{:href => "http://meadowfete.com", :target => "_blank"} Meadowfete
-      =image_tag("whurl_engine/container_bottom.png", :height => "56", :width => "980")
-      %ol#saved_whurls
-        - WhurlEngine::Request.saved.each do |whurl|
-          %li=link_to(whurl.custom_url, short_path(:slug => whurl.custom_url))
+    .content
+      = yield
+    .footer
+      %p
+        Created by
+        = succeed "." do
+          %a.contact{:href => "mailto:will.read@gmail.com"} Will Read
+        See it on
+        = succeed "." do
+          %a{:href => "https://github.com/tildewill/whurl"} Github
