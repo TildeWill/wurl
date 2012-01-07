@@ -14,7 +14,7 @@
         ZeroClipboard.setMoviePath('#{asset_path('whurl_engine/ZeroClipboard10.swf')}');
         $( "input:submit, button, .button").livequery(function() {
           $(this).button();
-          $("button.popup").button('option', 'icons', {primary: 'ui-icon-newwin'});
+          $("a.popup").button('option', 'icons', {primary: 'ui-icon-newwin'});
           $("a.destroy").button('option', 'icons', {primary: 'ui-icon-closethick'});
           $("a.edit").button('option', 'icons', {primary: 'ui-icon-pencil'});});
           $("a.destroy, a.edit").button('option', 'text', false);

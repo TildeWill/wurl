@@ -1,0 +1,7 @@
+$(".edit_whurl_engine_category").dialog('close');
+$(".edit_whurl_engine_category").remove();
+
+- content = escape_javascript(render(@category));
+target_row = $("#category_#{@category.id}");
+target_row.replaceWith("#{content}");
+$("#category_#{@category.id}").effect("highlight", {}, 3000);

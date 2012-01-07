@@ -1,6 +1,5 @@
-= render :partial => 'form'
 %h1 REST API Resources
-= button_tag('Add Category', :onclick => "$('#new_whurl_engine_category').dialog('open');", :class => 'popup')
+= link_to('Add Category', new_category_path, :remote => true, :class => 'popup button')
 .categories
 - @categories.each do |category|
   = render(category)
