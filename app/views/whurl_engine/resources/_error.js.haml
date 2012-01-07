@@ -1,0 +1,2 @@
+- msg = @resource.errors.map {|k,v| "#{k.to_s.titleize} #{v}"}.join('\n')
+alert("#{msg}")

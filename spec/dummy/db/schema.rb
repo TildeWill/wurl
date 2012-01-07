@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106190508) do
+ActiveRecord::Schema.define(:version => 20120107011500) do
 
   create_table "whurl_engine_categories", :force => true do |t|
     t.string   "name"
@@ -34,6 +34,19 @@ ActiveRecord::Schema.define(:version => 20120106190508) do
   end
 
   add_index "whurl_engine_requests", ["hash_key"], :name => "index_whurls_on_hash_key", :unique => true
+
+  create_table "whurl_engine_resources", :force => true do |t|
+    t.integer  "category_id"
+    t.string   "base_uri"
+    t.string   "relative_path"
+    t.string   "http_method"
+    t.text     "description"
+    t.boolean  "rate_limited"
+    t.boolean  "requires_authentication"
+    t.text     "response_formats"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "whurl_engine_responses", :force => true do |t|
     t.integer  "request_id"

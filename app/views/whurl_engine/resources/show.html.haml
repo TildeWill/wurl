@@ -1,0 +1,12 @@
+%h1= "#{@resource.http_method.upcase} #{@resource.relative_path}"
+%p= "Updated on #{@resource.updated_at}"
+%p= Rinku.auto_link(@resource.description, :all, 'target=_blank').html_safe
+
+%h2 Resource URL
+= File.join(@resource.base_uri, @resource.relative_path)
+
+%h2 Parameters
+%table
+  %tbody
+
+%h2= "Example Request".pluralize(2)

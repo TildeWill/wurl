@@ -10,12 +10,8 @@ module WhurlEngine
 
     def create
       @category = WhurlEngine::Category.new(params[:category])
-      respond_to do |format|
-        if @category.save
-          format.js
-        else
-          format.js { render :partial => 'error' }
-        end
+      unless @category.save
+        render :partial => 'error'
       end
     end
 
@@ -25,23 +21,15 @@ module WhurlEngine
 
     def update
       @category = WhurlEngine::Category.find(params[:id])
-      respond_to do |format|
-        if @category.update_attributes(params[:category])
-          format.js
-        else
-          format.js { render :partial => 'error' }
-        end
+      unless @category.update_attributes(params[:category])
+        render :partial => 'error'
       end
     end
 
     def destroy
       @category = WhurlEngine::Category.find(params[:id])
-      respond_to do |format|
-        if @category.destroy
-          format.js
-        else
-          format.js { render :partial => 'error' }
-        end
+      unless @category.destroy
+        render :partial => 'error'
       end
     end
   end
