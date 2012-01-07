@@ -1,0 +1,3 @@
+- content = escape_javascript(render(:partial => 'form', :locals => {:parameter => @parameter}))
+$('.content').append("#{content}");
+$('.edit_whurl_engine_parameter').dialog('open');

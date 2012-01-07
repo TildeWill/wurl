@@ -11,11 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120107011500) do
+ActiveRecord::Schema.define(:version => 20120107065652) do
 
   create_table "whurl_engine_categories", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "whurl_engine_parameters", :force => true do |t|
+    t.integer  "resource_id"
+    t.string   "name"
+    t.string   "example_value"
+    t.text     "description"
+    t.boolean  "required"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

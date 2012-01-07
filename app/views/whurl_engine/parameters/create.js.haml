@@ -1,0 +1,5 @@
+$(".new_whurl_engine_parameter").dialog('close');
+
+- content = escape_javascript(render(@parameter))
+$('.parameters').append("#{content}");
+$("#parameter_#{@parameter.id}").effect("highlight", {}, 3000);

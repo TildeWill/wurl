@@ -5,8 +5,13 @@
 %h2 Resource URL
 = File.join(@resource.base_uri, @resource.relative_path)
 
-%h2 Parameters
+%h2
+  Parameters
+  = link_to('Add Parameter', new_parameter_path(:resource_id => @resource.id), :remote => true, :class => 'popup button')
+
 %table
-  %tbody
+  %tbody.parameters
+    - @resource.parameters.each do |parameter|
+      = render(parameter)
 
 %h2= "Example Request".pluralize(2)
