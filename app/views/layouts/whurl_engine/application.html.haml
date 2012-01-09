@@ -12,7 +12,7 @@
     :javascript
       $(function() {
         ZeroClipboard.setMoviePath('#{asset_path('whurl_engine/ZeroClipboard10.swf')}');
-        $( "input:submit, button, .button").livequery(function() {
+        $( "input:submit, input:button, button, .button").livequery(function() {
           $(this).button();
           $("a.popup").button('option', 'icons', {primary: 'ui-icon-newwin'});
           $("a.destroy").button('option', 'icons', {primary: 'ui-icon-closethick'});

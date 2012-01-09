@@ -4,5 +4,5 @@ WhurlEngine::Engine.routes.draw do
   resources :parameters, :except => [:index, :show]
   resources :requests
   resources :resources, :except => :index
-  match '/:slug' => 'requests#edit', :as => :short
+  match '/:slug' => 'requests#show', :as => :short
 end

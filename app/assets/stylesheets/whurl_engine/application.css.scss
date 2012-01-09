@@ -35,8 +35,11 @@ table {
 }
 
 .button {
-    min-width: 26px;
-    min-height: 26px;
     display: inline-block;
     margin: 0 4px;
+}
+
+.icon_only {
+    width: 2.2em;
+    height: 2.2em;
 }

@@ -1,6 +1,6 @@
 %tr{:id => "resource_#{resource.id}"}
   %td
     = link_to("#{resource.http_method.upcase} #{resource.relative_path}", resource)
-    = link_to('', edit_resource_path(resource), :remote => true, :class => 'edit button')
-    = link_to( '', resource, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'destroy button')
+    = link_to('', edit_resource_path(resource), :remote => true, :class => 'edit button icon_only')
+    = link_to( '', resource, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'destroy button icon_only')
   %td=resource.description

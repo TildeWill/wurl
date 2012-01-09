@@ -3,7 +3,7 @@
 %p= Rinku.auto_link(@resource.description, :all, 'target=_blank').html_safe
 
 %h2 Resource URL
-= File.join(@resource.base_uri, @resource.relative_path)
+= @resource.url
 
 %h2
   Parameters
@@ -15,3 +15,5 @@
       = render(parameter)
 
 %h2= "Example Request".pluralize(2)
+%h2 Console
+= render(:partial => 'whurl_engine/requests/form', :locals => {:whurl_request => WhurlEngine::Request.new(:http_method => @resource.http_method, :url => @resource.url)})

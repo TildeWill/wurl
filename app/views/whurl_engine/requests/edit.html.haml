@@ -1,9 +1,9 @@
 = javascript_include_tag("whurl_engine/ZeroClipboard")
-- unless @whurl.description.blank?
+- unless request.description.blank?
   .response_section
     .response_section_title Description
     #edit_description
-      = @whurl.description
+      = request.description
 .response_section
   .response_section_title Response Headers
   #response_header

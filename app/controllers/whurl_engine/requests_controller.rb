@@ -1,28 +1,27 @@
 module WhurlEngine
   class RequestsController < ApplicationController
     def new
-      @whurl = Request.new
+      @request = Request.new
     end
 
     def create
-      whurl = params[:request]
-      whurl[:headers] = Hash[params[:header_keys].zip(params[:header_values])].delete_if { |k, _| k.blank? }
-      whurl[:query] = Hash[params[:param_keys].zip(params[:param_values])].delete_if { |k, _| k.blank? }
-      @whurl = Request.new(whurl)
+      request_params = params[:request]
+      request_params[:headers] = Hash[params[:header_keys].zip(params[:header_values])].delete_if { |k, _| k.blank? }
+      request_params[:query] = Hash[params[:param_keys].zip(params[:param_values])].delete_if { |k, _| k.blank? }
+      @request = Request.new(request_params)
 
-      if @whurl.save
-        redirect_to short_path(:slug => @whurl.slug) and return
-      else
-        render :action => "new"
+      unless @request.save
+        render :partial => "error"
       end
+      redirect_to short_path(:slug => @request.slug)
+    end
+
+    def show
+      @request = Request.find_by_hash_key(params[:slug])
     end
 
     def edit
-      @whurl = Request.where("custom_url = ? OR hash_key = ?", params[:slug], params[:slug]).first
-      @response_body = @whurl.response.to_html(:line_numbers => :table).html_safe.force_encoding(Encoding.default_external).html_safe
-      @response_headers = @whurl.response.headers.to_html.html_safe
-    rescue Exception => e
-      @response_body = ("<pre>" + e.message + "\n\n" + e.backtrace.join("\n") + "</pre>").html_safe
+      @request = Request.where("custom_url = ? OR hash_key = ?", params[:slug], params[:slug]).first
     end
   end
 end
