@@ -9,9 +9,6 @@ module WhurlEngine
 
     after_initialize :default_values
 
-    validates_uniqueness_of :custom_url, :allow_blank => true
-    validates_format_of :custom_url, :allow_blank => true, :with => /^[\w\-]+$/i, :message => "can only contain letters, numbers, hyphens and underscores."
-
     scope :saved, where("custom_url IS NOT NULL AND custom_url <> ''").order(:custom_url)
 
     def slug
@@ -31,6 +28,19 @@ module WhurlEngine
 
     def to_s
       response.request.to_s
+    end
+
+    def to_curl
+      ret_str = "curl \"#{url}\" --include --request #{http_method.upcase}"
+      headers.each do |k, v|
+        ret_str << " -H #{k}:#{v}"
+      end
+      if ['put', 'post'].include?(http_method.downcase)
+        ret_str << " --data \"#{body}\""
+      end
+
+      ret_str << " --head" if http_method.downcase == 'head'
+      ret_str
     end
 
     private

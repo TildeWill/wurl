@@ -26,6 +26,28 @@ describe WhurlEngine::Request do
     end
   end
 
+  describe "to_curl" do
+    describe "GET" do
+      it "returns a properly formatted curl command" do
+        request = WhurlEngine::Request.new(:http_method => 'get', :url => 'https://www.google.com/', :headers => {'X-Foo' => "foo"})
+        request.to_curl.should == "curl \"https://www.google.com/\" --include --request GET -H X-Foo:foo"
+      end
+    end
+
+    describe "POST" do
+      it "returns a properly formatted curl command" do
+        request = WhurlEngine::Request.new(:http_method => 'post', :url => 'https://www.google.com/', :headers => {'X-Foo' => "foo"}, :body => 'somebody')
+        request.to_curl.should == "curl \"https://www.google.com/\" --include --request POST -H X-Foo:foo --data \"somebody\""
+      end
+    end
+    describe "HEAD" do
+      it "returns a properly formatted curl command" do
+        request = WhurlEngine::Request.new(:http_method => 'head', :url => 'https://www.google.com/')
+        request.to_curl.should == "curl \"https://www.google.com/\" --include --request HEAD --head"
+      end
+    end
+  end
+
   describe "response" do
     it "formats the GET request correctly" do
       stub_request(:any, "https://example.com/some_endpoint?client_id=abc123")

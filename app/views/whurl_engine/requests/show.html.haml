@@ -1,4 +1,9 @@
 -#http://www.ajaxload.info/
 -#http://www.jqueryin.com/projects/spinner-jquery-preloader-plugin/#demos
+%h3 Raw Request
+%pre= @request.response.request.to_s
+
+%h3 cURL Request
+%pre= @request.to_curl
 = render(:partial => 'whurl_engine/responses/response', :locals => {:response => @request.response})
 = render(:partial => 'whurl_engine/requests/form', :locals => {:whurl_request => @request})

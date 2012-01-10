@@ -1,12 +1,5 @@
 - response_body = response.to_html(:line_numbers => :table).force_encoding(Encoding.default_external)
-%h3
-  Raw Request
-
-%pre= response.request.to_s
-
-%h3 cURL Request
-%pre= response.request.to_curl
 %h3 Response Headers
-= response.headers.to_html.html_safe
+= find_and_preserve(response.headers.to_html.html_safe)
 %h3 Response Body
-= response_body.html_safe
+= find_and_preserve(response_body.html_safe)
