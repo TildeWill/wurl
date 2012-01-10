@@ -81,18 +81,18 @@ var Whurl = {
         });
     },
     trashHeaders:function () {
-        $(".header_pair").each(function (i, e) {
-            if (i != 0) {
-                $(e).remove();
-            }
+        $(".header_pair:visible").each(function (i, element) {
+            $(element).slideUp(function () {
+                $(element).remove();
+            });
         });
         Whurl.addHeader();
     },
     trashQueries:function () {
-        $(".param_pair").each(function (i, e) {
-            if (i != 0) {
-                $(e).remove();
-            }
+        $(".param_pair:visible").each(function (i, element) {
+            $(element).slideUp(function () {
+                $(element).remove();
+            });
         });
         Whurl.addParam();
     },
