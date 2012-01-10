@@ -11,17 +11,14 @@ module WhurlEngine
       @request = Request.new(request_params)
 
       unless @request.save
-        render :partial => "error"
+        flash[:alert] = @request.errors.map {|k,v| "#{k.to_s.titleize} #{v}"}.join('\n')
+        render :new and return
       end
       redirect_to short_path(:slug => @request.slug)
     end
 
     def show
       @request = Request.find_by_hash_key(params[:slug])
-    end
-
-    def edit
-      @request = Request.where("custom_url = ? OR hash_key = ?", params[:slug], params[:slug]).first
     end
   end
 end

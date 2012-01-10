@@ -4,7 +4,7 @@
     - whurl_request.errors.full_messages.each do |msg|
       %li= msg
 .top
-  = form_for(whurl_request) do |f|
+  = form_for(whurl_request, :as => :request, :url => requests_path, :method => :post) do |f|
     .row
       .section_title
         %span.hTitle URL

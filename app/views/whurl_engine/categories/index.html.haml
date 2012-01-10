@@ -1,5 +1,6 @@
-%h1 REST API Resources
-= link_to('Add Category', new_category_path, :remote => true, :class => 'popup button')
+%h1
+  REST API Resources
+  = link_to('Add Category', new_category_path, :remote => true, :class => 'popup button')
 .categories
 - @categories.each do |category|
   = render(category)

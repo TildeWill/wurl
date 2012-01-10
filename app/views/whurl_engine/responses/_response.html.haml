@@ -1,5 +1,5 @@
 - response_body = response.to_html(:line_numbers => :table).force_encoding(Encoding.default_external)
 %h3 Response Headers
-= find_and_preserve(response.headers.to_html.html_safe)
+.container= find_and_preserve(response.headers.to_html.html_safe)
 %h3 Response Body
-= find_and_preserve(response_body.html_safe)
+.container= find_and_preserve(response_body.html_safe)

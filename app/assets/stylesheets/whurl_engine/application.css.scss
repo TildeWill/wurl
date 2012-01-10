@@ -8,10 +8,15 @@
 body {
     font: 13px/1.5 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
     font-weight: 400;
+    background-color: gray;
 }
 
 h1 {
     font-weight: 300;
+}
+
+pre {
+    margin: 0;
 }
 
 table {
@@ -34,12 +39,29 @@ table {
     }
 }
 
+.container {
+    width: 950px;
+    margin: 0;
+    overflow: auto;
+    background-color: white;
+}
+
+.accordion .container {
+    width: auto;
+    color: white;
+}
+.content {
+    width: 950px;
+    margin: 0 auto;
+}
+
 .button {
     display: inline-block;
     margin: 0 4px;
 }
 
-.icon_only {
-    width: 2.2em;
-    height: 2.2em;
+.ui-button-icon-only {
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
 }

@@ -16,30 +16,29 @@
           $(this).button();
           $("a.popup").button('option', 'icons', {primary: 'ui-icon-newwin'});
           $("a.destroy").button('option', 'icons', {primary: 'ui-icon-closethick'});
-          $("a.edit").button('option', 'icons', {primary: 'ui-icon-pencil'});});
+          $("a.edit").button('option', 'icons', {primary: 'ui-icon-pencil'});
           $("a.destroy, a.edit").button('option', 'text', false);
+        });
+
+        $( ".accordion" ).accordion({
+          autoHeight: false,
+          navigation: true,
+          collapsible: true,
+          active: false
+        });
       });
 
     %title Whurl - API Console
-    :javascript
-      $(function() {
-       $('#saved_whurls').hover(
-        function () {
-         $(this).stop().animate({'marginLeft':'-2px'},200);
-        },
-        function () {
-         $(this).stop().animate({'marginLeft':'-400px'},200);
-        }
-       );
-      });
   %body
-    - if flash[:message] || flash[:warning]
-      .flash
-        - if flash[:message]
-          %span.message= flash[:message]
-        - if flash[:warning]
-          %span.warning= flash[:warning]
     .content
+      - if notice || alert
+        .flash
+          - if notice
+            .ui-state-highlight.ui-corner-all
+              = notice
+          - if alert
+            .ui-state-error.ui-corner-all
+              = alert
       = yield
     .footer
       %p

@@ -14,7 +14,11 @@ module HTTParty
       end
 
       def to_html(options = {:line_numbers => nil})
-        ::CodeRay.scan(to_s, :txt).div(options)
+        headers = []
+        each_capitalized do |name, value|
+          headers << "<span style='color: #808'>#{name}</span>:<span style='color: #088'>#{value}</span>"
+        end
+        "<pre>#{headers.join("\n")}</pre>".html_safe
       end
     end
 
