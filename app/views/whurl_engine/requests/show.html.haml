@@ -9,7 +9,7 @@
   %h3
     %a{:href => "#raw"} Raw Request
   .container
-    %code= @request.response.request.to_s
+    %code= simple_format(@request.response.request.to_s)
 
   %h3
     %a{:href => "#curl"} cURL Request
