@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120107065652) do
+ActiveRecord::Schema.define(:version => 20120110205853) do
 
   create_table "whurl_engine_categories", :force => true do |t|
     t.string   "name"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20120107065652) do
     t.datetime "updated_at"
   end
 
-  create_table "whurl_engine_parameters", :force => true do |t|
+  create_table "whurl_engine_parameter_definitions", :force => true do |t|
     t.integer  "resource_id"
     t.string   "name"
     t.string   "example_value"
@@ -29,21 +29,6 @@ ActiveRecord::Schema.define(:version => 20120107065652) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "whurl_engine_requests", :force => true do |t|
-    t.string   "hash_key",    :limit => 6,  :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "description"
-    t.string   "custom_url"
-    t.string   "http_method", :limit => 10
-    t.text     "body"
-    t.text     "query"
-    t.text     "headers"
-    t.text     "url"
-  end
-
-  add_index "whurl_engine_requests", ["hash_key"], :name => "index_whurls_on_hash_key", :unique => true
 
   create_table "whurl_engine_resources", :force => true do |t|
     t.integer  "category_id"
@@ -58,13 +43,23 @@ ActiveRecord::Schema.define(:version => 20120107065652) do
     t.datetime "updated_at"
   end
 
-  create_table "whurl_engine_responses", :force => true do |t|
-    t.integer  "request_id"
-    t.string   "content_type"
-    t.text     "body"
-    t.text     "headers"
+  create_table "whurl_engine_whurls", :force => true do |t|
+    t.string   "hash_key",              :limit => 6,  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
+    t.string   "name"
+    t.string   "request_method",        :limit => 10
+    t.text     "request_body"
+    t.text     "request_parameters"
+    t.text     "request_headers"
+    t.text     "request_url"
+    t.integer  "resource_id"
+    t.text     "response_body"
+    t.string   "response_content_type"
+    t.text     "response_headers"
   end
+
+  add_index "whurl_engine_whurls", ["hash_key"], :name => "index_whurls_on_hash_key", :unique => true
 
 end

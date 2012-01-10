@@ -1,8 +1,8 @@
 WhurlEngine::Engine.routes.draw do
   root :to => 'categories#index'
   resources :categories, :except => :show
-  resources :parameters, :except => [:index, :show]
-  resources :requests
+  resources :parameter_definitions, :except => [:index, :show]
+  resources :whurls
   resources :resources, :except => :index
-  match '/:slug' => 'requests#show', :as => :short
+  match '/:hash_key' => 'whurls#show', :as => :short
 end

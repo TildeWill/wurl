@@ -37,7 +37,7 @@ $highlight: #F1CB31;
       width: 525px;
   }
 
-  #request_url {
+  #whurl_request_url {
       width: 514px;
   }
 
@@ -58,13 +58,13 @@ $highlight: #F1CB31;
       width: 350px;
   }
 
-  textarea#request_body {
+  textarea#whurl_request_body {
       width: 610px;
       height: 55px;
       margin-bottom: 10px;
   }
 
-  textarea#request_description {
+  textarea#whurl_description {
       width: 610px;
       height: 55px;
       margin-bottom: 10px;
@@ -72,10 +72,6 @@ $highlight: #F1CB31;
 
   .textarea_disabled {
       background-color: lightgray;
-  }
-
-  #request_custom_url {
-      width: 610px;
   }
 
   .section_title {

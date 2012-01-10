@@ -1,5 +1,5 @@
 module WhurlEngine
-  class Parameter < ActiveRecord::Base
+  class ParameterDefinition < ActiveRecord::Base
     belongs_to :resource
 
     validates_presence_of :name

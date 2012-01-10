@@ -11,7 +11,7 @@ module WhurlEngine
     def create
       @category = WhurlEngine::Category.new(params[:category])
       unless @category.save
-        render :partial => 'error'
+        render :partial => 'whurl_engine/shared/error', :locals => {:object => @category}
       end
     end
 
@@ -22,14 +22,14 @@ module WhurlEngine
     def update
       @category = WhurlEngine::Category.find(params[:id])
       unless @category.update_attributes(params[:category])
-        render :partial => 'error'
+        render :partial => 'whurl_engine/shared/error', :locals => {:object => @category}
       end
     end
 
     def destroy
       @category = WhurlEngine::Category.find(params[:id])
       unless @category.destroy
-        render :partial => 'error'
+        render :partial => 'whurl_engine/shared/error', :locals => {:object => @category}
       end
     end
   end

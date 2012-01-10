@@ -13,7 +13,7 @@
       });
   });
 
-= form_for @category, :remote => true do |f|
+= form_for category, :remote => true do |f|
   %div
     = f.label :name
     = f.text_field :name, :placeholder => 'eg. Users, Projects, Tweets, etc.'

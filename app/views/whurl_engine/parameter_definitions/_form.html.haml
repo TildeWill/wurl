@@ -1,6 +1,6 @@
 :javascript
   $(function() {
-    $( ".new_whurl_engine_parameter, .edit_whurl_engine_parameter" ).dialog(
+    $( ".new_whurl_engine_parameter_definition, .edit_whurl_engine_parameter_definition" ).dialog(
       {
         modal: true,
         autoOpen: false,
@@ -13,7 +13,7 @@
       });
   });
 
-= form_for @parameter, :remote => true do |f|
+= form_for(@parameter_definition, :remote => true) do |f|
   = f.hidden_field :resource_id
   %div
     = f.label :name

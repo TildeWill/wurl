@@ -1,0 +1,5 @@
+-#- response_body = response.to_html(:line_numbers => :table).force_encoding(Encoding.default_external)
+%h3 Response Headers
+.container= find_and_preserve(whurl.response_headers.to_html)
+%h3 Response Body
+.container= find_and_preserve(whurl.response_body.to_html(whurl.response_content_type))

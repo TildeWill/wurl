@@ -1,0 +1,14 @@
+%tr{:id => "parameter_definition_#{parameter_definition.id}"}
+  %td
+    %strong= parameter_definition.name
+    %br
+    = parameter_definition.required? ? "required" : "optional"
+    %br
+    = link_to('', edit_parameter_definition_path(parameter_definition), :remote => true, :class => 'edit button icon_only')
+    = link_to( '', parameter_definition, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'destroy button icon_only')
+
+  %td
+    = parameter_definition.description
+    %div
+      Example Value:
+      = parameter_definition.example_value

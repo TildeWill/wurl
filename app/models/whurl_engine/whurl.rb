@@ -2,32 +2,20 @@ require 'httmultiparty'
 require "whurl_engine/version"
 
 module WhurlEngine
-  class Request < ActiveRecord::Base
-    serialize :data
-    serialize :query, Hash
-    serialize :headers, Hash
+  class Whurl < ActiveRecord::Base
+    serialize :request_parameters, Hash
+    serialize :request_headers, ::HTTParty::Response::Headers
+    serialize :response_headers, ::HTTParty::Response::Headers
 
     after_initialize :default_values
+    before_create :make_request
 
-    scope :saved, where("custom_url IS NOT NULL AND custom_url <> ''").order(:custom_url)
-
-    def slug
-      hash_key || custom_url
-    end
-
-    def response
-      return @response unless @response.nil?
-      @response = AnyClient.send(http_method.downcase,
-                                 url,
-                                 :headers => {'User-Agent' => "Whurl/#{WhurlEngine::VERSION} (https://github.com/tildewill/whurl_engine)"}.merge(headers),
-                                 :query => query.blank? ? nil : query,
-                                 :body => body
-      )
-
+    def to_param
+      hash_key
     end
 
     def to_s
-      response.request.to_s
+      http_response.request.to_s
     end
 
     def to_curl
@@ -48,6 +36,18 @@ module WhurlEngine
     class AnyClient
       include HTTMultiParty
       #debug_output $stderr
+    end
+
+    def make_request
+      response = AnyClient.send(request_method.downcase,
+                                 request_url,
+                                 :headers => request_headers.to_hash,
+                                 :query => request_parameters.blank? ? nil : request_parameters,
+                                 :body => request_body
+      )
+      self.response_content_type = response.content_type
+      self.response_body = response.body
+      self.response_headers = response.headers
     end
 
     def default_values
