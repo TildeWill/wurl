@@ -35,5 +35,6 @@
         Body
       #post_body
         = f.text_area(:body)
-    %input{:type => 'submit', :value => "Give it a Whurl!"}/
-    %input#clear_fields{:type => 'button', :value => "Clear"}
+    #button_row
+      %input{:type => 'submit', :value => "Give it a Whurl!"}/
+      %input#clear_fields{:type => 'button', :value => "Clear"}
