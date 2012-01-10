@@ -6,4 +6,8 @@ class String
       ActiveSupport::Inflector.pluralize(self)
     end
   end
+
+  def headerize
+    split(/-/).map {|s| s.capitalize }.join('-')
+  end
 end
