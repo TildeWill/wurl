@@ -1,5 +1,7 @@
+= javascript_include_tag("whurl_engine/request")
+
 #response
-.top
+#request_form
   = form_for(whurl_request, :as => :request, :url => requests_path, :method => :post) do |f|
     .row
       .section_title
@@ -20,7 +22,7 @@
         = render :partial => 'whurl_engine/requests/input_set', :locals => {:set_name => 'header', :f => f, :key => nil, :value => nil, :disabled => false}
     .row
       .section_title
-        %a#trashqueries{:class => 'trash button icon_only', :title => "trash all parameters"}
+        %a#trash_queries{:class => 'trash button icon_only', :title => "trash all parameters"}
         %a#add_param{:class => 'add button icon_only', :title => "add another parameter"}
         Query
       #params
@@ -33,5 +35,5 @@
         Body
       #post_body
         = f.text_area(:body)
-    %input.submit{:type => "submit", :value => "Give it a Whurl!"}/
-    %input#clearFields.reset{:type => "button", :value => "Reset"}/
+    %input{:type => 'submit', :value => "Give it a Whurl!"}/
+    %input#clear_fields{:type => 'button', :value => "Clear"}
