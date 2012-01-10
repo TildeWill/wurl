@@ -3,6 +3,7 @@
     %strong= parameter.name
     %br
     = parameter.required? ? "required" : "optional"
+    %br
     = link_to('', edit_parameter_path(parameter), :remote => true, :class => 'edit button icon_only')
     = link_to( '', parameter, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'destroy button icon_only')
 

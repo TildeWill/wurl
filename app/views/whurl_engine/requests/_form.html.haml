@@ -1,22 +1,18 @@
 #response
-- if whurl_request.errors.any?
-  %ul#errors
-    - whurl_request.errors.full_messages.each do |msg|
-      %li= msg
 .top
   = form_for(whurl_request, :as => :request, :url => requests_path, :method => :post) do |f|
     .row
       .section_title
-        %span.hTitle URL
-      = f.select(:http_method, options_for_select(["GET", "POST", "PUT", "DELETE"], whurl_request.http_method))
-      \/
-      \#{f.text_field(:url, :class => "long")}
+        URL
+      #url
+        = f.select(:http_method, options_for_select(["GET", "POST", "PUT", "DELETE"], whurl_request.http_method))
+        \/
+        \#{f.text_field(:url)}
     .row
       .section_title
-        .hTitle
-          %a#trashheaders= image_tag('whurl_engine/delete.png', :class => 'action_button', :title => "trash all headers")
-          %a#add_header= image_tag('whurl_engine/add.png', :class => 'action_button', :title => "add another header")
-          Headers
+        %a#trash_headers{:class => 'trash button icon_only', :title => "trash all headers"}
+        %a#add_header{:class => 'add button icon_only', :title => "add another header"}
+        Headers
       #headers
         = render :partial => 'whurl_engine/requests/input_set', :locals => {:set_name => 'header', :f => f, :key => nil, :value => nil, :disabled => true}
         - whurl_request.headers.each do |key, value|
@@ -24,10 +20,9 @@
         = render :partial => 'whurl_engine/requests/input_set', :locals => {:set_name => 'header', :f => f, :key => nil, :value => nil, :disabled => false}
     .row
       .section_title
-        .hTitle
-          %a#trashqueries= image_tag('whurl_engine/delete.png', :class => 'action_button', :title => "trash all parameters")
-          %a#add_param= image_tag('whurl_engine/add.png', :class => 'action_button', :title => "add another parameter")
-          Query
+        %a#trashqueries{:class => 'trash button icon_only', :title => "trash all parameters"}
+        %a#add_param{:class => 'add button icon_only', :title => "add another parameter"}
+        Query
       #params
         = render :partial => 'whurl_engine/requests/input_set', :locals => {:set_name => 'param', :f => f, :key => nil, :value => nil, :disabled => true}
         - whurl_request.query.each do |key, value|
@@ -35,7 +30,7 @@
         = render :partial => 'whurl_engine/requests/input_set', :locals => {:set_name => 'param', :f => f, :key => nil, :value => nil, :disabled => false}
     .row
       .section_title
-        .hTitle Body
+        Body
       #post_body
         = f.text_area(:body)
     %input.submit{:type => "submit", :value => "Give it a Whurl!"}/

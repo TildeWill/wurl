@@ -2,7 +2,6 @@
 %html
   %head
     = stylesheet_link_tag("whurl_engine/application")
-    = stylesheet_link_tag("whurl_engine/trontastic/jquery-ui-1.8.16.custom")
     = javascript_include_tag("whurl_engine/jquery-1.7.1.min")
     = javascript_include_tag("whurl_engine/jquery-ui-1.8.16.min")
     = javascript_include_tag("whurl_engine/jquery-ujs")
@@ -15,9 +14,11 @@
         $( "input:submit, input:button, button, .button").livequery(function() {
           $(this).button();
           $("a.popup").button('option', 'icons', {primary: 'ui-icon-newwin'});
+          $("a.add").button('option', 'icons', {primary: 'ui-icon-plusthick'});
           $("a.destroy").button('option', 'icons', {primary: 'ui-icon-closethick'});
+          $("a.trash").button('option', 'icons', {primary: 'ui-icon-trash'});
           $("a.edit").button('option', 'icons', {primary: 'ui-icon-pencil'});
-          $("a.destroy, a.edit").button('option', 'text', false);
+          $("a.destroy, a.edit, a.add, a.trash").button('option', 'text', false);
         });
 
         $( ".accordion" ).accordion({

@@ -118,7 +118,7 @@ $(document).ready(function() {
         Whurl.generatePermalink();
     });
 
-    $("#trashheaders").click(function() {
+    $("#trash_headers").click(function() {
         $(".header_pair").each(function(i,e) {
            if (i != 0) {
                $(e).remove();

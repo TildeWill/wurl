@@ -5,13 +5,15 @@
  *= require_self
  *= require_tree
 */
+$primary: #1c94c4;
+$secondary: #eb8f00;
 body {
-    font: 13px/1.5 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
-    font-weight: 400;
-    background-color: gray;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    background-color: white;
 }
 
-h1 {
+h1, h2, h3 {
     font-weight: 300;
 }
 
@@ -26,17 +28,37 @@ table {
     border-spacing: 0;
     margin-bottom: 15px;
 
-    caption {
-        text-align: left;
-        font-size: 20px;
-        .button {
-            font-size: 10px;
-        }
-    }
     th, td{
         text-align: left;
         border-bottom: 1px solid #EEE;
     }
+}
+
+a {
+  color: $primary;
+  &:hover {
+    color: lighten($primary, 10%);
+  }
+  &:active {
+    color: $secondary;
+  }
+}
+
+input[type=text] {
+  border-radius: 5px;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+textarea {
+  border-radius: 5px;
+  border-color: #999;
+  width: 100%;
+}
+
+select {
+  line-height: 18px;
+  font-size: 18px;
 }
 
 .container {
@@ -61,7 +83,8 @@ table {
 }
 
 .ui-button-icon-only {
-    width: 16px;
-    height: 16px;
-    border-radius: 8px;
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
 }
+
