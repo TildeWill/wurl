@@ -14,10 +14,6 @@ module WhurlEngine
       hash_key
     end
 
-    def to_s
-      http_response.request.to_s
-    end
-
     def to_curl
       ret_str = "curl \"#{url}\" --include --request #{http_method.upcase}"
       headers.each do |k, v|
@@ -48,6 +44,7 @@ module WhurlEngine
       self.response_content_type = response.content_type
       self.response_body = response.body
       self.response_headers = response.headers
+      self.raw_request = response.request.to_s
     end
 
     def default_values

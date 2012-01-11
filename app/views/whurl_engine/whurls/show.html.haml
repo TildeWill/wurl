@@ -6,10 +6,10 @@
   .container
     = render(:partial => 'whurl_engine/whurls/form', :locals => {:whurl => @whurl})
 
-  -#%h3
-  -#  %a{:href => "#raw"} Raw Request
-  -#.container
-  -#  %code= simple_format(@request.response.request.to_s)
+  %h3
+    %a{:href => "#raw"} Raw Request
+  .container
+    %code= simple_format(@whurl.raw_request)
   -#
   -#%h3
   -#  %a{:href => "#curl"} cURL Request
