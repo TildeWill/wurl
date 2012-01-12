@@ -97,12 +97,13 @@ var Whurl = {
         Whurl.addParam();
     },
     updateBodyInput:function () {
-        if ($.inArray($('#request_http_method').val(), ["PUT", "POST"]) > -1) {
-            $('textarea#request_body').attr('disabled', false);
-            $('textarea#request_body').removeClass('textarea_disabled');
+
+        if ($.inArray($('#whurl_request_method').val(), ["PUT", "POST"]) > -1) {
+            $('textarea#whurl_request_body').attr('disabled', false);
+            $('textarea#whurl_request_body').removeClass('textarea_disabled');
         } else {
-            $('textarea#request_body').attr('disabled', true);
-            $('textarea#request_body').addClass('textarea_disabled');
+            $('textarea#whurl_request_body').attr('disabled', true);
+            $('textarea#whurl_request_body').addClass('textarea_disabled');
         }
     }
 };
@@ -157,7 +158,7 @@ $(document).ready(function () {
         });
     });
 
-    $('#request_http_method').change(function () {
+    $('#whurl_request_method').change(function () {
         Whurl.updateBodyInput();
     });
     Whurl.updateBodyInput();
