@@ -16,7 +16,6 @@ class String
   end
 
   def to_html(content_type, options = {:line_numbers => :table})
-    return "<pre>(Empty)</pre>" unless self.present?
     case content_type
       when /xml/
         ::CodeRay.scan(self, :xml).div(options)

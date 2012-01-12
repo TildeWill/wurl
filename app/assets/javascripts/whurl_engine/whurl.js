@@ -31,25 +31,11 @@ var headers = ["Accept",
 
 
 var Whurl = {
-    addHeader:function () {
-        var $headerFields = $('.header_pair:last').clone();
-        $headerFields.children('input').val("");
-        $headerFields.children('input').attr('disabled', false);
-        $($headerFields.children('input')[1]).focusin(function () {
-            if ($('.header_pair:last').children('input').val() != "") {
-                Whurl.addHeader();
-            }
-        });
-        $headerFields.hide().appendTo('#headers');
-        var temp = Whurl.addHeader;
-        $headerFields.slideDown('fast', function () {
-            Whurl.addHeader = temp;
-        });
-
-        $(".header_pair:last").children(":eq(0)").autocomplete({source:headers});
-
-        Whurl.addHeader = function () {
-        };
+    addHeader:function (elem) {
+        var $form = $(elem).closest('form');
+        var $fields = $form.find('.header_pair').first().clone();
+        $fields.children('input').val("").attr('disabled', false);
+        $fields.hide().appendTo($form.find('.headers')).slideDown('fast');
     },
     deleteHeader:function (element) {
         var $paramFields = $(element).closest(".header_pair");
@@ -57,22 +43,11 @@ var Whurl = {
             $paramFields.remove();
         });
     },
-    addParam:function () {
-        var $paramFields = $('.param_pair:last').clone();
-        $paramFields.children('input').val("");
-        $paramFields.children('input').attr('disabled', false);
-        $($paramFields.children('input')[1]).focusin(function () {
-            if ($('.param_pair:last').children('input').val() != "") {
-                Whurl.addParam();
-            }
-        });
-        $paramFields.hide().appendTo('#params');
-        var temp = Whurl.addParam;
-        $paramFields.slideDown('fast', function () {
-            Whurl.addParam = temp;
-        });
-        Whurl.addParam = function () {
-        };
+    addParam:function (elem) {
+        var $form = $(elem).closest('form');
+        var $fields = $form.find('.param_pair').first().clone();
+        $fields.children('input').val("").attr('disabled', false);
+        $fields.hide().appendTo($form.find('.params')).slideDown('fast');
     },
     deleteParam:function (element) {
         var $paramFields = $(element).closest(".param_pair");
@@ -80,86 +55,82 @@ var Whurl = {
             $paramFields.remove();
         });
     },
-    trashHeaders:function () {
-        $(".header_pair:visible").each(function (i, element) {
+    trashHeaders:function (elem) {
+        $(elem).closest('form').find(".header_pair:visible").each(function (i, element) {
             $(element).slideUp(function () {
                 $(element).remove();
             });
         });
-        Whurl.addHeader();
+        Whurl.addHeader(elem);
     },
-    trashQueries:function () {
-        $(".param_pair:visible").each(function (i, element) {
+    trashQueries:function (elem) {
+        $(elem).closest('form').find(".param_pair:visible").each(function (i, element) {
             $(element).slideUp(function () {
                 $(element).remove();
             });
         });
-        Whurl.addParam();
+        Whurl.addParam(elem);
     },
-    updateBodyInput:function () {
-
-        if ($.inArray($('#whurl_request_method').val(), ["PUT", "POST"]) > -1) {
-            $('textarea#whurl_request_body').attr('disabled', false);
-            $('textarea#whurl_request_body').removeClass('textarea_disabled');
+    updateBodyInput:function (elem) {
+        var method = $(elem).val();
+        if ($.inArray(method, ["PUT", "POST"]) > -1) {
+            $('#whurl_request_body').attr('disabled', false).removeClass('textarea_disabled');
         } else {
-            $('textarea#whurl_request_body').attr('disabled', true);
-            $('textarea#whurl_request_body').addClass('textarea_disabled');
+            $('#whurl_request_body').attr('disabled', true).addClass('textarea_disabled');
         }
     }
 };
 
 $(document).ready(function () {
-    $(".header_pair:eq(1)").children(":eq(0)").autocomplete({source:headers});
-
-    $('#add_header').click(function () {
-        Whurl.addHeader();
+    $(".header_pair input.key").livequery(function() {
+        $(this).autocomplete({source:headers});
     });
 
-    $("#clear_fields").click(function () {
-        $("input[type=text]").val("");
-        $("textarea").val("");
-        Whurl.trashHeaders();
-        Whurl.trashQueries();
+    $('.header_pair input.value').live('focusin', (function () {
+        if ($(this).closest('form').find('.header_pair:last input').val() != "") {
+            Whurl.addHeader(this);
+        }
+    }));
+
+    $('.param_pair input.value').live('focusin', (function () {
+        if ($(this).closest('form').find('.param_pair:last input').val() != "") {
+            Whurl.addParam(this);
+        }
+    }));
+
+    $(".clear_fields").click(function () {
+        var $form = $(this).closest('form');
+        $form.find("input[type=text], textarea").val("");
+        Whurl.trashHeaders(this);
+        Whurl.trashQueries(this);
+    });
+
+    $('.add_header').click(function () {
+        Whurl.addHeader(this);
     });
 
     $('.delete_header').live('click', function () {
         Whurl.deleteHeader(this);
     });
 
-    $('#add_param').click(function () {
-        Whurl.addParam();
+    $('.add_param').click(function () {
+        Whurl.addParam(this);
     });
 
     $('.delete_param').live('click', function () {
         Whurl.deleteParam(this);
     });
 
-    $("#trash_headers").click(function () {
-        Whurl.trashHeaders();
+    $(".trash_headers").click(function () {
+        Whurl.trashHeaders(this);
     });
 
-    $("#trash_queries").click(function () {
-        Whurl.trashQueries();
+    $(".trash_queries").click(function () {
+        Whurl.trashQueries(this);
     });
 
-    $('.header_pair').each(function (i) {
-        $($(this).children('input')[1]).focusin(function () {
-            if ($('.header_pair:last').children('input').val() != "") {
-                Whurl.addHeader();
-            }
-        });
+    $('.url select').change(function () {
+        Whurl.updateBodyInput(this);
     });
-
-    $('.param_pair').each(function (i) {
-        $($(this).children('input')[1]).focusin(function () {
-            if ($('.param_pair:last').children('input').val() != "") {
-                Whurl.addParam();
-            }
-        });
-    });
-
-    $('#whurl_request_method').change(function () {
-        Whurl.updateBodyInput();
-    });
-    Whurl.updateBodyInput();
+//    Whurl.updateBodyInput();
 });

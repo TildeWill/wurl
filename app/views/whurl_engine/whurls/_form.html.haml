@@ -1,29 +1,28 @@
-= javascript_include_tag("whurl_engine/whurl")
 .whurl_form
   = form_for(whurl, :as => :whurl, :url => whurls_path, :method => :post) do |f|
     .row
       .section_title
         URL
-      #url
-        = f.select(:request_method, options_for_select(["GET", "POST", "PUT", "DELETE"], whurl.request_method))
+      .url
+        = f.select(:request_method, options_for_select(["GET", "POST", "PUT", "DELETE", "HEAD"], whurl.request_method))
         \/
         \#{f.text_field(:request_url)}
     .row
       .section_title
-        %a#trash_headers{:class => 'trash button icon_only', :title => "trash all headers"}
-        %a#add_header{:class => 'add button icon_only', :title => "add another header"}
+        %a.trash_headers{:class => 'trash button icon_only', :title => "trash all headers"}
+        %a.add_header{:class => 'add button icon_only', :title => "add another header"}
         Headers
-      #headers
+      .headers
         = render :partial => 'whurl_engine/whurls/input_set', :locals => {:set_name => 'header', :f => f, :key => nil, :value => nil, :disabled => true}
         - whurl.request_headers.to_hash.each do |key, value|
           = render :partial => 'whurl_engine/whurls/input_set', :locals => {:set_name => 'header', :f => f, :key => key, :value => value, :disabled => false}
         = render :partial => 'whurl_engine/whurls/input_set', :locals => {:set_name => 'header', :f => f, :key => nil, :value => nil, :disabled => false}
     .row
       .section_title
-        %a#trash_queries{:class => 'trash button icon_only', :title => "trash all parameters"}
-        %a#add_param{:class => 'add button icon_only', :title => "add another parameter"}
+        %a.trash_queries{:class => 'trash button icon_only', :title => "trash all parameters"}
+        %a.add_param{:class => 'add button icon_only', :title => "add another parameter"}
         Query
-      #params
+      .params
         = render :partial => 'whurl_engine/whurls/input_set', :locals => {:set_name => 'param', :f => f, :key => nil, :value => nil, :disabled => true}
         - whurl.request_parameters.each do |key, value|
           = render :partial => 'whurl_engine/whurls/input_set', :locals => {:set_name => 'param', :f => f, :key => key, :value => value, :disabled => false}
@@ -31,8 +30,8 @@
     .row
       .section_title
         Body
-      #post_body
+      .post_body
         = f.text_area(:request_body)
-    #button_row
+    .button_row
       %input{:type => 'submit', :value => "Give it a Whurl!"}/
-      %input#clear_fields{:type => 'button', :value => "Clear"}
+      %input#clear_fields{:type => 'button', :value => "Clear", :class => 'clear_fields'}
