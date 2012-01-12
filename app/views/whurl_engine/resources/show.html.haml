@@ -14,7 +14,16 @@
     - @resource.parameter_definitions.each do |parameter_definition|
       = render(parameter_definition)
 
-%h2= "Example Request".pluralize(2)
+%h2= "Example Request".pluralize(@resource.whurls.count)
+.accordion
+  - @resource.whurls.each do |whurl|
+    %h3{:class => "whurl_#{whurl.id}"}
+      %a{:href => "#whurl_#{whurl.id}"}=whurl.name
+    .container{:class => "whurl_#{whurl.id}"}
+      = link_to('', edit_whurl_path(whurl), :remote => true, :class => 'edit button icon_only')
+      = link_to( '', whurl, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'destroy button icon_only')
+      = whurl.description
+      = render(whurl)
 %h2 Console
 - whurl = WhurlEngine::Whurl.new(:request_method => @resource.http_method, :request_url => @resource.url)
 = render(:partial => 'whurl_engine/whurls/form', :locals => {:whurl => whurl})

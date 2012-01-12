@@ -1,0 +1,27 @@
+.whurls {
+    td.line_numbers pre, td.code pre, td.code span {
+        font-family: monospace;
+    }
+
+    table.CodeRay {
+        border-collapse: collapse;
+    }
+
+    td.line_numbers {
+        background-color: #DDD;
+        text-align: right;
+        padding: 0 5px;
+    }
+    .menu {
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        border: 1px solid #666;
+        border-left: none;
+        background-color: #f6a828;
+        border-radius: 0 20px 20px 0;
+        width: auto;
+        font-size: 16px;
+        padding: 5px;
+    }
+}

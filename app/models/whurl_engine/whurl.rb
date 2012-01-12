@@ -10,6 +10,8 @@ module WhurlEngine
     after_initialize :default_values
     before_create :make_request
 
+    belongs_to :resource
+
     def to_param
       hash_key
     end

@@ -4,5 +4,5 @@ WhurlEngine::Engine.routes.draw do
   resources :parameter_definitions, :except => [:index, :show]
   resources :whurls
   resources :resources, :except => :index
-  match '/:hash_key' => 'whurls#show', :as => :short
+  match '/:id' => 'whurls#show', :as => :short_whurl
 end

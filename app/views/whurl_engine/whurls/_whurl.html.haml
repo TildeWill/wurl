@@ -1,0 +1,17 @@
+.accordion
+  %h3
+    %a{:href => "#console"} Console
+  .container
+    = render(:partial => 'whurl_engine/whurls/form', :locals => {:whurl => whurl})
+
+  %h3
+    %a{:href => "#raw"} Raw Request
+  .container
+    %code= simple_format(whurl.raw_request)
+  -#
+  -#%h3
+  -#  %a{:href => "#curl"} cURL Request
+  -#.container
+  -#  %pre= @request.to_curl
+
+= render(:partial => 'whurl_engine/whurls/response', :locals => {:whurl => whurl})

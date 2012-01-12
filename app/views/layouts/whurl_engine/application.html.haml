@@ -18,6 +18,7 @@
           $("a.destroy").button('option', 'icons', {primary: 'ui-icon-closethick'});
           $("a.trash").button('option', 'icons', {primary: 'ui-icon-trash'});
           $("a.edit").button('option', 'icons', {primary: 'ui-icon-pencil'});
+          $("a.save").button('option', 'icons', {secondary: 'ui-icon-folder-open'});
           $("a.destroy, a.edit, a.add, a.trash").button('option', 'text', false);
         });
 
@@ -30,7 +31,7 @@
       });
 
     %title Whurl - API Console
-  %body
+  %body{:class => [controller_name, action_name]}
     .content
       - if notice || alert
         .flash
