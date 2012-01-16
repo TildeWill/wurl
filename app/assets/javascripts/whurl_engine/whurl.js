@@ -30,107 +30,107 @@ var headers = ["Accept",
     "Warning"];
 
 
-var Whurl = {
-    addHeader:function (elem) {
-        var $form = $(elem).closest('form');
-        var $fields = $form.find('.header_pair').first().clone();
-        $fields.children('input').val("").attr('disabled', false);
-        $fields.hide().appendTo($form.find('.headers')).slideDown('fast');
-    },
-    deleteHeader:function (element) {
-        var $paramFields = $(element).closest(".header_pair");
-        $paramFields.slideUp(function () {
-            $paramFields.remove();
-        });
-    },
-    addParam:function (elem) {
-        var $form = $(elem).closest('form');
-        var $fields = $form.find('.param_pair').first().clone();
-        $fields.children('input').val("").attr('disabled', false);
-        $fields.hide().appendTo($form.find('.params')).slideDown('fast');
-    },
-    deleteParam:function (element) {
-        var $paramFields = $(element).closest(".param_pair");
-        $paramFields.slideUp(function () {
-            $paramFields.remove();
-        });
-    },
-    trashHeaders:function (elem) {
-        $(elem).closest('form').find(".header_pair:visible").each(function (i, element) {
-            $(element).slideUp(function () {
-                $(element).remove();
-            });
-        });
-        Whurl.addHeader(elem);
-    },
-    trashQueries:function (elem) {
-        $(elem).closest('form').find(".param_pair:visible").each(function (i, element) {
-            $(element).slideUp(function () {
-                $(element).remove();
-            });
-        });
-        Whurl.addParam(elem);
-    },
-    updateBodyInput:function (elem) {
-        var method = $(elem).val();
-        if ($.inArray(method, ["PUT", "POST"]) > -1) {
-            $('#whurl_request_body').attr('disabled', false).removeClass('textarea_disabled');
-        } else {
-            $('#whurl_request_body').attr('disabled', true).addClass('textarea_disabled');
-        }
-    }
-};
+function Whurl($whurlForm) {
+    this.$whurlForm = $whurlForm;
+    var self = this;
 
-$(document).ready(function () {
-    $(".header_pair input.key").livequery(function() {
+    $('.add_header', this.$whurlForm).click(function () {
+        self.addInputs('header');
+    });
+
+    $('.add_param', this.$whurlForm).click(function () {
+        self.addInputs('param');
+    });
+
+    $('.delete_header', this.$whurlForm).live('click', function (e) {
+        //e.currentTarget
+        self.deleteHeader(this);
+    });
+
+     $('.delete_param', this.$whurlForm).live('click', function (e) {
+        //e.currentTarget
+        self.deleteParam(this);
+    });
+
+    $(".trash_headers", this.$whurlForm).click(function () {
+        self.trashHeaders();
+    });
+
+    $(".trash_queries", self.$whurlForm).click(function () {
+        self.trashQueries();
+    });
+
+    $('.header_pair input.value', this.$whurlForm).live('focusin', (function () {
+        if ($('.header_pair:last input', self.$whurlForm).val() != "") {
+            self.addInputs('header');
+        }
+    }));
+
+    $('.param_pair input.value', this.$whurlForm).live('focusin', (function () {
+        if ($('.param_pair:last input', self.$whurlForm).val() != "") {
+            self.addInputs('param');
+        }
+    }));
+
+    $('.url select', this.$whurlForm).change(function () {
+        self.updateBodyInput();
+    });
+
+    $(".header_pair input.key", this.$whurlForm).livequery(function() {
         $(this).autocomplete({source:headers});
     });
 
-    $('.header_pair input.value').live('focusin', (function () {
-        if ($(this).closest('form').find('.header_pair:last input').val() != "") {
-            Whurl.addHeader(this);
+    $(".clear_fields", this.$whurlForm).click(function () {
+        $("input[type=text], textarea", self.$whurlForm).val("");
+        self.trashHeaders();
+        self.trashQueries();
+    });
+
+    this.addInputs = function (type) {
+        var $fields = $('.' + type + '_pair', this.$whurlForm).first().clone();
+        $fields.children('input').val("").attr('disabled', false);
+        $fields.hide().appendTo(this.$whurlForm.find('.' + type + 's')).slideDown('fast');
+    };
+
+    this.deleteHeader = function (element) {
+        var $fields = $(element).closest(".header_pair");
+        $fields.slideUp(function () {
+            $fields.remove();
+        });
+    };
+
+    this.deleteParam = function (element) {
+        var $fields = $(element).closest(".param_pair");
+        $fields.slideUp(function () {
+            $paramFields.remove();
+        });
+    };
+
+    this.trashHeaders = function () {
+        $(".header_pair:visible", self.$whurlForm).each(function (i, element) {
+            $(element).slideUp(function () {
+                $(element).remove();
+            });
+        });
+        this.addInputs('header');
+    };
+
+    this.trashQueries = function () {
+        $(".param_pair:visible", self.$whurlForm).each(function (i, element) {
+            $(element).slideUp(function () {
+                $(element).remove();
+            });
+        });
+        this.addInputs('param');
+    };
+
+    this.updateBodyInput = function () {
+        var method = $('.url select', self.$whurlForm).val();
+        if ($.inArray(method, ["PUT", "POST"]) > -1) {
+            $('#whurl_request_body', self.$whurlForm).attr('disabled', false).removeClass('textarea_disabled');
+        } else {
+            $('#whurl_request_body', self.$whurlForm).attr('disabled', true).addClass('textarea_disabled');
         }
-    }));
-
-    $('.param_pair input.value').live('focusin', (function () {
-        if ($(this).closest('form').find('.param_pair:last input').val() != "") {
-            Whurl.addParam(this);
-        }
-    }));
-
-    $(".clear_fields").click(function () {
-        var $form = $(this).closest('form');
-        $form.find("input[type=text], textarea").val("");
-        Whurl.trashHeaders(this);
-        Whurl.trashQueries(this);
-    });
-
-    $('.add_header').click(function () {
-        Whurl.addHeader(this);
-    });
-
-    $('.delete_header').live('click', function () {
-        Whurl.deleteHeader(this);
-    });
-
-    $('.add_param').click(function () {
-        Whurl.addParam(this);
-    });
-
-    $('.delete_param').live('click', function () {
-        Whurl.deleteParam(this);
-    });
-
-    $(".trash_headers").click(function () {
-        Whurl.trashHeaders(this);
-    });
-
-    $(".trash_queries").click(function () {
-        Whurl.trashQueries(this);
-    });
-
-    $('.url select').change(function () {
-        Whurl.updateBodyInput(this);
-    });
-//    Whurl.updateBodyInput();
-});
+    };
+    this.updateBodyInput();
+}

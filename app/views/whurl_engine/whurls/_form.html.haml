@@ -1,4 +1,9 @@
-.whurl_form
+:javascript
+  $(function() {
+    var $whurlForm = $('#whurl_form_#{whurl.to_param}');
+    new Whurl($whurlForm);
+  });
+.whurl_form{:id => "whurl_form_#{whurl.to_param}"}
   = form_for(whurl, :as => :whurl, :url => whurls_path, :method => :post) do |f|
     .row
       .section_title
