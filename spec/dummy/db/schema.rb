@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(:version => 20120111014928) do
 
   create_table "whurl_engine_whurls", :force => true do |t|
     t.string   "hash_key",              :limit => 6,  :null => false
-    t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "description"

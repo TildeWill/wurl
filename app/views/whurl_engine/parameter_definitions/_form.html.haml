@@ -13,7 +13,7 @@
       });
   });
 
-= form_for(@parameter_definition, :remote => true) do |f|
+= form_for(parameter_definition, :remote => true) do |f|
   = f.hidden_field :resource_id
   %div
     = f.label :name

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    whurl_engine (1.2.2)
+    whurl_engine (2.0.0.rc1)
       coderay (~> 0.9.6)
       coffee-script
       haml (~> 3.1.4)
