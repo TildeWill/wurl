@@ -1,5 +1,5 @@
 module WhurlEngine
-  class CategoriesController < ApplicationController
+  class CategoriesController < WhurlEngine::ApplicationController
     def index
       @categories = WhurlEngine::Category.all.sort
     end

@@ -1,5 +1,9 @@
 module WhurlEngine
   module ApplicationHelper
+    def authorized?(*args)
+      @authorization_adapter.nil? || @authorization_adapter.authorized?(*args)
+    end
+
     def clippy(text, bgcolor='#FFFFFF')
       swf_path = asset_path('whurl_engine/clippy.swf')
         html = <<-EOF

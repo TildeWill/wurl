@@ -1,9 +1,10 @@
 %div{:id => "category_#{category.id}"}
   %h2
     = category.name
-    = link_to('Add Resource', new_resource_path(:category_id => category.id), :remote => true, :class => 'popup button')
-    = link_to('', edit_category_path(category), :remote => true, :class => 'edit button icon_only')
-    = link_to( '', category, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'destroy button icon_only')
+    -if authorized?(:manage, nil, WhurlEngine::Category)
+      = link_to('Add Resource', new_resource_path(:category_id => category.id), :remote => true, :class => 'popup button')
+      = link_to('', edit_category_path(category), :remote => true, :class => 'edit button icon_only')
+      = link_to( '', category, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'destroy button icon_only')
   %p=category.description
   %table{:id => "category_#{category.id}"}
     %thead

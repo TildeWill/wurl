@@ -7,7 +7,8 @@
 
 %h2
   Parameters
-  = link_to('Add Parameter', new_parameter_definition_path(:resource_id => @resource.id), :remote => true, :class => 'popup button')
+  -if authorized?(:manage, nil, WhurlEngine::ParameterDefinition)
+    = link_to('Add Parameter', new_parameter_definition_path(:resource_id => @resource.id), :remote => true, :class => 'popup button')
 
 %table
   %tbody.parameter_definition
@@ -20,8 +21,9 @@
     %h3{:class => "whurl_#{whurl.id}"}
       %a{:href => "#whurl_#{whurl.id}"}=whurl.name
     .container{:class => "whurl_#{whurl.id}"}
-      = link_to('', edit_whurl_path(whurl), :remote => true, :class => 'edit button icon_only')
-      = link_to( '', whurl, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'destroy button icon_only')
+      -if authorized?(:manage, nil, WhurlEngine::Resource)
+        = link_to('', edit_whurl_path(whurl), :remote => true, :class => 'edit button icon_only')
+        = link_to( '', whurl, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'destroy button icon_only')
       = whurl.description
       = render(whurl)
 %h2 Console

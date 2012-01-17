@@ -1,5 +1,5 @@
 module WhurlEngine
-  class WhurlsController < ApplicationController
+  class WhurlsController < WhurlEngine::ApplicationController
     def new
       @whurl = Whurl.new
     end

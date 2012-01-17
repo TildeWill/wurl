@@ -1,5 +1,5 @@
 module WhurlEngine
-  class ResourcesController < ApplicationController
+  class ResourcesController < WhurlEngine::ApplicationController
     def show
       @resource = WhurlEngine::Resource.find(params[:id])
     end

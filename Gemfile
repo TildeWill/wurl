@@ -10,4 +10,5 @@ gem "jquery-rails"
 
 gem 'rspec', '~> 2.7.0'
 gem 'rspec-rails', '~> 2.7.0'
+gem "cancan"
 

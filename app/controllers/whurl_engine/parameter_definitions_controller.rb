@@ -1,5 +1,5 @@
 module WhurlEngine
-  class ParameterDefinitionsController < ApplicationController
+  class ParameterDefinitionsController < WhurlEngine::ApplicationController
     def new
       @parameter_definition = WhurlEngine::ParameterDefinition.new(:resource_id => params[:resource_id])
     end

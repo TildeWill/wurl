@@ -46,6 +46,7 @@ GEM
     addressable (2.2.6)
     arel (2.2.1)
     builder (3.0.0)
+    cancan (1.6.7)
     coderay (0.9.8)
     coffee-script (2.2.0)
       coffee-script-source
@@ -153,6 +154,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cancan
   heroku
   jquery-rails
   mysql (~> 2.8.1)

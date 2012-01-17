@@ -1,4 +1,5 @@
 =render(@whurl)
 
-.menu
-  =link_to("Save this Whurl", edit_whurl_path(@whurl), :remote => true, :class => "save button")
+-if authorized?(:manage, nil, WhurlEngine::Whurl)
+  .menu
+    =link_to("Save this Whurl", edit_whurl_path(@whurl), :remote => true, :class => "save button")
