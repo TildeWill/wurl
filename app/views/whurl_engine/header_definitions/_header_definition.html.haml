@@ -1,0 +1,15 @@
+%tr{:id => "header_definition_#{header_definition.id}"}
+  %td
+    %strong= header_definition.name
+    %br
+    = header_definition.required? ? "required" : "optional"
+    %br
+    -if authorized?(:manage, nil, WhurlEngine::HeaderDefinition)
+      = link_to('', edit_header_definition_path(header_definition), :remote => true, :class => 'edit button icon_only')
+      = link_to( '', header_definition, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'destroy button icon_only')
+
+  %td
+    = header_definition.description
+    %div
+      Example Value:
+      = header_definition.example_value

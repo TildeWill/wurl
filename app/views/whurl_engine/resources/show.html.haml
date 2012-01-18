@@ -6,6 +6,16 @@
 = @resource.url
 
 %h2
+  Headers
+  -if authorized?(:manage, nil, WhurlEngine::HeaderDefinition)
+    = link_to('Add Header', new_header_definition_path(:resource_id => @resource.id), :remote => true, :class => 'popup button')
+
+%table
+  %tbody.header_definition
+    - @resource.header_definitions.each do |header_definition|
+      = render(header_definition)
+
+%h2
   Parameters
   -if authorized?(:manage, nil, WhurlEngine::ParameterDefinition)
     = link_to('Add Parameter', new_parameter_definition_path(:resource_id => @resource.id), :remote => true, :class => 'popup button')
