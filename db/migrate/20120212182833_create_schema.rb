@@ -39,7 +39,6 @@ class CreateSchema < ActiveRecord::Migration
     create_table :whurl_engine_whurls do |t|
       t.string   :hash_key, :limit => 6,  :null => false
       t.string   :description
-      t.string   :name
       t.string   :request_method, :limit => 10
       t.text     :request_body
       t.text     :request_parameters

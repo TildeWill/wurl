@@ -16,19 +16,6 @@ module WhurlEngine
       hash_key
     end
 
-    def to_curl
-      ret_str = "curl \"#{url}\" --include --request #{http_method.upcase}"
-      headers.each do |k, v|
-        ret_str << " -H #{k}:#{v}"
-      end
-      if ['put', 'post'].include?(http_method.downcase)
-        ret_str << " --data \"#{body}\""
-      end
-
-      ret_str << " --head" if http_method.downcase == 'head'
-      ret_str
-    end
-
     private
 
     class AnyClient
@@ -44,6 +31,7 @@ module WhurlEngine
                                  :body => request_body,
                                  :follow_redirects => false
       )
+      self.response_message = "HTTP/#{response.http_version} #{response.code} #{Rack::Utils::HTTP_STATUS_CODES[response.code]}"
       self.response_content_type = response.content_type
       self.response_body = response.body
       self.response_headers = response.headers
