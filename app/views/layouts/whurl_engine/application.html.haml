@@ -2,16 +2,9 @@
 %html
   %head
     = stylesheet_link_tag("whurl_engine/application")
-    = javascript_include_tag("whurl_engine/jquery-1.7.1.min")
-    = javascript_include_tag("whurl_engine/jquery-ui-1.8.16.min")
-    = javascript_include_tag("whurl_engine/jquery-ujs")
-    = javascript_include_tag("whurl_engine/jquery.livequery")
     = javascript_include_tag("whurl_engine/application")
-    = javascript_include_tag("whurl_engine/whurl")
-    = javascript_include_tag("whurl_engine/ZeroClipboard")
     :javascript
       $(function() {
-        ZeroClipboard.setMoviePath('#{asset_path('whurl_engine/ZeroClipboard10.swf')}');
         $( "input:submit, input:reset, input:button, button, .button").livequery(function() {
           $(this).button();
           $("a.popup").button('option', 'icons', {primary: 'ui-icon-newwin'});
