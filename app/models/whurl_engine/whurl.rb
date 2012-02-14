@@ -41,7 +41,8 @@ module WhurlEngine
                                  request_url,
                                  :headers => request_headers.to_hash,
                                  :query => request_parameters.blank? ? nil : request_parameters,
-                                 :body => request_body
+                                 :body => request_body,
+                                 :follow_redirects => false
       )
       self.response_content_type = response.content_type
       self.response_body = response.body
