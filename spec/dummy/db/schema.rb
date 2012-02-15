@@ -55,7 +55,10 @@ ActiveRecord::Schema.define(:version => 20120214074332) do
 
   create_table "whurl_engine_whurls", :force => true do |t|
     t.string   "hash_key",              :limit => 6,  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "description"
+    t.string   "name"
     t.string   "request_method",        :limit => 10
     t.text     "request_body"
     t.text     "request_parameters"
@@ -66,8 +69,6 @@ ActiveRecord::Schema.define(:version => 20120214074332) do
     t.string   "response_content_type"
     t.text     "response_headers"
     t.text     "raw_request"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "response_message"
   end
 
