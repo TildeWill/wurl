@@ -1,4 +1,4 @@
-class CreateHeaderDefinitionsTable < ActiveRecord::Migration
+class WhurlCreateHeaderDefinitionsTable < ActiveRecord::Migration
   create_table :whurl_engine_header_definitions do |t|
       t.integer :resource_id
       t.string :name

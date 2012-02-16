@@ -1,4 +1,4 @@
-class CreateResourcesTable < ActiveRecord::Migration
+class WhurlCreateResourcesTable < ActiveRecord::Migration
   def change
     create_table :whurl_engine_resources do |t|
       t.integer :category_id

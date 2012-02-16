@@ -1,4 +1,4 @@
-class CreateFieldsForWhurlRequests < ActiveRecord::Migration
+class WhurlCreateFieldsForWhurlRequests < ActiveRecord::Migration
   def self.up
     add_column :whurl_engine_requests, :http_method, :string, :limit => 10
     add_column :whurl_engine_requests, :body, :text

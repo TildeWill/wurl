@@ -1,4 +1,4 @@
-class CreateParametersTable < ActiveRecord::Migration
+class WhurlCreateParametersTable < ActiveRecord::Migration
   def change
     create_table :whurl_engine_parameters do |t|
       t.integer :resource_id

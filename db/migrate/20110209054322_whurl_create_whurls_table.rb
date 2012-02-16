@@ -1,4 +1,4 @@
-class CreateWhurlsTable < ActiveRecord::Migration
+class WhurlCreateWhurlsTable < ActiveRecord::Migration
   def self.up
     create_table :whurls do |t|
       t.string :hash_key, :limit => 6, :null => false

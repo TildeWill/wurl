@@ -1,4 +1,4 @@
-class AddCustomUrlToWhurl < ActiveRecord::Migration
+class WhurlAddCustomUrlToWhurl < ActiveRecord::Migration
   def self.up
     add_column :whurls, :custom_url, :string
   end

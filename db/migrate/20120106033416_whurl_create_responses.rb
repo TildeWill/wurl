@@ -1,4 +1,4 @@
-class CreateResponses < ActiveRecord::Migration
+class WhurlCreateResponses < ActiveRecord::Migration
   def change
     create_table :whurl_engine_responses do |t|
       t.integer :request_id

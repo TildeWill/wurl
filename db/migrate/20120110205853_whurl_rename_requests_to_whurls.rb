@@ -1,4 +1,4 @@
-class RenameRequestsToWhurls < ActiveRecord::Migration
+class WhurlRenameRequestsToWhurls < ActiveRecord::Migration
   def up
     rename_table :whurl_engine_requests, :whurl_engine_whurls
     drop_table :whurl_engine_responses

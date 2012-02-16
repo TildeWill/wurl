@@ -1,4 +1,4 @@
-class AddDescriptionToWhurl < ActiveRecord::Migration
+class WhurlAddDescriptionToWhurl < ActiveRecord::Migration
   def self.up
     add_column :whurls, :description, :string
   end

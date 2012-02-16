@@ -1,4 +1,4 @@
-class CreateCategoriesTable < ActiveRecord::Migration
+class WhurlCreateCategoriesTable < ActiveRecord::Migration
   def change
     create_table :whurl_engine_categories do |t|
       t.string :name
