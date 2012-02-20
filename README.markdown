@@ -30,6 +30,7 @@ comes with a default CanCan adapter. To us it install the cancan gem in your app
     end
 
 ...and your ability.rb file looks like this:
+
     class Ability
         include CanCan::Ability
 
