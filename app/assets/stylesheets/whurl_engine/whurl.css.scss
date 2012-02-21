@@ -48,21 +48,21 @@ $highlight: #F1CB31;
 }
 
 .whurl_form {
-  .headers, .params, .url, .post_body, .button_row {
+  .headers, .params, .fields, .url, .post_body, .button_row {
     margin-left: 162px;
     min-height: 31px;
     margin-bottom: 10px;
   }
 
-  .header_pair, .param_pair {
+  .header_pair, .param_pair, .field_pair {
     padding: 4px 0;
   }
 
-  .key {
+  .key, #whurl_basic_auth_user {
     width: 200px;
   }
 
-  .value {
+  .value, #whurl_basic_auth_password {
     width: 400px;
   }
 

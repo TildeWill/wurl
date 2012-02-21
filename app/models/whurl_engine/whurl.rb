@@ -24,13 +24,18 @@ module WhurlEngine
     end
 
     def make_request
-      response = AnyClient.send(request_method.downcase,
-                                 request_url,
-                                 :headers => request_headers.to_hash,
-                                 :query => request_parameters.blank? ? nil : request_parameters,
-                                 :body => request_body,
-                                 :follow_redirects => false
-      )
+      request_params = {
+        :headers => request_headers.to_hash,
+        :query => request_parameters.blank? ? nil : request_parameters,
+        :body => request_body,
+        :follow_redirects => false
+      }
+
+      if basic_auth_user.present? && basic_auth_password.present?
+        request_params.merge!({:basic_auth => { :username => basic_auth_user, :password => basic_auth_password }})
+      end
+
+      response = AnyClient.send(request_method.downcase, request_url, request_params)
       self.response_message = "HTTP/#{response.http_version} #{response.code} #{Rack::Utils::HTTP_STATUS_CODES[response.code]}"
       self.response_content_type = response.content_type
       self.response_body = response.body

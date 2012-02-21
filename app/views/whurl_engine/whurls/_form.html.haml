@@ -14,6 +14,13 @@
         \#{f.text_field(:request_url)}
     .row
       .section_title
+        Basic Auth
+      .fields
+        .field_pair
+          = f.text_field(:basic_auth_user, :placeholder => 'username')
+          = f.text_field(:basic_auth_password, :placeholder => 'password')
+    .row
+      .section_title
         %a.trash_headers{:class => 'trash button icon_only', :title => "trash all headers"}
         %a.add_header{:class => 'add button icon_only', :title => "add another header"}
         Headers

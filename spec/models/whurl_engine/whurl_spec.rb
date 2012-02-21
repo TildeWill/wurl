@@ -21,6 +21,18 @@ describe WhurlEngine::Whurl do
       WebMock.should have_requested(:get, "https://example.com/some_endpoint?client_id=abc123").once
     end
 
+    it 'handles basic auth credentials' do
+      stub_request(:any, 'https://foo:bar@example.com/some_endpoint?client_id=abc123')
+
+      request = WhurlEngine::Whurl.new(:request_method => 'get', :request_url => 'https://example.com/some_endpoint',
+                                       :basic_auth_user => 'foo', :basic_auth_password => 'bar',
+                                       :request_parameters => {:client_id => 'abc123'}
+      )
+
+      request.save
+
+      WebMock.should have_requested(:get, 'https://foo:bar@example.com/some_endpoint?client_id=abc123').once
+    end
     it "formats the POST request correctly" do
       stub_request(:post, "https://example.com/some_endpoint").
         with(:body => "client_id=abc123")
