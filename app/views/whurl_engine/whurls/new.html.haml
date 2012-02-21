@@ -1,5 +1,5 @@
-= render :partial => 'form'
+= render :partial => 'form', :locals => {:whurl => @whurl}
 :javascript
-  $(document).ready(function() {
+  $(function() {
       $('#url').focus();
   });
