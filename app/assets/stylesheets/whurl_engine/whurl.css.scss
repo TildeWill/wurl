@@ -1,128 +1,128 @@
 $dark: #2B2F38;
 $highlight: #F1CB31;
 
-@mixin rounded-corners($topleft, $topright: $topleft, $bottomright: $topleft, $bottomleft: $topleft) {
+@mixin rounded-corners($topleft, $topright: $topleft, $bottomright: $topleft, $bottomleft: $topleft){
   border-radius: $topleft $topright $bottomright $bottomleft;
   -moz-border-radius: $topleft $topright $bottomright $bottomleft;
   -webkit-border-radius: $topleft $topright $bottomright $bottomleft;
 }
 
-@mixin rotate($degrees) {
-    transform: rotate($degrees);
-    -ms-transform: rotate($degrees);
-    -webkit-transform: rotate($degrees);
-    -o-transform: rotate($degrees);
-    -moz-transform: rotate($degrees);
+@mixin rotate($degrees){
+  transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -webkit-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
 }
 
 .whurls.show {
-    .menu {
-        position: fixed;
-        bottom: 20px;
-        left: 0;
-        border: 1px solid #666;
-        border-left: none;
-        background-color: #f6a828;
-        border-radius: 0 20px 20px 0;
-        width: auto;
-        font-size: 16px;
-        padding: 5px;
-    }
+  .menu {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    border: 1px solid #666;
+    border-left: none;
+    background-color: #f6a828;
+    border-radius: 0 20px 20px 0;
+    width: auto;
+    font-size: 16px;
+    padding: 5px;
+    z-index: 20;
+  }
 }
 
 .whurl {
-    td.line_numbers pre, td.code pre, td.code span {
-        font-family: monospace;
-    }
+  td.line_numbers pre, td.code pre, td.code span {
+    font-family: monospace;
+  }
 
-    table.CodeRay {
-        border-collapse: collapse;
-    }
+  table.CodeRay {
+    border-collapse: collapse;
+  }
 
-    td.line_numbers {
-        background-color: #DDD;
-        text-align: right;
-        padding: 0 5px;
-    }
+  td.line_numbers {
+    background-color: #DDD;
+    text-align: right;
+    padding: 0 5px;
+  }
 }
 
 .whurl_form {
-    .headers, .params, .url, .post_body, .button_row {
-      margin-left: 162px;
-      min-height: 31px;
-      margin-bottom: 10px;
-    }
+  .headers, .params, .url, .post_body, .button_row {
+    margin-left: 162px;
+    min-height: 31px;
+    margin-bottom: 10px;
+  }
 
-    .header_pair, .param_pair {
-      padding: 4px 0;
-    }
+  .header_pair, .param_pair {
+    padding: 4px 0;
+  }
 
-    .key {
-      width: 200px;
-    }
+  .key {
+    width: 200px;
+  }
 
-    .value {
-      width: 400px;
-    }
+  .value {
+    width: 400px;
+  }
 
-    .long {
-      width: 525px;
-    }
+  .long {
+    width: 525px;
+  }
 
-    #whurl_request_url {
-      width: 514px;
-    }
+  #whurl_request_url {
+    width: 514px;
+  }
 
-    input.one {
-      width: 480px;
-    }
+  input.one {
+    width: 480px;
+  }
 
-    input.two {
-      width: 225px;
-    }
+  input.two {
+    width: 225px;
+  }
 
-    input.three {
-      width: 350px;
-      margin-left: 10px;
-    }
+  input.three {
+    width: 350px;
+    margin-left: 10px;
+  }
 
-    input.four {
-      width: 350px;
-    }
+  input.four {
+    width: 350px;
+  }
 
-    textarea#whurl_request_body {
-      width: 610px;
-      height: 55px;
-      margin-bottom: 10px;
-    }
+  textarea#whurl_request_body {
+    width: 610px;
+    height: 55px;
+    margin-bottom: 10px;
+  }
 
-    .textarea_disabled {
-      background-color: lightgray;
-    }
+  .textarea_disabled {
+    background-color: lightgray;
+  }
 
-    .section_title {
+  .section_title {
     padding: 4px 0;
     float: left;
     text-align: right;
     width: 155px;
     line-height: 26px;
-    }
+  }
 
-    a.copy_link {
-      width: 115.5px;
-      height: 44px;
-      background: url('copyURL.png') no-repeat 0 0;
-      margin: 30px 0 0 45px;
-      display: block;
-    }
+  a.copy_link {
+    width: 115.5px;
+    height: 44px;
+    background: url('copyURL.png') no-repeat 0 0;
+    margin: 30px 0 0 45px;
+    display: block;
+  }
 
-    a.copy_link:hover {
-      background-position: -116px 0;
-    }
+  a.copy_link:hover {
+    background-position: -116px 0;
+  }
 
-    .param_pair:first-child,
-    .header_pair:first-child
-    {
-      display: none;
-    }
+  .param_pair:first-child,
+  .header_pair:first-child {
+    display: none;
+  }
 }
