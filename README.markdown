@@ -31,21 +31,22 @@ comes with a default CanCan adapter. To us it install the cancan gem in your app
 
 ...and your ability.rb file looks like this:
 
-    class Ability
-        include CanCan::Ability
+```ruby
+class Ability
+    include CanCan::Ability
 
-        def initialize(user)
-            user ||= User.new # guest user (not logged in)
-            if user.admin?
-                can :manage, :all
-            else
-                can :read, :all
-                can :access, :whurl_engine
-                can :create, WhurlEngine::Whurl
-            end
+    def initialize(user)
+        user ||= User.new # guest user (not logged in)
+        if user.admin?
+            can :manage, :all
+        else
+            can :read, :all
+            can :access, :whurl_engine
+            can :create, WhurlEngine::Whurl
         end
     end
-
+end
+```
 
 Finally, look at your new API playground by starting your rails server and hitting up the right URL:
 
@@ -53,7 +54,7 @@ Finally, look at your new API playground by starting your rails server and hitti
 
 ## Customize Whurl to Match Your Application
 
-Rails 3.1 Mountable Engines make it easy to override or extend many parts of Whurl.
+Rails Mountable Engines make it easy to override or extend many parts of Whurl.
 If you need to override a method, view or partial, create the corresponding file in your
 main app directory and it will be used instead.
 
@@ -70,22 +71,4 @@ To do so, simply create a new application.html.haml in the corresponding directo
           \_ whurl_engine
             \_ application.html.haml
 
-## Goals for this project
-
 Whurl is inspired by [hurl](http://hurl.it/), and the [Apigee Console](https://apigee.com/console/)
-
-* Use HTTPS for all requests, assume all users are passing sensitive data
-* Provide a usable tool for working with APIs
-* Further the use of Whurl through viral "whurls" - the urls that represent an API request
-* Prevent abuse - users should not be able to use Whurl as a proxy for a DoS attack or similar
-
-## Note on Patches/Pull Requests
-
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally (actually, this should come before adding code, TDD!).
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but
-   bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request.
