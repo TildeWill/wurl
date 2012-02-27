@@ -17,14 +17,14 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.markdown"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency 'coderay', '~> 0.9.6'
+  s.add_dependency 'coderay', '~> 0.9'
   s.add_dependency 'coffee-script'
   s.add_dependency 'httmultiparty', '~> 0.2'
-  s.add_dependency 'haml', '~> 3.1.4'
-  s.add_dependency 'json', '>= 1.5.1'
-  s.add_dependency 'rails', '~> 3.1.3'
-  s.add_dependency "rinku", "~> 1.5.0"
-  s.add_dependency 'sass', '~> 3.1.10'
+  s.add_dependency 'haml', '~> 3.1'
+  s.add_dependency 'json', '>= 1.5'
+  s.add_dependency 'rails', '~> 3.1'
+  s.add_dependency "rinku", "~> 1.5"
+  s.add_dependency 'sass', '~> 3.1'
   s.add_dependency 'uglifier'
 
   s.add_development_dependency 'heroku'
