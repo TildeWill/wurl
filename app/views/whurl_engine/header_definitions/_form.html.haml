@@ -1,6 +1,6 @@
 :javascript
   $(function() {
-    $( ".new_whurl_engine_header_definition, .edit_whurl_engine_header_definition" ).dialog(
+    $( ".whurl_engine_header_definition" ).dialog(
       {
         modal: true,
         autoOpen: false,
@@ -12,20 +12,20 @@
         }
       });
   });
-
-= form_for(header_definition, :remote => true) do |f|
-  = f.hidden_field :resource_id
-  %div
-    = f.label :name
-    = f.text_field :name
-  %div
-    = f.check_box :required
-    = f.label :required
-  %div
-    = f.label :example_value
-    = f.text_field :example_value
-  %div
-    = f.label :description
-  %div
-    = f.text_area :description
-  = f.submit :value => 'Submit'
+.whurl_engine_header_definition
+  = form_for(header_definition, :remote => true) do |f|
+    = f.hidden_field :resource_id
+    %div
+      = f.label :name
+      = f.text_field :name
+    %div
+      = f.check_box :required
+      = f.label :required
+    %div
+      = f.label :example_value
+      = f.text_field :example_value
+    %div
+      = f.label :description
+    %div
+      = f.text_area :description
+    = f.submit :value => 'Submit'

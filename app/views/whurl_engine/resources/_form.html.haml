@@ -1,6 +1,6 @@
 :javascript
   $(function() {
-    $( ".new_whurl_engine_resource, .edit_whurl_engine_resource" ).dialog(
+    $( ".whurl_engine_resource" ).dialog(
       {
         modal: true,
         autoOpen: false,
@@ -12,29 +12,29 @@
         }
       });
   });
-
-= form_for @resource, :remote => true do |f|
-  = f.hidden_field :category_id
-  %div
-    = f.label :http_method
-    = f.select(:http_method, options_for_select(['GET', 'POST', 'PUT', 'DELETE', 'HEAD', 'OPTIONS'], 'GET'))
-  %div
-    = f.label :base_uri
-    = f.text_field :base_uri, :placeholder => 'eg. https://api.twitter.com/1, https://api.groupon.com/v1, etc.'
-  %div
-    = f.label :relative_path
-    = f.text_field :relative_path, :placeholder => 'eg. statuses/home_timeline, users/:id/edit, etc.'
-  %div
-    = f.check_box :rate_limited
-    = f.label :rate_limited
-  %div
-    = f.check_box :requires_authentication
-    = f.label :requires_authentication
-  %div
-    = f.label :response_formats
-    = f.text_field :response_formats
-  %div
-    = f.label :description
-  %div
-    = f.text_area :description
-  = f.submit :value => 'Submit'
+.whurl_engine_resource
+  = form_for @resource, :remote => true do |f|
+    = f.hidden_field :category_id
+    %div
+      = f.label :http_method
+      = f.select(:http_method, options_for_select(['GET', 'POST', 'PUT', 'DELETE', 'HEAD', 'OPTIONS'], 'GET'))
+    %div
+      = f.label :base_uri
+      = f.text_field :base_uri, :placeholder => 'eg. https://api.twitter.com/1, https://api.groupon.com/v1, etc.'
+    %div
+      = f.label :relative_path
+      = f.text_field :relative_path, :placeholder => 'eg. statuses/home_timeline, users/:id/edit, etc.'
+    %div
+      = f.check_box :rate_limited
+      = f.label :rate_limited
+    %div
+      = f.check_box :requires_authentication
+      = f.label :requires_authentication
+    %div
+      = f.label :response_formats
+      = f.text_field :response_formats
+    %div
+      = f.label :description
+    %div
+      = f.text_area :description
+    = f.submit :value => 'Submit'

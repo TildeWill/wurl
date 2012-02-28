@@ -1,6 +1,6 @@
 :javascript
   $(function() {
-    $( ".new_whurl_engine_category, .edit_whurl_engine_category" ).dialog(
+    $( ".whurl_engine_category" ).dialog(
       {
         modal: true,
         autoOpen: false,
@@ -12,13 +12,13 @@
         }
       });
   });
-
-= form_for category, :remote => true do |f|
-  %div
-    = f.label :name
-    = f.text_field :name, :placeholder => 'eg. Users, Projects, Tweets, etc.'
-  %div
-    = f.label :description
-  %div
-    = f.text_area :description
-  = f.submit :value => 'Submit'
+.whurl_engine_category
+  = form_for category, :remote => true do |f|
+    %div
+      = f.label :name
+      = f.text_field :name, :placeholder => 'eg. Users, Projects, Tweets, etc.'
+    %div
+      = f.label :description
+    %div
+      = f.text_area :description
+    = f.submit :value => 'Submit'

@@ -13,17 +13,18 @@
       });
   });
 
-= form_for(whurl) do |f|
-  %div
-    = f.label :name
-    = f.text_field :name, :value => whurl.name || whurl.response_headers['Status']
+.edit_whurl_engine_whurl
+  = form_for(whurl) do |f|
+    %div
+      = f.label :name
+      = f.text_field :name, :value => whurl.name || whurl.response_headers['Status']
 
-  %div
-    = f.label :resource_id
-    = f.select(:resource_id, option_groups_from_collection_for_select(WhurlEngine::Category.all, :resources, :name, :id, :relative_path))
+    %div
+      = f.label :resource_id
+      = f.select(:resource_id, option_groups_from_collection_for_select(WhurlEngine::Category.all, :resources, :name, :id, :relative_path))
 
-  %div
-    = f.label :description
-  %div
-    = f.text_area :description
-  = f.submit :value => 'Submit'
+    %div
+      = f.label :description
+    %div
+      = f.text_area :description
+    = f.submit :value => 'Submit'
