@@ -2,6 +2,6 @@
   REST API Resources
   -if authorized?(:manage, nil, WhurlEngine::Category)
     = link_to('Add Category', new_category_path, :remote => true, :class => 'popup button')
-.categories
+.category_list
 - @categories.each do |category|
   = render(category)
