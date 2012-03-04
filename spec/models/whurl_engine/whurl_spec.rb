@@ -33,6 +33,7 @@ describe WhurlEngine::Whurl do
 
       WebMock.should have_requested(:get, 'https://foo:bar@example.com/some_endpoint?client_id=abc123').once
     end
+
     it "formats the POST request correctly" do
       stub_request(:post, "https://example.com/some_endpoint").
         with(:body => "client_id=abc123")
