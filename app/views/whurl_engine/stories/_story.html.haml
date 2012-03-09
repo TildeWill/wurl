@@ -1,0 +1,10 @@
+%div{:id => "story_#{story.id}"}
+  %h2
+    = story.title
+    -if authorized?(:manage, nil, WhurlEngine::Story)
+      = link_to('Add Chapter', new_chapter_path(:story_id => story.id), :remote => true, :class => 'popup button')
+      = link_to('', edit_story_path(story), :remote => true, :class => 'edit button icon_only')
+      = link_to( '', story, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'destroy button icon_only')
+  %p= story.description
+  .chapters
+    = render story.chapters

@@ -31,6 +31,7 @@
     %h3{:class => "whurl_#{whurl.id}"}
       %a{:href => "#whurl_#{whurl.id}"}=whurl.name
     .container{:class => "whurl_#{whurl.id}"}
+      .permalink= link_to short_whurl_url(whurl), short_whurl_url(whurl), target: 'whurl'
       -if authorized?(:manage, nil, WhurlEngine::Resource)
         = link_to('', edit_whurl_path(whurl), :remote => true, :class => 'edit button icon_only')
         = link_to( '', whurl, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'destroy button icon_only')

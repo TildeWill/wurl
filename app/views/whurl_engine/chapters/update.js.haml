@@ -1,0 +1,6 @@
+$(".whurl_engine_chapter").dialog('close');
+
+- content = escape_javascript(render(@chapter));
+target_row = $("#chapter_#{@chapter.id}");
+target_row.replaceWith("#{content}");
+$("#chapter_#{@chapter.id}").effect("highlight", {}, 3000);

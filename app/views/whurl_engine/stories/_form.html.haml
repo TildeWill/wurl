@@ -1,0 +1,24 @@
+:javascript
+  $(function() {
+    $( ".whurl_engine_story" ).dialog(
+      {
+        modal: true,
+        autoOpen: false,
+        title: 'Manage Stories',
+        minWidth: 375,
+        minHeight: 300,
+        close: function(event, ui) {
+          $(this).remove();
+        }
+      });
+  });
+.whurl_engine_story
+  = form_for story, :remote => true do |f|
+    %div
+      = f.label :title
+      = f.text_field :title, :placeholder => 'eg. Log in, Change my profile, Log out'
+    %div
+      = f.label :description
+    %div
+      = f.text_area :description
+    = f.submit :value => 'Submit'

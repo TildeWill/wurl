@@ -11,13 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221012000) do
+ActiveRecord::Schema.define(:version => 20120309055033) do
 
   create_table "whurl_engine_categories", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "whurl_engine_chapters", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "whurl_id"
+    t.integer  "story_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "whurl_engine_header_definitions", :force => true do |t|
@@ -51,6 +60,13 @@ ActiveRecord::Schema.define(:version => 20120221012000) do
     t.text     "response_formats"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "whurl_engine_stories", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "whurl_engine_whurls", :force => true do |t|

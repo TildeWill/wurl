@@ -31,6 +31,8 @@
         =link_to "Documentation Home", root_path
         |
         =link_to "Console", new_whurl_path
+        |
+        =link_to "Stories", stories_path
     .content
       - if notice || alert
         .flash
@@ -48,4 +50,4 @@
           %a.contact{:href => "mailto:will.read@gmail.com"} Will Read
         See it on
         = succeed "." do
-          %a{:href => "https://github.com/tildewill/whurl"} Github
+          %a{:href => "https://github.com/tildewill/whurl_engine"} Github

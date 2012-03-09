@@ -1,0 +1,29 @@
+:javascript
+  $(function() {
+    $( ".whurl_engine_chapter" ).dialog(
+      {
+        modal: true,
+        autoOpen: false,
+        title: 'Manage Resources',
+        minWidth: 375,
+        minHeight: 300,
+        close: function(event, ui) {
+          $(this).remove();
+        }
+      });
+  });
+.whurl_engine_chapter
+  = form_for @chapter, :remote => true do |f|
+    = f.hidden_field :story_id
+
+    %div
+      = f.label :title
+      = f.text_field :title, :placeholder => 'eg. Logging in'
+    %div
+      = f.label :description
+    %div
+      = f.text_area :description
+    %div
+      = f.label :whurl_id
+      = f.text_field :whurl_id, :placeholder => "the last part of a Whurl's url"
+    = f.submit :value => 'Submit'

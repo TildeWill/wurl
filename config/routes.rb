@@ -5,5 +5,7 @@ WhurlEngine::Engine.routes.draw do
   resources :header_definitions, :except => [:index, :show]
   resources :whurls, :except => [:index]
   resources :resources, :except => :index
+  resources :chapters, :except => [:index, :show]
+  resources :stories, :except => :show
   match '/:id' => 'whurls#show', :as => :short_whurl
 end

@@ -29,7 +29,6 @@ class String
         else
           self
       end
-
     rescue
       self
     end

@@ -1,0 +1,3 @@
+- content = escape_javascript(render(:partial => 'form', :locals => {:story => @story}))
+$('.story_list').append("#{content}");
+$('.whurl_engine_story').dialog('open');

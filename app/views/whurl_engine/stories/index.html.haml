@@ -1,0 +1,5 @@
+%h1 Tell me a story using the API...
+-if authorized?(:manage, nil, WhurlEngine::Story)
+  = link_to('Add Story', new_story_path, :remote => true, :class => 'popup button')
+%ol.story_list
+  = render @stories

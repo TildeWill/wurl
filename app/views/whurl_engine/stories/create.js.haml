@@ -1,0 +1,5 @@
+$(".whurl_engine_story").dialog('close');
+
+- content = escape_javascript(render(@story))
+$('.story_list').append("#{content}");
+$("#story_#{@story.id}").effect("highlight", {}, 3000);

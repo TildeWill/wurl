@@ -3,5 +3,5 @@
   -if authorized?(:manage, nil, WhurlEngine::Category)
     = link_to('Add Category', new_category_path, :remote => true, :class => 'popup button')
 .category_list
-- @categories.each do |category|
-  = render(category)
+  - @categories.each do |category|
+    = render(category)

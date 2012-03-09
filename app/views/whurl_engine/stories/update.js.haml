@@ -1,0 +1,6 @@
+$(".whurl_engine_story").dialog('close');
+
+- content = escape_javascript(render(@story));
+target_row = $("#story_#{@story.id}");
+target_row.replaceWith("#{content}");
+$("#story_#{@story.id}").effect("highlight", {}, 3000);
