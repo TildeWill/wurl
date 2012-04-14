@@ -18,19 +18,13 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency 'coderay', '~> 0.9'
-  s.add_dependency 'coffee-script'
-  s.add_dependency 'httmultiparty', '~> 0.2'
   s.add_dependency 'haml', '~> 3.1'
-  s.add_dependency 'json', '>= 1.5'
   s.add_dependency 'rails', '~> 3.1'
-  s.add_dependency "rinku", "~> 1.5"
   s.add_dependency 'sass', '~> 3.1'
-  s.add_dependency 'uglifier'
 
   s.add_development_dependency 'heroku'
   s.add_development_dependency 'mysql', '~> 2.8.1'
   s.add_development_dependency 'jasmine', '~> 1.0'
   s.add_development_dependency 'rspec', '~> 2.7.0'
   s.add_development_dependency 'rspec-rails', '~> 2.7.0'
-  s.add_development_dependency 'webmock', '~> 1.7.10'
 end
