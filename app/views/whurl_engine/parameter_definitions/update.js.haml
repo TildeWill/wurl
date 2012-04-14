@@ -1,6 +1,0 @@
-$(".whurl_engine_parameter_definition").dialog('close');
-
-- content = escape_javascript(render(@parameter_definition));
-$targetRow = $("#parameter_definition_#{@parameter_definition.id}");
-$targetRow.replaceWith("#{content}");
-$("#parameter_definition_#{@parameter_definition.id}").effect("highlight", {}, 3000);

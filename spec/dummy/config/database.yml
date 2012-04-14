@@ -4,7 +4,7 @@ development:
   pool: 5
   timeout: 5000
   username: root
-  password: password
+  password:
   encoding: utf8
 
 test:
@@ -13,5 +13,5 @@ test:
   pool: 5
   timeout: 5000
   username: root
-  password: password
+  password:
   encoding: utf8

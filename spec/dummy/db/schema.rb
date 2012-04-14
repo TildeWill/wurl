@@ -11,63 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120309055033) do
-
-  create_table "whurl_engine_categories", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "whurl_engine_chapters", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "whurl_id"
-    t.integer  "story_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "whurl_engine_header_definitions", :force => true do |t|
-    t.integer  "resource_id"
-    t.string   "name"
-    t.string   "example_value"
-    t.text     "description"
-    t.boolean  "required"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "whurl_engine_parameter_definitions", :force => true do |t|
-    t.integer  "resource_id"
-    t.string   "name"
-    t.string   "example_value"
-    t.text     "description"
-    t.boolean  "required"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "whurl_engine_resources", :force => true do |t|
-    t.integer  "category_id"
-    t.string   "base_uri"
-    t.string   "relative_path"
-    t.string   "http_method"
-    t.text     "description"
-    t.boolean  "rate_limited"
-    t.boolean  "requires_authentication"
-    t.text     "response_formats"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "whurl_engine_stories", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120414210607) do
 
   create_table "whurl_engine_whurls", :force => true do |t|
     t.string   "hash_key",              :limit => 6,  :null => false

@@ -1,6 +1,0 @@
-$(".whurl_engine_resource").dialog('close');
-
-- content = escape_javascript(render(@resource));
-target_row = $("#resource_#{@resource.id}");
-target_row.replaceWith("#{content}");
-$("#resource_#{@resource.id}").effect("highlight", {}, 3000);

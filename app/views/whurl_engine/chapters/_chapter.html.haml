@@ -1,9 +1,0 @@
-%li
-  %div{:id => "chapter_#{chapter.id}"}
-    %h3
-      =chapter.title
-      -if authorized?(:manage, nil, WhurlEngine::Chapter)
-        = link_to('', edit_chapter_path(chapter), :remote => true, :class => 'edit button icon_only')
-        = link_to( '', chapter, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'destroy button icon_only')
-    %p=chapter.description
-    = render(chapter.whurl)

@@ -29,5 +29,8 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'heroku'
   s.add_development_dependency 'mysql', '~> 2.8.1'
+  s.add_development_dependency 'jasmine', '~> 1.0'
+  s.add_development_dependency 'rspec', '~> 2.7.0'
+  s.add_development_dependency 'rspec-rails', '~> 2.7.0'
   s.add_development_dependency 'webmock', '~> 1.7.10'
 end

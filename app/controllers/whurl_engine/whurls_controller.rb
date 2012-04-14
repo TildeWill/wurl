@@ -17,24 +17,6 @@ module WhurlEngine
       redirect_to short_whurl_path(@whurl)
     end
 
-    def edit
-      @whurl = Whurl.find_by_hash_key(params[:id])
-    end
-
-    def update
-      @whurl = Whurl.find_by_hash_key(params[:id])
-      unless @whurl.update_attributes(params[:whurl])
-        render :partial => 'whurl_engine/shared/error', :locals => {:object => @whurl}
-      end
-      redirect_to resource_path(params[:whurl][:resource_id])
-    end
-    def destroy
-      @whurl = Whurl.find_by_hash_key(params[:id])
-      unless @whurl.destroy
-        render :partial => 'whurl_engine/shared/error', :locals => {:object => @whurl}
-      end
-    end
-
     def show
       @whurl = Whurl.find_by_hash_key(params[:id])
     end
