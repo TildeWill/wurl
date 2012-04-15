@@ -34,6 +34,7 @@ $highlight: #F1CB31;
 .whurl {
   td.line_numbers pre, td.code pre, td.code span {
     font-family: monospace;
+    line-height: 20px;
   }
 
   table.CodeRay {
