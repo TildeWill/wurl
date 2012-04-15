@@ -58,11 +58,11 @@ $highlight: #F1CB31;
     padding: 4px 0;
   }
 
-  .key, #basic_auth_user {
+  .key, #whurl_basic_auth_user {
     width: 200px;
   }
 
-  .value, #basic_auth_password {
+  .value, #whurl_basic_auth_password {
     width: 400px;
   }
 
@@ -70,7 +70,7 @@ $highlight: #F1CB31;
     width: 525px;
   }
 
-  #request_url {
+  #whurl_request_url {
     width: 514px;
   }
 
@@ -91,7 +91,7 @@ $highlight: #F1CB31;
     width: 350px;
   }
 
-  textarea#request_body {
+  textarea#whurl_request_body {
     width: 610px;
     height: 55px;
     margin-bottom: 10px;
