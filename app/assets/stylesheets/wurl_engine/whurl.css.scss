@@ -15,7 +15,7 @@ $highlight: #F1CB31;
   -moz-transform: rotate($degrees);
 }
 
-.whurls.show {
+.wurls.show {
   .menu {
     position: fixed;
     bottom: 20px;
@@ -31,7 +31,7 @@ $highlight: #F1CB31;
   }
 }
 
-.whurl {
+.wurl {
   td.line_numbers pre, td.code pre, td.code span {
     font-family: monospace;
     line-height: 20px;
@@ -48,7 +48,7 @@ $highlight: #F1CB31;
   }
 }
 
-.whurl_form {
+.wurl_form {
   .headers, .params, .fields, .url, .post_body, .button_row {
     margin-left: 162px;
     min-height: 31px;
@@ -59,11 +59,11 @@ $highlight: #F1CB31;
     padding: 4px 0;
   }
 
-  .key, #whurl_basic_auth_user {
+  .key, #wurl_basic_auth_user {
     width: 200px;
   }
 
-  .value, #whurl_basic_auth_password {
+  .value, #wurl_basic_auth_password {
     width: 400px;
   }
 
@@ -71,7 +71,7 @@ $highlight: #F1CB31;
     width: 525px;
   }
 
-  #whurl_request_url {
+  #wurl_request_url {
     width: 514px;
   }
 
@@ -92,7 +92,7 @@ $highlight: #F1CB31;
     width: 350px;
   }
 
-  textarea#whurl_request_body {
+  textarea#wurl_request_body {
     width: 610px;
     height: 55px;
     margin-bottom: 10px;
@@ -129,7 +129,7 @@ $highlight: #F1CB31;
     display: none;
   }
 
-  #give_it_a-whurl {
+  #give_it_a-wurl {
     float:right;
     margin-right: 170px;
   }

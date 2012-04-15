@@ -1,6 +1,6 @@
 require 'rinku'
 
-module WhurlEngine
+module WurlEngine
   class ApplicationController < ::ApplicationController
 
   end

@@ -1,7 +1,7 @@
 require 'haml'
 
-module WhurlEngine
+module WurlEngine
   class Engine < Rails::Engine
-    isolate_namespace WhurlEngine
+    isolate_namespace WurlEngine
   end
 end

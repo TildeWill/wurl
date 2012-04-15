@@ -3,7 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 Bundler.require
-require "whurl_engine"
+require "wurl_engine"
 
 module Dummy
   class Application < Rails::Application

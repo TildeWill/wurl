@@ -1,8 +1,8 @@
 require 'httmultiparty'
-require "whurl_engine/version"
+require "wurl_engine/version"
 
-module WhurlEngine
-  class Whurl < ActiveRecord::Base
+module WurlEngine
+  class Wurl < ActiveRecord::Base
     serialize :request_parameters, Hash
     serialize :request_headers, ::HTTParty::Response::Headers
     serialize :response_headers, ::HTTParty::Response::Headers
@@ -50,7 +50,7 @@ module WhurlEngine
     def generate_hash_key
       upper_bound = 36**6 -1 #max 6 characters
       new_hash_key = rand(upper_bound).to_s(36)
-      if new_hash_key.match(/^whurl/)
+      if new_hash_key.match(/^wurl/)
         generate_hash_key
       else
         self.hash_key = new_hash_key

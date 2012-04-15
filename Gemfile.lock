@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    whurl_engine (2.2.0)
+    wurl_engine (2.2.0)
       coderay (~> 0.9)
       coffee-script
       haml (~> 3.1)
@@ -177,4 +177,4 @@ DEPENDENCIES
   rspec (~> 2.7.0)
   rspec-rails (~> 2.7.0)
   webmock (~> 1.7.10)
-  whurl_engine!
+  wurl_engine!

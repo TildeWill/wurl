@@ -1,0 +1,6 @@
+%h3 Response Headers
+.container
+  %pre= wurl.response_message
+  = find_and_preserve(wurl.response_headers.to_html)
+%h3 Response Body
+.container= find_and_preserve(wurl.response_body.to_html(wurl.response_content_type))

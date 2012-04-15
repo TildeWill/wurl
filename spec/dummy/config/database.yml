@@ -1,6 +1,6 @@
 development:
   adapter: mysql
-  database: whurl_engine_development
+  database: wurl_engine_development
   pool: 5
   timeout: 5000
   username: root
@@ -9,7 +9,7 @@ development:
 
 test:
   adapter: mysql
-  database: whurl_engine_test
+  database: wurl_engine_test
   pool: 5
   timeout: 5000
   username: root

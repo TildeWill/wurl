@@ -1,8 +1,8 @@
 !!!
 %html
   %head
-    = stylesheet_link_tag("whurl_engine/application")
-    = javascript_include_tag("whurl_engine/application")
+    = stylesheet_link_tag("wurl_engine/application")
+    = javascript_include_tag("wurl_engine/application")
     :javascript
       $(function() {
         $( "input:submit, input:reset, input:button, button, .button").livequery(function() {
@@ -24,7 +24,7 @@
         });
       });
 
-    %title Whurl - API Console
+    %title Wurl - API Console
   %body{:class => [controller_name, action_name]}
     .content
       - if notice || alert
@@ -43,4 +43,4 @@
           %a.contact{:href => "mailto:will.read@gmail.com"} Will Read
         See it on
         = succeed "." do
-          %a{:href => "https://github.com/tildewill/whurl_engine"} Github
+          %a{:href => "https://github.com/tildewill/wurl_engine"} Github

@@ -1,5 +1,5 @@
-WhurlEngine::Engine.routes.draw do
-  root :to => 'whurls#new'
-  resources :whurls, :except => [:index]
-  match '/:id' => 'whurls#show', :as => :short_whurl
+WurlEngine::Engine.routes.draw do
+  root :to => 'wurls#new'
+  resources :wurls, :except => [:index]
+  match '/:id' => 'wurls#show', :as => :short_wurl
 end
