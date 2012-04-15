@@ -14,7 +14,7 @@ module WhurlEngine
         flash[:alert] = @whurl.errors.map {|k,v| "#{k.to_s.titleize} #{v}"}.join('\n')
         render :new and return
       end
-      redirect_to short_whurl_path(@whurl)
+      redirect_to @whurl
     end
 
     def show

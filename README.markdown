@@ -21,35 +21,6 @@ Then in your main app's routes.rb file, add this to make the whurl_engine routab
 
     mount WhurlEngine::Engine => "/whurl", :as => "whurl_engine"
 
-Figure out how you want to authorize users for setting up the documentation vs. viewing it. Whurl
-comes with a default CanCan adapter. To us it install the cancan gem in your app and add a new whurl.rb to config/initializers:
-
-```ruby
-WhurlEngine.config do |config|
-    config.current_user_method { current_user }
-    config.authorize_with(:cancan)
-end
-```
-
-...and your ability.rb file looks like this:
-
-```ruby
-class Ability
-    include CanCan::Ability
-
-    def initialize(user)
-        user ||= User.new # guest user (not logged in)
-        if user.admin?
-            can :manage, :all
-        else
-            can :read, :all
-            can :access, :whurl_engine
-            can :create, WhurlEngine::Whurl
-        end
-    end
-end
-```
-
 Finally, look at your new API playground by starting your rails server and hitting up the right URL:
 
     http://localhost:3000/whurl
