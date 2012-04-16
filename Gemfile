@@ -5,8 +5,8 @@ gem 'coffee-script'
 gem 'httmultiparty', '~> 0.2'
 gem 'haml', '~> 3.1'
 gem 'json', '>= 1.5'
+gem 'pg'
 gem 'rails', '~> 3.1'
-gem "rinku", "~> 1.5"
 gem 'sass', '~> 3.1'
 gem 'uglifier'
 
