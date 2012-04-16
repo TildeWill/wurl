@@ -1,10 +1,19 @@
 source "http://rubygems.org"
 
-# Declare your gem's dependencies in wurl_engine.gemspec.
-# Bundler will treat runtime dependencies like base dependencies, and
-# development dependencies will be added by default to the :development group.
-gemspec
+gem 'coderay', '~> 0.9'
+gem 'coffee-script'
+gem 'httmultiparty', '~> 0.2'
+gem 'haml', '~> 3.1'
+gem 'json', '>= 1.5'
+gem 'rails', '~> 3.1'
+gem "rinku", "~> 1.5"
+gem 'sass', '~> 3.1'
+gem 'uglifier'
 
-# jquery-rails is used by the dummy application
-gem "jquery-rails"
-
+group :test, :development do
+  gem 'heroku'
+  gem 'mysql', '~> 2.8.1'
+  gem 'rspec', '~> 2.7.0'
+  gem 'rspec-rails', '~> 2.7.0'
+  gem 'webmock', '~> 1.7.10'
+end

@@ -1,0 +1,13 @@
+.wurl
+  .accordion
+    %h3
+      %a{:href => "#console"} Console
+    .container
+      = render(:partial => 'wurls/form', :locals => {:wurl => wurl})
+
+  %h3
+    Raw Request
+  .container
+    %code= simple_format(wurl.raw_request)
+
+  = render(:partial => 'wurls/response', :locals => {:wurl => wurl})
