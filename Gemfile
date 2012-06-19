@@ -15,5 +15,8 @@ group :test, :development do
   gem 'mysql', '~> 2.8.1'
   gem 'rspec', '~> 2.7.0'
   gem 'rspec-rails', '~> 2.7.0'
-  gem 'webmock', '~> 1.7.10'
+end
+
+group :test do
+	gem 'webmock', '~> 1.7.10'
 end
